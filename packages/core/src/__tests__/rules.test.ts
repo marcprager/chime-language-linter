@@ -186,6 +186,149 @@ describe('Level labels rule', () => {
   });
 });
 
+describe('Passive hedging rule', () => {
+  it('should flag "I just feel like"', () => {
+    const result = lintText('I just feel like the process needs work.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'passive-hedging');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should flag "sort of"', () => {
+    const result = lintText('This is sort of important for the team.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'passive-hedging');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Absolute language rule', () => {
+  it('should flag "always"', () => {
+    const result = lintText('Managers always forget to follow up.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'absolute-language');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should flag "every single"', () => {
+    const result = lintText('Every single team member must attend.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'absolute-language');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Gendered defaults rule', () => {
+  it('should flag "guys"', () => {
+    const result = lintText('Hey guys, let us get started.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'gendered-defaults');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should flag "manpower"', () => {
+    const result = lintText('We need more manpower on this project.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'gendered-defaults');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Ableist language rule', () => {
+  it('should flag "blind spot"', () => {
+    const result = lintText('That is a blind spot in our strategy.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'ableist-language');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should flag "tone deaf"', () => {
+    const result = lintText('The response was tone-deaf.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'ableist-language');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Corporate jargon rule', () => {
+  it('should flag "circle back"', () => {
+    const result = lintText('Let us circle back on that topic.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'corporate-jargon');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should flag "low-hanging fruit"', () => {
+    const result = lintText('Start with the low-hanging fruit.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'corporate-jargon');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Filler phrases rule', () => {
+  it('should flag "in order to"', () => {
+    const result = lintText('In order to succeed, we need focus.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'filler-phrases');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('info');
+    expect(issues[0].autoFixable).toBe(true);
+  });
+
+  it('should auto-fix "in order to" to "to"', () => {
+    const fixed = fixText('In order to succeed, we need focus.');
+    expect(fixed).toContain('To succeed');
+    expect(fixed).not.toMatch(/\bin order to\b/i);
+  });
+
+  it('should flag "at the end of the day"', () => {
+    const result = lintText('At the end of the day, results matter.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'filler-phrases');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].autoFixable).toBe(false);
+  });
+});
+
+describe('Niceness framing rule', () => {
+  it('should flag "culture of niceness"', () => {
+    const result = lintText('Chime has a culture of niceness that prevents honest feedback.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'niceness-framing');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should not flag "nice" alone', () => {
+    const result = lintText('That was a nice presentation.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'niceness-framing');
+    expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Feedback sandwich rule', () => {
+  it('should flag "feedback sandwich"', () => {
+    const result = lintText('Use the feedback sandwich technique for new managers.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'feedback-sandwich');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should not flag "sandwich" alone', () => {
+    const result = lintText('I had a sandwich for lunch.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'feedback-sandwich');
+    expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Overclaiming rule', () => {
+  it('should flag "research proves"', () => {
+    const result = lintText('Research proves this works.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'overclaiming');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should not flag "research suggests"', () => {
+    const result = lintText('Research suggests this works.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'overclaiming');
+    expect(issues).toHaveLength(0);
+  });
+});
+
 describe('Smart filtering', () => {
   it('should skip code blocks in markdown', () => {
     const mdText = `

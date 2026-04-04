@@ -54,12 +54,21 @@ npm run dev -w packages/web  # Start web dev server
 | `clinical-terms` | "ego," "catastrophizing," "spiral," "panic," "shrink," "triggered" (non-clinical) | Use plain-English alternatives. |
 | `hard-mode` | "Hard Mode" | Use "Advanced." Auto-fixable. |
 | `fabricated-green-heart` | 💚 in CSS `::before`/`::after` content | Avoid decorative emoji in pseudo-elements. |
+| `passive-hedging` | "I just feel like," "sort of," "kind of," "It seems like maybe" | Be direct – state what you observe or recommend. |
+| `gendered-defaults` | "guys," "manpower," "chairman," "mankind," "his/her," "manmade" | Use gender-neutral alternatives ("team," "workforce," "their"). |
+| `ableist-language` | "blind spot," "tone deaf," "lame," "crazy," "insane," "crippling" | Use plain-English alternatives ("gap," "out of touch," "severe"). |
+| `niceness-framing` | "culture of niceness," "too nice," "niceness is the problem" | Use "high-care culture," "harmony-first norms," or describe the specific dynamic. |
+| `feedback-sandwich` | "feedback sandwich," "sandwich method," "sandwich approach" | The feedback sandwich dilutes the message. Lead with direct feedback. |
+| `overclaiming` | "research proves," "everyone knows," "it's obvious that," "clearly shows" | Ground claims in specific evidence or cite the source. |
 
 ### Info (style suggestions)
 
 | Rule | Flags | Suggestion |
 |------|-------|------------|
 | `level-labels` | "L2 IC," "L3," "M3," etc. in learner-facing content | Avoid internal level labels in user-facing content. |
+| `absolute-language` | "always," "never," "every single," "the single most," "across every," "zero" | Consider qualifying – "often," "consistently," "across most." |
+| `corporate-jargon` | "synergy," "leverage," "circle back," "deep dive," "low-hanging fruit," etc. | Use plain language. |
+| `filler-phrases` | "in order to," "at the end of the day," "needless to say," "in terms of" | Simplify or remove. "In order to" auto-fixable (→ "to"). |
 
 ## Smart Filtering
 
