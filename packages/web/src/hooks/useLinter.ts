@@ -27,6 +27,57 @@ const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
   'em-dash': () => '\u2013',
   struggle: () => 'challenge',
   'hard-mode': () => 'Advanced',
+  // Identity labels
+  'identity-labels': (m) => {
+    const lower = m.toLowerCase();
+    if (lower.match(/rockstars?/)) return 'team members who consistently deliver';
+    if (lower.match(/top\s+performers?/)) return 'strong contributors';
+    if (lower.match(/low\s+performers?/)) return 'team members with room to grow';
+    if (lower.match(/underperformers?|under\s+performers?/)) return 'team members with development opportunities';
+    if (lower.match(/stars/)) return 'team members who consistently deliver';
+    if (lower.match(/drivers/)) return 'key contributors';
+    if (lower.match(/pro/)) return 'experienced team member';
+    if (lower.match(/bottom/)) return 'team members with growth opportunities';
+    return m;
+  },
+  // Shame framing
+  'shame-framing': (m) => {
+    const lower = m.toLowerCase();
+    if (lower.match(/lowest\s+score/)) return 'area with the most room for growth';
+    if (lower.match(/worst\s+performing/)) return 'most opportunity for improvement';
+    if (lower.match(/weakest/)) return 'greatest area for development';
+    if (lower.match(/failed/)) return m.replace(/failed/i, 'has an opportunity to improve');
+    return m;
+  },
+  // Loaded language
+  'loaded-language': (m) => {
+    const lower = m.toLowerCase();
+    if (lower.match(/addictive/)) return 'compelling';
+    if (lower.match(/addiction/)) return 'strong preference';
+    if (lower.match(/secret\s+weapon/)) return 'key strength';
+    if (lower.match(/game[\s-]changer/)) return 'significant improvement';
+    if (lower.match(/revolutionary/)) return 'innovative';
+    if (lower.match(/crushing\s+it/)) return 'excelling';
+    if (lower.match(/killing\s+it/)) return 'excelling';
+    return m;
+  },
+  // Clinical terms
+  'clinical-terms': (m) => {
+    const lower = m.toLowerCase();
+    if (lower === 'ego') return 'mindset';
+    if (lower === 'catastrophizing') return 'assuming the worst';
+    if (lower === 'spiral') return 'cycle';
+    if (lower === 'panic') return 'concern';
+    if (lower === 'shrink') return 'counselor';
+    if (lower === 'triggered') return 'prompted';
+    return m;
+  },
+  // Proprietary framework
+  'proprietary-framework': (m) => {
+    if (m.match(/SBI/i)) return 'the SBI framework';
+    if (m.match(/SARA/i)) return 'the SARA model';
+    return m;
+  },
 };
 
 export type SeverityFilter = 'all' | Severity;
@@ -90,7 +141,7 @@ export function useLinter(): UseLinterReturn {
     : [];
 
   const summary = result?.summary ?? { errors: 0, warnings: 0, info: 0 };
-  const score = Math.max(0, 100 - (summary.errors * 15 + summary.warnings * 5 + summary.info * 2));
+  const score = Math.max(0, Math.round(100 - (summary.errors * 6 + summary.warnings * 3 + summary.info * 1)));
   const autoFixableCount = result?.issues.filter((i) => i.autoFixable).length ?? 0;
 
   const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;

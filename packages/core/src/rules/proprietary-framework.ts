@@ -1,12 +1,12 @@
 import { LintRule, LintIssue } from '../types';
 
-const PATTERNS: Array<{ regex: RegExp; framework: string }> = [
-  { regex: /\bChime'?s\s+SBI\b/gi, framework: 'SBI' },
-  { regex: /\bour\s+SBI\s+framework\b/gi, framework: 'SBI' },
-  { regex: /\bChime'?s\s+SARA\b/gi, framework: 'SARA' },
-  { regex: /\bour\s+SARA\s+(?:model|framework)\b/gi, framework: 'SARA' },
-  { regex: /\bour\s+SARA\b/gi, framework: 'SARA' },
-  { regex: /\bChime'?s\s+SARA\s+model\b/gi, framework: 'SARA' },
+const PATTERNS: Array<{ regex: RegExp; framework: string; replacement: string }> = [
+  { regex: /\bChime'?s\s+SBI\b/gi, framework: 'SBI', replacement: 'the SBI' },
+  { regex: /\bour\s+SBI\s+framework\b/gi, framework: 'SBI', replacement: 'the SBI framework' },
+  { regex: /\bChime'?s\s+SARA\b/gi, framework: 'SARA', replacement: 'the SARA' },
+  { regex: /\bour\s+SARA\s+(?:model|framework)\b/gi, framework: 'SARA', replacement: 'the SARA model' },
+  { regex: /\bour\s+SARA\b/gi, framework: 'SARA', replacement: 'the SARA' },
+  { regex: /\bChime'?s\s+SARA\s+model\b/gi, framework: 'SARA', replacement: 'the SARA model' },
 ];
 
 export const proprietaryFrameworkRule: LintRule = {
@@ -32,12 +32,19 @@ export const proprietaryFrameworkRule: LintRule = {
             severity: 'error',
             message: `${framework} is an industry-standard framework, not proprietary to Chime. Consider saying "the ${framework} framework" instead of implying ownership.`,
             suggestion: `Use "the ${framework} framework" or "the ${framework} model" without possessive language`,
-            autoFixable: false,
+            autoFixable: true,
           });
         }
       }
     }
 
     return issues;
+  },
+  fix(text) {
+    let result = text;
+    for (const { regex, replacement } of PATTERNS) {
+      result = result.replace(regex, replacement);
+    }
+    return result;
   },
 };

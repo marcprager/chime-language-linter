@@ -1,24 +1,28 @@
 import { LintRule, LintIssue } from '../types';
 
-const SHAME_PATTERNS: Array<{ regex: RegExp; term: string; suggestion: string }> = [
+const SHAME_PATTERNS: Array<{ regex: RegExp; term: string; replacement: string; suggestion: string }> = [
   {
     regex: /\blowest\s+score\b/gi,
     term: 'lowest score',
+    replacement: 'area with the most room for growth',
     suggestion: "Consider reframing 'lowest score' with opportunity language, such as 'area with the most room for growth'",
   },
   {
     regex: /\bworst\s+performing\b/gi,
     term: 'worst performing',
+    replacement: 'most opportunity for improvement',
     suggestion: "Consider reframing 'worst performing' with opportunity language, such as 'area with the most opportunity for improvement'",
   },
   {
     regex: /\bweakest\b/gi,
     term: 'weakest',
+    replacement: 'greatest area for development',
     suggestion: "Consider reframing 'weakest' with opportunity language, such as 'greatest area for development'",
   },
   {
-    regex: /\bfailed\s+(?:to|the|at|in)\b/gi,
+    regex: /\bfailed\s+(to|the|at|in)\b/gi,
     term: 'failed',
+    replacement: 'has an opportunity to improve $1',
     suggestion: "Consider reframing with growth language, such as 'has an opportunity to improve' or 'did not yet meet expectations'",
   },
 ];
@@ -32,7 +36,7 @@ export const shameFramingRule: LintRule = {
     const lines = text.split('\n');
 
     for (let i = 0; i < lines.length; i++) {
-      for (const { regex, term, suggestion } of SHAME_PATTERNS) {
+      for (const { regex, suggestion } of SHAME_PATTERNS) {
         regex.lastIndex = 0;
         let match: RegExpExecArray | null;
         while ((match = regex.exec(lines[i])) !== null) {
@@ -46,12 +50,19 @@ export const shameFramingRule: LintRule = {
             severity: 'warning',
             message: suggestion,
             suggestion,
-            autoFixable: false,
+            autoFixable: true,
           });
         }
       }
     }
 
     return issues;
+  },
+  fix(text) {
+    let result = text;
+    for (const { regex, replacement } of SHAME_PATTERNS) {
+      result = result.replace(regex, replacement);
+    }
+    return result;
   },
 };
