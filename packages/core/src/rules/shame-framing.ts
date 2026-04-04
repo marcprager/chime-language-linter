@@ -17,7 +17,7 @@ const SHAME_PATTERNS: Array<{ regex: RegExp; term: string; suggestion: string }>
     suggestion: "Consider reframing 'weakest' with opportunity language, such as 'greatest area for development'",
   },
   {
-    regex: /\bfailed\s+(?:to|the|at|in)\b/gi,
+    regex: /\bfailed\s+(to|the|at|in)\b/gi,
     term: 'failed',
     suggestion: "Consider reframing with growth language, such as 'has an opportunity to improve' or 'did not yet meet expectations'",
   },
@@ -32,7 +32,7 @@ export const shameFramingRule: LintRule = {
     const lines = text.split('\n');
 
     for (let i = 0; i < lines.length; i++) {
-      for (const { regex, term, suggestion } of SHAME_PATTERNS) {
+      for (const { regex, suggestion } of SHAME_PATTERNS) {
         regex.lastIndex = 0;
         let match: RegExpExecArray | null;
         while ((match = regex.exec(lines[i])) !== null) {
