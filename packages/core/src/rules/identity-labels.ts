@@ -9,12 +9,12 @@ interface LabelPattern {
 const POSITIVE_LABELS: LabelPattern[] = [
   {
     regex: /\brockstars?\b/gi,
-    replacement: 'team members who consistently deliver',
+    replacement: 'high-impact contributors',
     suggestion: "Consider replacing '{matched}' with 'team members who consistently deliver' or 'high-impact contributors'",
   },
   {
     regex: /\bstars\b/gi,
-    replacement: 'team members who consistently deliver',
+    replacement: 'strong contributors',
     suggestion: "Consider replacing '{matched}' with 'team members who consistently deliver'",
   },
   {
@@ -37,22 +37,22 @@ const POSITIVE_LABELS: LabelPattern[] = [
 const NEGATIVE_LABELS: LabelPattern[] = [
   {
     regex: /\blow\s+performers?\b/gi,
-    replacement: 'team members with room to grow',
+    replacement: 'developing team members',
     suggestion: "Consider using opportunity-framed language like 'team members with room to grow' instead of '{matched}'",
   },
   {
     regex: /\bunderperformers?\b/gi,
-    replacement: 'team members with development opportunities',
+    replacement: 'developing team members',
     suggestion: "Consider using opportunity-framed language like 'team members with development opportunities' instead of '{matched}'",
   },
   {
     regex: /\bunder\s+performers?\b/gi,
-    replacement: 'team members with development opportunities',
+    replacement: 'developing team members',
     suggestion: "Consider using opportunity-framed language like 'team members with development opportunities' instead of '{matched}'",
   },
   {
     regex: /\bbottom\s+(?:performers?|(?:\d+\s*)?%|percent|tier|quartile|\d{1,2})\b/gi,
-    replacement: 'team members with growth opportunities',
+    replacement: 'growing team members',
     suggestion: "Consider using opportunity-framed language instead of '{matched}'. For example, 'team members with growth opportunities'",
   },
 ];

@@ -27,35 +27,26 @@ const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
   'em-dash': () => '\u2013',
   struggle: () => 'challenge',
   'hard-mode': () => 'Advanced',
-  // Identity labels
+  // Identity labels -- grammatically parallel noun replacements
   'identity-labels': (m) => {
     const lower = m.toLowerCase();
-    if (lower.match(/rockstars?/)) return 'team members who consistently deliver';
+    if (lower.match(/rockstars?/)) return 'high-impact contributors';
     if (lower.match(/top\s+performers?/)) return 'strong contributors';
-    if (lower.match(/low\s+performers?/)) return 'team members with room to grow';
-    if (lower.match(/underperformers?|under\s+performers?/)) return 'team members with development opportunities';
-    if (lower.match(/stars/)) return 'team members who consistently deliver';
+    if (lower.match(/low\s+performers?/)) return 'developing team members';
+    if (lower.match(/underperformers?|under\s+performers?/)) return 'developing team members';
+    if (lower.match(/stars/)) return 'strong contributors';
     if (lower.match(/drivers/)) return 'key contributors';
     if (lower.match(/pro/)) return 'experienced team member';
-    if (lower.match(/bottom/)) return 'team members with growth opportunities';
+    if (lower.match(/bottom/)) return 'growing team members';
     return m;
   },
-  // Shame framing
-  'shame-framing': (m) => {
-    const lower = m.toLowerCase();
-    if (lower.match(/lowest\s+score/)) return 'area with the most room for growth';
-    if (lower.match(/worst\s+performing/)) return 'most opportunity for improvement';
-    if (lower.match(/weakest/)) return 'greatest area for development';
-    if (lower.match(/failed/)) return m.replace(/failed/i, 'has an opportunity to improve');
-    return m;
-  },
-  // Loaded language
+  // Loaded language -- grammatically equivalent replacements
   'loaded-language': (m) => {
     const lower = m.toLowerCase();
     if (lower.match(/addictive/)) return 'compelling';
     if (lower.match(/addiction/)) return 'strong preference';
     if (lower.match(/secret\s+weapon/)) return 'key strength';
-    if (lower.match(/game[\s-]changer/)) return 'significant improvement';
+    if (lower.match(/game[\s-]changer/)) return 'breakthrough';
     if (lower.match(/revolutionary/)) return 'innovative';
     if (lower.match(/crushing\s+it/)) return 'excelling';
     if (lower.match(/killing\s+it/)) return 'excelling';
@@ -93,6 +84,7 @@ export interface UseLinterReturn {
   autoFixableCount: number;
   copyFeedback: boolean;
   isDebouncing: boolean;
+  polishedText: string;
   textareaRef: React.RefObject<HTMLTextAreaElement | null>;
   handleIssueClick: (issue: LintIssue) => void;
   handleFixSingle: (issue: LintIssue) => void;
@@ -146,6 +138,7 @@ export function useLinter(): UseLinterReturn {
 
   const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
   const charCount = text.length;
+  const polishedText = text.trim() !== '' ? fixText(text) : '';
 
   const handleIssueClick = useCallback(
     (issue: LintIssue) => {
@@ -209,6 +202,7 @@ export function useLinter(): UseLinterReturn {
     autoFixableCount,
     copyFeedback,
     isDebouncing,
+    polishedText,
     textareaRef,
     handleIssueClick,
     handleFixSingle,

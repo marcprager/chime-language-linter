@@ -22,7 +22,7 @@ const LOADED_TERMS: Array<{ regex: RegExp; term: string; replacement: string; su
   {
     regex: /\bgame[\s-]changer\b/gi,
     term: 'game-changer',
-    replacement: 'significant improvement',
+    replacement: 'breakthrough',
     suggestion: "Consider replacing 'game-changer' with 'significant improvement' or 'meaningful shift'",
   },
   {

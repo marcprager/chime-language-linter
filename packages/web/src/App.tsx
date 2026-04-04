@@ -4,6 +4,7 @@ import TextEditor from './components/TextEditor';
 import SummaryBar from './components/SummaryBar';
 import Toolbar from './components/Toolbar';
 import IssueList from './components/IssueList';
+import PolishedPreview from './components/PolishedPreview';
 import EmptyState from './components/EmptyState';
 import SuccessState from './components/SuccessState';
 
@@ -17,13 +18,12 @@ export default function App() {
     filteredIssues,
     score,
     autoFixableCount,
-    copyFeedback,
     isDebouncing,
+    polishedText,
     textareaRef,
     handleIssueClick,
     handleFixSingle,
     handleFixAll,
-    handleCopyClean,
     wordCount,
     charCount,
   } = useLinter();
@@ -31,6 +31,7 @@ export default function App() {
   const hasText = text.trim().length > 0;
   const summary = result?.summary ?? { errors: 0, warnings: 0, info: 0 };
   const totalIssues = summary.errors + summary.warnings + summary.info;
+  const hasPolishedChanges = hasText && polishedText !== text;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -67,9 +68,7 @@ export default function App() {
                   warnings={summary.warnings}
                   info={summary.info}
                   autoFixableCount={autoFixableCount}
-                  copyFeedback={copyFeedback}
                   onFixAll={handleFixAll}
-                  onCopyClean={handleCopyClean}
                 />
 
                 <IssueList
@@ -78,6 +77,11 @@ export default function App() {
                   onFix={handleFixSingle}
                 />
               </>
+            )}
+
+            {/* Polished text preview */}
+            {hasPolishedChanges && (
+              <PolishedPreview polishedText={polishedText} />
             )}
 
             {totalIssues === 0 && <SuccessState />}
