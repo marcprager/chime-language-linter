@@ -69,6 +69,11 @@ const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
     if (m.match(/SARA/i)) return 'the SARA model';
     return m;
   },
+  // Filler phrases -- only "in order to" is auto-fixable
+  'filler-phrases': (m) => {
+    if (m[0] === m[0].toUpperCase()) return 'To';
+    return 'to';
+  },
 };
 
 export type SeverityFilter = 'all' | Severity;
@@ -132,12 +137,13 @@ export function useLinter(): UseLinterReturn {
       : result.issues.filter((i) => i.severity === filter)
     : [];
 
-  const summary = result?.summary ?? { errors: 0, warnings: 0, info: 0 };
-  const score = Math.max(0, Math.round(100 - (summary.errors * 6 + summary.warnings * 3 + summary.info * 1)));
-  const autoFixableCount = result?.issues.filter((i) => i.autoFixable).length ?? 0;
-
   const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
   const charCount = text.length;
+
+  const summary = result?.summary ?? { errors: 0, warnings: 0, info: 0 };
+  const rawPenalty = summary.errors * 6 + summary.warnings * 3 + summary.info * 1;
+  const score = Math.max(0, Math.round(100 - (rawPenalty / Math.max(wordCount, 20)) * 100));
+  const autoFixableCount = result?.issues.filter((i) => i.autoFixable).length ?? 0;
   const polishedText = text.trim() !== '' ? fixText(text) : '';
 
   const handleIssueClick = useCallback(

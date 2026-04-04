@@ -13,6 +13,15 @@ const RULE_CATEGORIES: Record<string, string> = {
   'hard-mode': 'Style',
   'fabricated-green-heart': 'Style',
   'level-labels': 'Style',
+  'passive-hedging': 'Voice & Tone',
+  'absolute-language': 'Voice & Tone',
+  'gendered-defaults': 'Inclusivity',
+  'ableist-language': 'Inclusivity',
+  'corporate-jargon': 'Style',
+  'filler-phrases': 'Style',
+  'niceness-framing': 'Voice & Tone',
+  'feedback-sandwich': 'Accuracy',
+  overclaiming: 'Accuracy',
 };
 
 const RULE_FRIENDLY_NAMES: Record<string, string> = {
@@ -30,6 +39,15 @@ const RULE_FRIENDLY_NAMES: Record<string, string> = {
   'hard-mode': 'Terminology',
   'fabricated-green-heart': 'Decorative emoji',
   'level-labels': 'Internal terminology',
+  'passive-hedging': 'Direct language',
+  'absolute-language': 'Qualified claims',
+  'gendered-defaults': 'Gender-neutral language',
+  'ableist-language': 'Inclusive alternatives',
+  'corporate-jargon': 'Plain language',
+  'filler-phrases': 'Concise writing',
+  'niceness-framing': 'Culture framing',
+  'feedback-sandwich': 'Direct feedback',
+  overclaiming: 'Evidence-based claims',
 };
 
 export function getRuleCategory(rule: string): string {
