@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { lintText, fixText, LintIssue, LintResult, Severity } from '@chime-linter/core';
 import { useDebounce } from './useDebounce';
+import { trackEvent } from '../lib/analytics';
 
 function findMatchIndex(text: string, line: number, column: number, matched: string): number {
   const lines = text.split('\n');
@@ -59,6 +60,11 @@ export function useLinter(): UseLinterReturn {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const debouncedText = useDebounce(text, 300);
 
+  // Track session on mount
+  useEffect(() => {
+    trackEvent('session');
+  }, []);
+
   // Track debounce state
   useEffect(() => {
     if (text !== debouncedText && text.trim() !== '') {
@@ -74,6 +80,7 @@ export function useLinter(): UseLinterReturn {
     }
     const linted = lintText(debouncedText);
     setResult(linted);
+    trackEvent('check');
   }, [debouncedText]);
 
   const filteredIssues = result
@@ -112,6 +119,7 @@ export function useLinter(): UseLinterReturn {
       const replacement = fixFn(issue.matched);
       const newText = text.substring(0, start) + replacement + text.substring(end);
       setText(newText);
+      trackEvent('fix_single');
     },
     [text],
   );
@@ -119,6 +127,7 @@ export function useLinter(): UseLinterReturn {
   const handleFixAll = useCallback(() => {
     const cleaned = fixText(text);
     setText(cleaned);
+    trackEvent('fix_all');
   }, [text]);
 
   const handleCopyClean = useCallback(async () => {
@@ -135,6 +144,7 @@ export function useLinter(): UseLinterReturn {
     }
     setCopyFeedback(true);
     setTimeout(() => setCopyFeedback(false), 2000);
+    trackEvent('copy');
   }, [text]);
 
   return {

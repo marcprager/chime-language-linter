@@ -14,7 +14,7 @@ const TextEditor = forwardRef<HTMLTextAreaElement | null, TextEditorProps>(
           ref={ref}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          placeholder="Paste or type your content here to get instant feedback..."
+          placeholder="Paste or type your content here to check it against Chime communication standards..."
           className="w-full min-h-[320px] p-5 bg-white border border-slate-200 rounded-xl shadow-card resize-y placeholder-slate-300 transition-all duration-200 text-slate-800"
           spellCheck={false}
           aria-label="Content to lint"

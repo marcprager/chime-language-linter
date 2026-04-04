@@ -55,9 +55,10 @@ export default function ScoreRing({ score, size = 80 }: ScoreRingProps) {
           strokeDashoffset={offset}
         />
       </svg>
-      <span className={`absolute text-lg font-bold ${textColor}`}>
-        {score}
-      </span>
+      <div className="absolute flex flex-col items-center leading-none">
+        <span className={`text-lg font-bold ${textColor}`}>{score}</span>
+        <span className="text-[9px] font-medium text-slate-400 mt-0.5">/ 100</span>
+      </div>
     </div>
   );
 }

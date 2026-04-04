@@ -17,10 +17,10 @@ export default function EmptyState() {
         </svg>
       </div>
       <p className="text-sm font-medium text-slate-500 mb-1">
-        Ready when you are
+        Ready to check your content
       </p>
       <p className="text-xs text-slate-400 max-w-xs mx-auto">
-        Paste your content above and we'll help you polish it for clarity, inclusivity, and Chime voice.
+        Paste or type your content above to check it against Chime's communication standards for voice, accuracy, inclusivity, and style.
       </p>
     </div>
   );
