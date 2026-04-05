@@ -270,11 +270,69 @@ describe('Severity filtering', () => {
 
 describe('Fix text', () => {
   it('should apply all auto-fixes', () => {
-    const text = 'People struggle with em dashes — and Hard Mode is tough.';
+    const text = 'People struggle with em dashes \u2014 and Hard Mode is tough.';
     const fixed = fixText(text);
     expect(fixed).not.toContain('\u2014');
     expect(fixed).toContain('\u2013');
     expect(fixed).not.toMatch(/\bstruggle\b/i);
     expect(fixed).toContain('Advanced');
+  });
+});
+
+describe('Integration: full sample text', () => {
+  const sampleText = [
+    'Welcome to Chime\u2019s Feedback Foundations Course',
+    '',
+    'At Chime, we believe in being Member Obsesed and Winning Together as a team.',
+    'As our Win Together value says, "We hold each other accountable.',
+    'We ask for open, honest feedback, and Chime In to provide it.',
+    'We believe clarity is kindness."',
+  ].join('\n');
+
+  it('should detect misspelled "Member Obsesed"', () => {
+    const result = lintText(sampleText, 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'chime-values');
+    const obsesedIssue = issues.find(i => i.matched.includes('Obsesed'));
+    expect(obsesedIssue).toBeDefined();
+  });
+
+  it('should detect "Winning Together" as incorrect value', () => {
+    const result = lintText(sampleText, 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'chime-values');
+    const winningIssue = issues.find(i => i.matched.includes('Winning'));
+    expect(winningIssue).toBeDefined();
+  });
+
+  it('should detect misquoted Win Together text', () => {
+    const result = lintText(sampleText, 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'win-together-quote');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should fix all issues in sample text', () => {
+    const fixed = fixText(sampleText);
+    expect(fixed).toContain('Member Obsessed');
+    expect(fixed).not.toContain('Winning Together');
+    expect(fixed).toContain('Win Together');
+  });
+});
+
+describe('Chime values edge cases', () => {
+  it('should not flag correct values with surrounding punctuation', () => {
+    const result = lintText('Values: "Member Obsessed," "Be Bold," and "Win Together."', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'chime-values');
+    expect(issues).toHaveLength(0);
+  });
+
+  it('should flag "Being Bold" as variant of "Be Bold"', () => {
+    const result = lintText('We encourage Being Bold in all decisions.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'chime-values');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag "Respecting the Rules" as variant', () => {
+    const result = lintText('Respecting the Rules is important to us.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'chime-values');
+    expect(issues.length).toBeGreaterThan(0);
   });
 });

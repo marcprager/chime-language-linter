@@ -14,10 +14,14 @@ const CHIME_VALUES = [
  */
 const KNOWN_VARIANTS: Record<string, string> = {
   'winning together': 'Win Together',
+  'won together': 'Win Together',
   'member obsession': 'Member Obsessed',
   'being bold': 'Be Bold',
+  'bold moves': 'Be Bold',
   'respecting the rules': 'Respect the Rules',
+  'follow the rules': 'Respect the Rules',
   'being an owner': 'Be an Owner',
+  'own it': 'Be an Owner',
 };
 
 /**

@@ -144,9 +144,14 @@ export function useLinter(): UseLinterReturn {
       setResult(null);
       return;
     }
-    const linted = lintText(debouncedText);
-    setResult(linted);
-    trackEvent('check');
+    try {
+      const linted = lintText(debouncedText);
+      setResult(linted);
+      trackEvent('check');
+    } catch (err) {
+      console.error('Lint error:', err);
+      setResult(null);
+    }
   }, [debouncedText]);
 
   const filteredIssues = result
