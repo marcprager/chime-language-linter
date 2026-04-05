@@ -48,10 +48,28 @@ describe('Struggle rule', () => {
     expect(issues[0].severity).toBe('error');
   });
 
+  it('should flag "struggled"', () => {
+    const result = lintText('He struggled with the feedback.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'struggle');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag "struggling"', () => {
+    const result = lintText('She is struggling with delivery.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'struggle');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
   it('should auto-fix "struggle" to "challenge"', () => {
     const fixed = fixText('Many people struggle with feedback.');
     expect(fixed).toContain('challenge');
     expect(fixed).not.toMatch(/\bstruggle\b/i);
+  });
+
+  it('should auto-fix verb forms of "struggle"', () => {
+    expect(fixText('He struggled with it.')).toContain('faced challenges');
+    expect(fixText('She is struggling.')).toContain('facing challenges');
+    expect(fixText('He struggles daily.')).toContain('challenges');
   });
 });
 
@@ -187,6 +205,12 @@ describe('Loaded language rule', () => {
     const issues = result.issues.filter(i => i.rule === 'loaded-language');
     expect(issues.length).toBeGreaterThan(0);
   });
+
+  it('should flag "gamechanger" without separator', () => {
+    const result = lintText('This is a total gamechanger.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'loaded-language');
+    expect(issues.length).toBeGreaterThan(0);
+  });
 });
 
 describe('Clinical terms rule', () => {
@@ -205,9 +229,36 @@ describe('Hard mode rule', () => {
     expect(issues.length).toBeGreaterThan(0);
   });
 
+  it('should flag hyphenated "Hard-Mode"', () => {
+    const result = lintText('Try Hard-Mode for experienced coaches.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'hard-mode');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
   it('should auto-fix "Hard Mode" to "Advanced"', () => {
     const fixed = fixText('Try Hard Mode for experienced coaches.');
     expect(fixed).toContain('Advanced');
+  });
+
+  it('should preserve all-caps: "HARD MODE" to "ADVANCED"', () => {
+    const fixed = fixText('HARD MODE');
+    expect(fixed).toBe('ADVANCED');
+  });
+});
+
+describe('Fabricated green heart rule', () => {
+  it('should flag 💚 in CSS content property', () => {
+    const css = `.badge::before { content: '💚 Approved'; }`;
+    const result = lintText(css, 'test.css');
+    const issues = result.issues.filter(i => i.rule === 'fabricated-green-heart');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should not flag 💚 in HTML text', () => {
+    const result = lintText('<p>We love 💚 Chime!</p>', 'test.html');
+    const issues = result.issues.filter(i => i.rule === 'fabricated-green-heart');
+    expect(issues).toHaveLength(0);
   });
 });
 

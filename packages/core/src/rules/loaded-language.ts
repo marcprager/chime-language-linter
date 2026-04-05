@@ -20,7 +20,7 @@ const LOADED_TERMS: Array<{ regex: RegExp; term: string; replacement: string; su
     suggestion: "Consider replacing 'secret weapon' with 'key strength' or 'differentiator'",
   },
   {
-    regex: /\bgame[\s-]changer\b/gi,
+    regex: /\bgame[\s-]?changer\b/gi,
     term: 'game-changer',
     replacement: 'breakthrough',
     suggestion: "Consider replacing 'game-changer' with 'significant improvement' or 'meaningful shift'",

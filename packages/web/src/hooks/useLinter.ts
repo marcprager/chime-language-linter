@@ -25,7 +25,14 @@ function findMatchIndex(text: string, line: number, column: number, matched: str
 // Known auto-fix replacements for per-issue fixes
 const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
   'em-dash': () => '\u2013',
-  struggle: () => 'challenge',
+  struggle: (m) => {
+    const lower = m.toLowerCase();
+    const upper = m[0] === m[0].toUpperCase();
+    if (lower === 'struggling') return upper ? 'Facing challenges' : 'facing challenges';
+    if (lower === 'struggled') return upper ? 'Faced challenges' : 'faced challenges';
+    if (lower === 'struggles') return upper ? 'Challenges' : 'challenges';
+    return upper ? 'Challenge' : 'challenge';
+  },
   'hard-mode': () => 'Advanced',
   // Identity labels -- grammatically parallel noun replacements
   'identity-labels': (m) => {
@@ -46,7 +53,7 @@ const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
     if (lower.match(/addictive/)) return 'compelling';
     if (lower.match(/addiction/)) return 'strong preference';
     if (lower.match(/secret\s+weapon/)) return 'key strength';
-    if (lower.match(/game[\s-]changer/)) return 'breakthrough';
+    if (lower.match(/game[\s-]?changer/)) return 'breakthrough';
     if (lower.match(/revolutionary/)) return 'innovative';
     if (lower.match(/crushing\s+it/)) return 'excelling';
     if (lower.match(/killing\s+it/)) return 'excelling';
