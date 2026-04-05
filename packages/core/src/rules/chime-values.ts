@@ -9,6 +9,18 @@ const CHIME_VALUES = [
 ];
 
 /**
+ * Common morphological variants that Levenshtein distance won't catch
+ * because the edit distance is too large (e.g. "Winning Together" → 4 edits).
+ */
+const KNOWN_VARIANTS: Record<string, string> = {
+  'winning together': 'Win Together',
+  'member obsession': 'Member Obsessed',
+  'being bold': 'Be Bold',
+  'respecting the rules': 'Respect the Rules',
+  'being an owner': 'Be an Owner',
+};
+
+/**
  * Compute the Levenshtein distance between two strings.
  */
 function levenshtein(a: string, b: string): number {
@@ -58,6 +70,27 @@ function findNearMatchCandidates(
       // Skip if it's an exact match (that's correct usage)
       if (candidateClean === value) continue;
 
+      // Check known morphological variants first (e.g. "Winning Together" → "Win Together")
+      const knownValue = KNOWN_VARIANTS[candidateClean.toLowerCase()];
+      if (knownValue === value) {
+        const col = line.indexOf(candidate);
+        if (col === -1) continue;
+
+        issues.push({
+          file,
+          line: lineIndex + 1,
+          column: col + 1,
+          matched: candidate,
+          context: line,
+          rule: 'chime-values',
+          severity: 'error',
+          message: `"${candidate}" looks like it might be the Chime value "${value}" but doesn't match exactly. Consider using the official wording.`,
+          suggestion: `Replace with "${value}"`,
+          autoFixable: true,
+        });
+        continue;
+      }
+
       // Skip if cleaned candidate is much shorter/longer than the value
       if (candidateClean.length < value.length * 0.6 || candidateClean.length > value.length * 1.5) continue;
 
@@ -79,7 +112,7 @@ function findNearMatchCandidates(
           severity: 'error',
           message: `"${candidate}" looks like it might be the Chime value "${value}" but doesn't match exactly. Consider using the official wording.`,
           suggestion: `Replace with "${value}"`,
-          autoFixable: false,
+          autoFixable: true,
         });
       }
     }
@@ -101,5 +134,46 @@ export const chimeValuesRule: LintRule = {
     }
 
     return issues;
+  },
+  fix(text) {
+    let result = text;
+    for (const value of CHIME_VALUES) {
+      const valueWords = value.split(/\s+/);
+      const valueWordCount = valueWords.length;
+      const lines = result.split('\n');
+      for (let i = 0; i < lines.length; i++) {
+        const words = lines[i].split(/\s+/);
+        for (let start = words.length - valueWordCount; start >= 0; start--) {
+          const candidate = words.slice(start, start + valueWordCount).join(' ');
+          const candidateClean = candidate.replace(/[.,;:!?'")\]]+$/, '').replace(/^['"(\[]+/, '');
+          if (candidateClean === value) continue;
+
+          let shouldReplace = false;
+
+          // Check known variants
+          if (KNOWN_VARIANTS[candidateClean.toLowerCase()] === value) {
+            shouldReplace = true;
+          } else {
+            // Check Levenshtein distance
+            if (candidateClean.length >= value.length * 0.6 && candidateClean.length <= value.length * 1.5) {
+              const dist = levenshtein(candidateClean.toLowerCase(), value.toLowerCase());
+              const threshold = Math.min(2, Math.floor(value.length * 0.2));
+              if (dist > 0 && dist <= threshold) {
+                shouldReplace = true;
+              }
+            }
+          }
+
+          if (shouldReplace) {
+            const prefix = candidate.match(/^['"(\[]+/)?.[0] ?? '';
+            const suffix = candidate.match(/[.,;:!?'")\]]+$/)?.[0] ?? '';
+            words.splice(start, valueWordCount, prefix + value + suffix);
+          }
+        }
+        lines[i] = words.join(' ');
+      }
+      result = lines.join('\n');
+    }
+    return result;
   },
 };

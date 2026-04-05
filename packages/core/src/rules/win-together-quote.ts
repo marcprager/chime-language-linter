@@ -3,6 +3,8 @@ import { LintRule, LintIssue } from '../types';
 const OFFICIAL_QUOTE =
   'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others. We believe that clarity is kindness.';
 
+const QUOTE_REGEX = /Win Together\b[^\u201C\u201D"\n]*[\u201C\u201D"]([^\u201C\u201D"]+)[\u201C\u201D"]/gi;
+
 export const winTogetherQuoteRule: LintRule = {
   name: 'win-together-quote',
   severity: 'error',
@@ -10,14 +12,9 @@ export const winTogetherQuoteRule: LintRule = {
   check(text, file) {
     const issues: LintIssue[] = [];
     const lines = text.split('\n');
-
-    // Look for "Win Together" followed by a colon or in quotes, then capture the quoted text
-    // Pattern 1: Win Together: "some quote"
-    // Pattern 2: Win Together: some quote (until end of paragraph or period-period pattern)
     const fullText = text;
 
-    // Find all occurrences of "Win Together" followed by a quote-like context
-    const regex = /Win Together["":][\s]*["""]([^"""]+)["""]/gi;
+    const regex = new RegExp(QUOTE_REGEX.source, QUOTE_REGEX.flags);
     let match: RegExpExecArray | null;
 
     while ((match = regex.exec(fullText)) !== null) {
@@ -34,17 +31,24 @@ export const winTogetherQuoteRule: LintRule = {
           file,
           line: lineNum,
           column: col,
-          matched: quotedText.substring(0, 50) + (quotedText.length > 50 ? '...' : ''),
+          matched: quotedText,
           context: lines[lineNum - 1] || '',
           rule: 'win-together-quote',
           severity: 'error',
           message: 'The Win Together quote does not match the official wording. Please verify the exact text.',
           suggestion: `Use the official quote: "${OFFICIAL_QUOTE}"`,
-          autoFixable: false,
+          autoFixable: true,
         });
       }
     }
 
     return issues;
+  },
+  fix(text) {
+    const regex = new RegExp(QUOTE_REGEX.source, QUOTE_REGEX.flags);
+    return text.replace(regex, (fullMatch, quotedText) => {
+      if (quotedText.trim() === OFFICIAL_QUOTE) return fullMatch;
+      return fullMatch.replace(quotedText, OFFICIAL_QUOTE);
+    });
   },
 };

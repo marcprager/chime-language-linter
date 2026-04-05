@@ -67,6 +67,24 @@ describe('Chime values rule', () => {
     const issues = result.issues.filter(i => i.rule === 'chime-values');
     expect(issues).toHaveLength(0);
   });
+
+  it('should flag "Winning Together" as incorrect value name', () => {
+    const result = lintText('We believe in Winning Together as a team.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'chime-values');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].matched).toContain('Winning Together');
+  });
+
+  it('should auto-fix misspelled values', () => {
+    const fixed = fixText('We are Member Obsesed.');
+    expect(fixed).toContain('Member Obsessed');
+  });
+
+  it('should auto-fix "Winning Together" to "Win Together"', () => {
+    const fixed = fixText('We believe in Winning Together.');
+    expect(fixed).toContain('Win Together');
+    expect(fixed).not.toContain('Winning Together');
+  });
 });
 
 describe('Win Together quote rule', () => {
@@ -77,6 +95,22 @@ describe('Win Together quote rule', () => {
     );
     const issues = result.issues.filter(i => i.rule === 'win-together-quote');
     expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag misquoted Win Together text with indirect attribution', () => {
+    const result = lintText(
+      'As our Win Together value says, \u201CWe believe clarity is kindness.\u201D',
+      'test.md'
+    );
+    const issues = result.issues.filter(i => i.rule === 'win-together-quote');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should auto-fix misquoted Win Together text', () => {
+    const fixed = fixText('Win Together: \u201CWe believe clarity is kindness.\u201D');
+    expect(fixed).toContain('We hold each other accountable');
+    expect(fixed).toContain('to others');
+    expect(fixed).toContain('that clarity is kindness');
   });
 });
 
