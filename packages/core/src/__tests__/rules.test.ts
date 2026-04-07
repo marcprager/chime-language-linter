@@ -387,3 +387,116 @@ describe('Chime values edge cases', () => {
     expect(issues.length).toBeGreaterThan(0);
   });
 });
+
+describe('Double dash rule', () => {
+  it('should flag double hyphens', () => {
+    const result = lintText('Use this -- not that.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'double-dash');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('error');
+    expect(issues[0].autoFixable).toBe(true);
+  });
+
+  it('should auto-fix double hyphens to en dashes', () => {
+    const fixed = fixText('Use this -- not that.');
+    expect(fixed).toContain('\u2013');
+    expect(fixed).not.toContain('--');
+  });
+
+  it('should not flag triple hyphens (markdown hr)', () => {
+    const result = lintText('---', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'double-dash');
+    expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Emoji density rule', () => {
+  it('should flag lines with 3+ emojis', () => {
+    const result = lintText('\uD83C\uDF1F Week 1: Welcome \uD83D\uDC4B\uD83D\uDE4C', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'emoji-density');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should not flag lines with 1-2 emojis', () => {
+    const result = lintText('Great work \uD83D\uDC4D', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'emoji-density');
+    expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Absolute language rule', () => {
+  it('should flag "across every function"', () => {
+    const result = lintText('This was heard across every function.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'absolute-language');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should flag "the single most"', () => {
+    const result = lintText('This is the single most important signal.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'absolute-language');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag "everyone knows"', () => {
+    const result = lintText('Everyone knows this is a problem.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'absolute-language');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Accusatory framing rule', () => {
+  it('should flag "culture of niceness"', () => {
+    const result = lintText('Chime has a culture of niceness that prevents candor.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'accusatory-framing');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('warning');
+  });
+
+  it('should flag "starts at the top"', () => {
+    const result = lintText('Inconsistency starts at the top.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'accusatory-framing');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag "values eroded"', () => {
+    const result = lintText('Values have eroded since the IPO.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'accusatory-framing');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag "too nice"', () => {
+    const result = lintText('We are too nice to give honest feedback.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'accusatory-framing');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should flag "more mercenary"', () => {
+    const result = lintText('The culture has become more mercenary.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'accusatory-framing');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+
+  it('should not flag growth-oriented language', () => {
+    const result = lintText('Leader consistency sets the tone for the organization.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'accusatory-framing');
+    expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Paragraph length rule', () => {
+  it('should flag very long paragraphs', () => {
+    const longPara = 'Managers are promoted without any formal training or structured onboarding. They figure it out on their own, often with limited guidance. The gap shows up in feedback quality, accountability, and career conversations. Performance management is inconsistent across the organization. Career conversations happen based on who your manager is, not because the system expects them. Performance accountability drifts without any mid-cycle structure to hold the bar. The result is a system that works well for some people and not at all for others.';
+    const result = lintText(longPara, 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'paragraph-length');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should not flag short paragraphs', () => {
+    const result = lintText('This is a short paragraph. Just two sentences.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'paragraph-length');
+    expect(issues).toHaveLength(0);
+  });
+});

@@ -25,6 +25,7 @@ function findMatchIndex(text: string, line: number, column: number, matched: str
 // Known auto-fix replacements for per-issue fixes
 const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
   'em-dash': () => '\u2013',
+  'double-dash': () => '\u2013',
   struggle: (m) => {
     const lower = m.toLowerCase();
     const upper = m[0] === m[0].toUpperCase();
