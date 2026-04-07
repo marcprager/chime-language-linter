@@ -26,6 +26,35 @@ function findMatchIndex(text: string, line: number, column: number, matched: str
 const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
   'em-dash': () => '\u2013',
   'double-dash': () => '\u2013',
+  spelling: (m) => {
+    // Import the lookup at runtime to avoid circular deps
+    const MISSPELLINGS: Record<string, string> = {
+      'memmber obsessed': 'Member Obsessed', 'memeber obsessed': 'Member Obsessed',
+      'member obsesed': 'Member Obsessed', 'member obssessed': 'Member Obsessed',
+      'be bolld': 'Be Bold', 'winn together': 'Win Together',
+      'win togther': 'Win Together', 'win toghether': 'Win Together',
+      'repect the rules': 'Respect the Rules', 'be an onwer': 'Be an Owner',
+      'accomodate': 'accommodate', 'acheive': 'achieve', 'achievment': 'achievement',
+      'accross': 'across', 'alot': 'a lot', 'assesment': 'assessment',
+      'beleive': 'believe', 'buisness': 'business', 'calender': 'calendar',
+      'collegues': 'colleagues', 'committment': 'commitment', 'commited': 'committed',
+      'comunicate': 'communicate', 'concensus': 'consensus', 'consistant': 'consistent',
+      'decison': 'decision', 'definately': 'definitely', 'developement': 'development',
+      'employes': 'employees', 'enviroment': 'environment', 'excercise': 'exercise',
+      'guidence': 'guidance', 'guidlines': 'guidelines', 'heirarchy': 'hierarchy',
+      'immediatly': 'immediately', 'independant': 'independent', 'knowlege': 'knowledge',
+      'managment': 'management', 'neccessary': 'necessary', 'occured': 'occurred',
+      'occurence': 'occurrence', 'oppurtunity': 'opportunity', 'performace': 'performance',
+      'proffesional': 'professional', 'recieve': 'receive', 'recieved': 'received',
+      'recomend': 'recommend', 'relevent': 'relevant', 'seperate': 'separate',
+      'succesful': 'successful', 'thier': 'their', 'truely': 'truly',
+      'untill': 'until', 'wether': 'whether', 'writting': 'writing',
+      'onboading': 'onboarding', 'feedbck': 'feedback', 'peformance': 'performance',
+      'engagment': 'engagement', 'stakeholer': 'stakeholder', 'accountablity': 'accountability',
+      'transparancy': 'transparency', 'competancy': 'competency',
+    };
+    return MISSPELLINGS[m.toLowerCase()] || m;
+  },
   struggle: (m) => {
     const lower = m.toLowerCase();
     const upper = m[0] === m[0].toUpperCase();

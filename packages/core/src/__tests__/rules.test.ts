@@ -15,7 +15,7 @@ Win Together means: "We hold each other accountable. We ask for open, honest fee
 
 This is an area for growth that we can develop together.
 
-The SBI framework helps structure feedback effectively.
+The Situation-Behavior-Impact (SBI) framework helps structure feedback effectively.
   `.trim();
 
   it('should produce no issues for clean text', () => {
@@ -498,5 +498,93 @@ describe('Paragraph length rule', () => {
     const result = lintText('This is a short paragraph. Just two sentences.', 'test.md');
     const issues = result.issues.filter(i => i.rule === 'paragraph-length');
     expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Spelling rule', () => {
+  it('should flag common misspellings', () => {
+    const result = lintText('We recieved the assesment results.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'spelling');
+    expect(issues.length).toBeGreaterThanOrEqual(2);
+    expect(issues[0].severity).toBe('error');
+    expect(issues[0].autoFixable).toBe(true);
+  });
+
+  it('should flag Chime-specific misspellings', () => {
+    const result = lintText('Risk chimers score 62% on the survey.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'spelling');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].matched).toBe('chimers');
+  });
+
+  it('should auto-fix misspellings', () => {
+    const fixed = fixText('We recieved the feedbck from a stakeholer.');
+    expect(fixed).toContain('received');
+    expect(fixed).toContain('feedback');
+    expect(fixed).toContain('stakeholder');
+  });
+
+  it('should not flag correctly spelled words', () => {
+    const result = lintText('We received the assessment results from Chimers.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'spelling');
+    expect(issues).toHaveLength(0);
+  });
+});
+
+describe('Jargon rule', () => {
+  it('should flag undefined acronyms', () => {
+    const result = lintText('For Risk LT review, the ICs need guidance.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'jargon');
+    expect(issues.length).toBeGreaterThanOrEqual(2);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should flag corporate jargon', () => {
+    const result = lintText('We need to leverage our bandwidth for this sync.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'jargon');
+    expect(issues.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('should not flag acronyms already defined in parentheses', () => {
+    const result = lintText('The Situation-Behavior-Impact (SBI) framework is useful.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'jargon');
+    expect(issues).toHaveLength(0);
+  });
+
+  it('should only flag the first occurrence of each term', () => {
+    const result = lintText('The LT met Monday. The LT met again Friday.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'jargon');
+    const ltIssues = issues.filter(i => i.matched === 'LT');
+    expect(ltIssues).toHaveLength(1);
+  });
+});
+
+describe('Passive voice rule', () => {
+  it('should flag passive constructions', () => {
+    const result = lintText('It was decided that feedback should be addressed.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'passive-voice');
+    expect(issues.length).toBeGreaterThan(0);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should flag ownership-obscuring patterns', () => {
+    const result = lintText('Feedback was provided to the team and needs to be reviewed.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'passive-voice');
+    expect(issues.length).toBeGreaterThan(0);
+  });
+});
+
+describe('Hedge words rule', () => {
+  it('should flag hedge words', () => {
+    const result = lintText('Perhaps we could consider maybe trying a different approach.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'hedge-words');
+    expect(issues.length).toBeGreaterThanOrEqual(2);
+    expect(issues[0].severity).toBe('info');
+  });
+
+  it('should flag weak qualifiers', () => {
+    const result = lintText('I think this is somewhat effective.', 'test.md');
+    const issues = result.issues.filter(i => i.rule === 'hedge-words');
+    expect(issues.length).toBeGreaterThanOrEqual(2);
   });
 });

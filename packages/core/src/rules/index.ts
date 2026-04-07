@@ -18,6 +18,10 @@ import { emojiDensityRule } from './emoji-density';
 import { absoluteLanguageRule } from './absolute-language';
 import { accusatoryFramingRule } from './accusatory-framing';
 import { paragraphLengthRule } from './paragraph-length';
+import { spellingRule } from './spelling';
+import { jargonRule } from './jargon';
+import { passiveVoiceRule } from './passive-voice';
+import { hedgeWordsRule } from './hedge-words';
 
 export const allRules: LintRule[] = [
   emDashRule,
@@ -39,6 +43,10 @@ export const allRules: LintRule[] = [
   absoluteLanguageRule,
   accusatoryFramingRule,
   paragraphLengthRule,
+  spellingRule,
+  jargonRule,
+  passiveVoiceRule,
+  hedgeWordsRule,
 ];
 
 export {
@@ -61,4 +69,8 @@ export {
   absoluteLanguageRule,
   accusatoryFramingRule,
   paragraphLengthRule,
+  spellingRule,
+  jargonRule,
+  passiveVoiceRule,
+  hedgeWordsRule,
 };
