@@ -7,7 +7,7 @@ export const struggleRule: LintRule = {
   check(text, file) {
     const issues: LintIssue[] = [];
     const lines = text.split('\n');
-    const regex = /\bstruggle\b/gi;
+    const regex = /\bstruggles?\b|\bstruggled\b|\bstruggling\b/gi;
 
     for (let i = 0; i < lines.length; i++) {
       let match: RegExpExecArray | null;
@@ -30,12 +30,13 @@ export const struggleRule: LintRule = {
     return issues;
   },
   fix(text) {
-    return text.replace(/\bstruggle\b/gi, (match) => {
-      // Preserve case of first letter
-      if (match[0] === match[0].toUpperCase()) {
-        return 'Challenge';
-      }
-      return 'challenge';
+    return text.replace(/\bstruggles?\b|\bstruggled\b|\bstruggling\b/gi, (match) => {
+      const upper = match[0] === match[0].toUpperCase();
+      const lower = match.toLowerCase();
+      if (lower === 'struggling') return upper ? 'Facing challenges' : 'facing challenges';
+      if (lower === 'struggled') return upper ? 'Faced challenges' : 'faced challenges';
+      if (lower === 'struggles') return upper ? 'Challenges' : 'challenges';
+      return upper ? 'Challenge' : 'challenge';
     });
   },
 };

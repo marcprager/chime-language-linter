@@ -25,7 +25,44 @@ function findMatchIndex(text: string, line: number, column: number, matched: str
 // Known auto-fix replacements for per-issue fixes
 const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
   'em-dash': () => '\u2013',
-  struggle: () => 'challenge',
+  'double-dash': () => '\u2013',
+  spelling: (m) => {
+    // Import the lookup at runtime to avoid circular deps
+    const MISSPELLINGS: Record<string, string> = {
+      'memmber obsessed': 'Member Obsessed', 'memeber obsessed': 'Member Obsessed',
+      'member obsesed': 'Member Obsessed', 'member obssessed': 'Member Obsessed',
+      'be bolld': 'Be Bold', 'winn together': 'Win Together',
+      'win togther': 'Win Together', 'win toghether': 'Win Together',
+      'repect the rules': 'Respect the Rules', 'be an onwer': 'Be an Owner',
+      'accomodate': 'accommodate', 'acheive': 'achieve', 'achievment': 'achievement',
+      'accross': 'across', 'alot': 'a lot', 'assesment': 'assessment',
+      'beleive': 'believe', 'buisness': 'business', 'calender': 'calendar',
+      'collegues': 'colleagues', 'committment': 'commitment', 'commited': 'committed',
+      'comunicate': 'communicate', 'concensus': 'consensus', 'consistant': 'consistent',
+      'decison': 'decision', 'definately': 'definitely', 'developement': 'development',
+      'employes': 'employees', 'enviroment': 'environment', 'excercise': 'exercise',
+      'guidence': 'guidance', 'guidlines': 'guidelines', 'heirarchy': 'hierarchy',
+      'immediatly': 'immediately', 'independant': 'independent', 'knowlege': 'knowledge',
+      'managment': 'management', 'neccessary': 'necessary', 'occured': 'occurred',
+      'occurence': 'occurrence', 'oppurtunity': 'opportunity', 'performace': 'performance',
+      'proffesional': 'professional', 'recieve': 'receive', 'recieved': 'received',
+      'recomend': 'recommend', 'relevent': 'relevant', 'seperate': 'separate',
+      'succesful': 'successful', 'thier': 'their', 'truely': 'truly',
+      'untill': 'until', 'wether': 'whether', 'writting': 'writing',
+      'onboading': 'onboarding', 'feedbck': 'feedback', 'peformance': 'performance',
+      'engagment': 'engagement', 'stakeholer': 'stakeholder', 'accountablity': 'accountability',
+      'transparancy': 'transparency', 'competancy': 'competency',
+    };
+    return MISSPELLINGS[m.toLowerCase()] || m;
+  },
+  struggle: (m) => {
+    const lower = m.toLowerCase();
+    const upper = m[0] === m[0].toUpperCase();
+    if (lower === 'struggling') return upper ? 'Facing challenges' : 'facing challenges';
+    if (lower === 'struggled') return upper ? 'Faced challenges' : 'faced challenges';
+    if (lower === 'struggles') return upper ? 'Challenges' : 'challenges';
+    return upper ? 'Challenge' : 'challenge';
+  },
   'hard-mode': () => 'Advanced',
   // Identity labels -- grammatically parallel noun replacements
   'identity-labels': (m) => {
@@ -46,7 +83,7 @@ const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
     if (lower.match(/addictive/)) return 'compelling';
     if (lower.match(/addiction/)) return 'strong preference';
     if (lower.match(/secret\s+weapon/)) return 'key strength';
-    if (lower.match(/game[\s-]changer/)) return 'breakthrough';
+    if (lower.match(/game[\s-]?changer/)) return 'breakthrough';
     if (lower.match(/revolutionary/)) return 'innovative';
     if (lower.match(/crushing\s+it/)) return 'excelling';
     if (lower.match(/killing\s+it/)) return 'excelling';
@@ -69,6 +106,29 @@ const SINGLE_FIX_MAP: Record<string, (matched: string) => string> = {
     if (m.match(/SARA/i)) return 'the SARA model';
     return m;
   },
+  // Chime values -- known variants and near-misspellings
+  'chime-values': (matched) => {
+    const CHIME_VALUES = ['Member Obsessed', 'Be Bold', 'Win Together', 'Respect the Rules', 'Be an Owner'];
+    const KNOWN_VARIANTS: Record<string, string> = {
+      'winning together': 'Win Together',
+      'member obsession': 'Member Obsessed',
+      'being bold': 'Be Bold',
+      'respecting the rules': 'Respect the Rules',
+      'being an owner': 'Be an Owner',
+    };
+    const clean = matched.replace(/[.,;:!?'")\]]+$/, '').replace(/^['"(\[]+/, '');
+    const variant = KNOWN_VARIANTS[clean.toLowerCase()];
+    if (variant) return variant;
+    for (const value of CHIME_VALUES) {
+      if (Math.abs(clean.length - value.length) <= 3 && clean.toLowerCase() !== value.toLowerCase()) {
+        return value;
+      }
+    }
+    return matched;
+  },
+  // Win Together quote
+  'win-together-quote': () =>
+    'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others. We believe that clarity is kindness.',
 };
 
 export type SeverityFilter = 'all' | Severity;
@@ -121,9 +181,14 @@ export function useLinter(): UseLinterReturn {
       setResult(null);
       return;
     }
-    const linted = lintText(debouncedText);
-    setResult(linted);
-    trackEvent('check');
+    try {
+      const linted = lintText(debouncedText);
+      setResult(linted);
+      trackEvent('check');
+    } catch (err) {
+      console.error('Lint error:', err);
+      setResult(null);
+    }
   }, [debouncedText]);
 
   const filteredIssues = result

@@ -7,7 +7,7 @@ export const hardModeRule: LintRule = {
   check(text, file) {
     const issues: LintIssue[] = [];
     const lines = text.split('\n');
-    const regex = /\bhard\s+mode\b/gi;
+    const regex = /\bhard[\s-]+mode\b/gi;
 
     for (let i = 0; i < lines.length; i++) {
       regex.lastIndex = 0;
@@ -31,11 +31,9 @@ export const hardModeRule: LintRule = {
     return issues;
   },
   fix(text) {
-    return text.replace(/\bhard\s+mode\b/gi, (match) => {
-      // Preserve capitalization pattern
-      if (match[0] === match[0].toUpperCase()) {
-        return 'Advanced';
-      }
+    return text.replace(/\bhard[\s-]+mode\b/gi, (match) => {
+      if (match === match.toUpperCase()) return 'ADVANCED';
+      if (match[0] === match[0].toUpperCase()) return 'Advanced';
       return 'advanced';
     });
   },
