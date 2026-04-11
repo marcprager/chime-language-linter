@@ -1576,7 +1576,7 @@
                         A practical guide to giving and receiving peer feedback that drives growth, builds trust, and strengthens how we work together at Chime.
                     </p>
                     <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.9);">
-                        <span>⏱</span> <span>About 20 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
+                        <span>⏱</span> <span>About 25 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
                     </div>
                     <div class="brand-dot-accent" style="margin-top: 20px;">
                         <div class="brand-dot" style="background: var(--chime-green);"></div>
@@ -2015,8 +2015,7 @@
                 <p class="section-subtitle dark-subtitle">Understanding the psychology helps us navigate the discomfort.</p>
 
                 <div class="content-block">
-                    <p>Feedback creates tension between two fundamental human needs: <strong>the desire to learn and grow</strong> vs. <strong>the desire to be accepted exactly as we are</strong>.</p>
-                    <p>Research identifies three "triggers" that can derail us when receiving feedback:</p>
+                    <p>Even when we <em>want</em> to give or receive feedback, something can short-circuit the conversation. Research identifies three "triggers" that hijack our response:</p>
                 </div>
 
                 <div class="flip-grid" style="grid-template-columns: repeat(3, 1fr);" id="trigger-flip-grid">
@@ -2780,15 +2779,15 @@
                     </div>
                     <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">What’s your first move?</div>
                     <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-0">
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, ‘best’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, 'best')" style="cursor: pointer;">
                             <div class="scenario-choice-label">A</div>
                             <div class="scenario-choice-text">"Thanks for flagging that. Can you walk me through which dependencies were missing so I can fix it?"</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, ‘poor’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, 'poor')" style="cursor: pointer;">
                             <div class="scenario-choice-label">B</div>
                             <div class="scenario-choice-text">"I based it on the template we always use. I’m not sure what else I was supposed to include."</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, ‘okay’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, 'okay')" style="cursor: pointer;">
                             <div class="scenario-choice-label">C</div>
                             <div class="scenario-choice-text">"OK, I’ll take another look at it."</div>
                         </div>
@@ -2814,15 +2813,15 @@
                     </div>
                     <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">How do you respond?</div>
                     <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-1">
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, ‘poor’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'poor')" style="cursor: pointer;">
                             <div class="scenario-choice-label">A</div>
                             <div class="scenario-choice-text">"I was just excited about the project. Everyone had a chance to speak up."</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, ‘okay’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'okay')" style="cursor: pointer;">
                             <div class="scenario-choice-label">B</div>
                             <div class="scenario-choice-text">"I appreciate you telling me. I’ll try to be more aware next time."</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, ‘best’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'best')" style="cursor: pointer;">
                             <div class="scenario-choice-label">C</div>
                             <div class="scenario-choice-text">"So you’re saying I was talking too much and not leaving room? Yeah, I can see that -- I did get carried away. Sorry about that."</div>
                         </div>
@@ -2848,15 +2847,15 @@
                     </div>
                     <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">What do you say?</div>
                     <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-2">
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, ‘poor’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'poor')" style="cursor: pointer;">
                             <div class="scenario-choice-label">A</div>
                             <div class="scenario-choice-text">"That’s surprising -- we just did planning last month. Who said that?"</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, ‘okay’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'okay')" style="cursor: pointer;">
                             <div class="scenario-choice-label">B</div>
                             <div class="scenario-choice-text">"You’re right, I should probably do another alignment session with the team."</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, ‘best’)" style="cursor: pointer;">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'best')" style="cursor: pointer;">
                             <div class="scenario-choice-label">C</div>
                             <div class="scenario-choice-text">"That’s really important to hear. I want to sit with this and check in with my team before responding. Can we revisit this on Thursday?"</div>
                         </div>
@@ -2955,9 +2954,29 @@
                     </div>
                 </div>
 
+                <div style="margin-top: 24px; padding: 20px; background: var(--gray-50); border-radius: var(--radius); border: 2px solid var(--gray-200);">
+                    <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">Quick check: Which channel?</div>
+                    <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 16px;">A teammate keeps interrupting you in meetings. You want to give them constructive feedback. What's the best channel?</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;" id="channel-check">
+                        <div class="scenario-choice" onclick="selectChannelCheck(this, 'best')" style="cursor: pointer;">
+                            <div class="scenario-choice-label">A</div>
+                            <div class="scenario-choice-text">Private 1:1 conversation, in person or video</div>
+                        </div>
+                        <div class="scenario-choice" onclick="selectChannelCheck(this, 'okay')" style="cursor: pointer;">
+                            <div class="scenario-choice-label">B</div>
+                            <div class="scenario-choice-text">Written feedback in Workday</div>
+                        </div>
+                        <div class="scenario-choice" onclick="selectChannelCheck(this, 'poor')" style="cursor: pointer;">
+                            <div class="scenario-choice-label">C</div>
+                            <div class="scenario-choice-text">Slack message after the next meeting</div>
+                        </div>
+                    </div>
+                    <div class="scenario-outcome" id="channel-check-outcome" style="display: none;"></div>
+                </div>
+
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
-                    <button class="btn btn-primary" id="section17-continue" onclick="nextSection()" disabled>Continue →</button>
+                    <button class="btn btn-primary" id="section17-continue" onclick="nextSection()" disabled>Continue</button>
                 </div>
             </div>
         </div>
@@ -3554,10 +3573,10 @@
                 "SBI: Chime's Feedback Model",
                 '"One Thing Better"',
                 'Is This Constructive Feedback?',
-                'One More Practice',
+                'Fix This Feedback',
                 "Back to Kai's Situation",
                 'The Other Side: Receiving Well',
-                'How to Receive Feedback',
+                'Receive Like a Pro',
                 'In-Person vs. Workday',
                 'Cross-Functional Feedback',
                 'Put It Into Practice',
@@ -4401,7 +4420,7 @@
             var sample = document.getElementById('scenario-sample');
             sample.innerHTML = scenarios[currentScenario].sample;
             sample.classList.add('show');
-            var s11btn = document.getElementById('practice-continue');
+            var s11btn = document.getElementById('section11-continue');
             if (s11btn) s11btn.disabled = false;
         }
         function nextScenario() {
@@ -5052,19 +5071,8 @@
 
         // Section 7 (Feedback Gap): Gating is handled by showGapScene when reaching final scene
 
-        // Section 10 (SBI Framework): Enable when collapsible is opened
-        (function() {
-            var origToggle = window.toggleCollapsible;
-            window.toggleCollapsible = function(btn) {
-                origToggle(btn);
-                // Check if this is in section 10
-                var section = btn.closest('#section-10');
-                if (section) {
-                    var s10btn = document.getElementById('section10-continue');
-                    if (s10btn) s10btn.disabled = false;
-                }
-            };
-        })();
+        // Section 10 (SBI Framework): Gating handled by SBI builder (validateSBI)
+        // Collapsible is supplementary -- does not gate progression
 
         // Section 11 (One Thing Better practice): Enable after viewing sample
         (function() {
@@ -5076,15 +5084,25 @@
             };
         })();
 
-        // Section 17 (Delivery tabs): Enable on tab switch
-        (function() {
-            var origSwitch = window.switchDeliveryTab;
-            window.switchDeliveryTab = function(tab) {
-                origSwitch(tab);
-                var btn = document.getElementById('section17-continue');
-                if (btn) btn.disabled = false;
+        // Section 17 (Delivery Methods): Gated by channel check, not tab switch
+        function selectChannelCheck(el, quality) {
+            el.parentElement.querySelectorAll('.scenario-choice').forEach(function(c) {
+                c.style.opacity = '0.5'; c.style.pointerEvents = 'none';
+            });
+            el.style.opacity = '1'; el.style.border = '2px solid var(--chime-green)';
+            var outcome = document.getElementById('channel-check-outcome');
+            var data = {
+                best: { type: 'best', badge: '✅ Best choice', text: 'Constructive feedback about behavior should happen live, in private. It lets you read body language, show empathy, and have a real dialogue.' },
+                okay: { type: 'okay', badge: '👍 Partial credit', text: 'Workday is great for structured, documented feedback -- but for a sensitive behavioral topic like this, a live conversation first lets you read the room and adjust your delivery.' },
+                poor: { type: 'poor', badge: '⚠️ Risky', text: 'Slack is too informal for constructive feedback and creates a written record that can be misread. Tone doesn\'t translate well in text -- especially for something that could feel personal.' }
             };
-        })();
+            var d = data[quality];
+            outcome.className = 'scenario-outcome show ' + d.type;
+            outcome.innerHTML = '<div class="outcome-badge">' + d.badge + '</div><div class="outcome-text">' + d.text + '</div>';
+            outcome.style.display = 'block';
+            var s17btn = document.getElementById('section17-continue');
+            if (s17btn) s17btn.disabled = false;
+        }
 
     </script>
     <div class="review-banner" id="review-banner">
