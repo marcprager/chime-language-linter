@@ -5,7 +5,7 @@ import path from 'path';
 export default defineConfig({
   // For GitHub Pages: set to '/chime-language-linter/'
   // For custom domain or internal hosting: set to '/'
-  base: '/chime-language-linter/',
+  base: '/feedback-lx/',
   plugins: [react()],
   resolve: {
     alias: {
