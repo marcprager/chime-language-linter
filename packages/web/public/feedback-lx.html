@@ -148,10 +148,15 @@
 
         .section {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: sectionEnter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .section.active { display: block; }
+
+        @keyframes sectionEnter {
+            from { opacity: 0; transform: translateY(30px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -291,8 +296,8 @@
 
         .stat-card:hover {
             border-color: var(--chime-green);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(30, 198, 119, 0.15);
         }
 
         .stat-number {
@@ -1264,6 +1269,43 @@
         .audio-speed:hover { border-color: #999; }
         .submit-note { font-size: 12px; color: var(--gray-500); text-align: center; margin-top: 12px; font-style: italic; }
 
+        /* SARA interactive */
+        .sara-interactive { margin: 32px 0; }
+        .sara-wave-bg { border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
+        .sara-stages-row { display: flex; align-items: center; justify-content: center; gap: 0; margin-top: -20px; position: relative; z-index: 1; flex-wrap: nowrap; }
+        .sara-stage-card { text-align: center; padding: 16px 12px; border-radius: var(--radius); border: 2px solid var(--gray-200); background: white; cursor: pointer; transition: all 0.3s ease; flex: 0 0 auto; min-width: 110px; }
+        .sara-stage-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--chime-green); }
+        .sara-stage-card.active { border-color: var(--chime-green); box-shadow: 0 0 0 3px rgba(30,198,119,0.15), var(--shadow-lg); transform: translateY(-4px); }
+        .sara-stage-icon { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; }
+        .sara-stage-letter { font-size: 24px; font-weight: 900; color: var(--chime-green); }
+        .sara-stage-name { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-top: 2px; }
+        .sara-stage-micro { font-size: 11px; color: var(--gray-500); font-style: italic; margin-top: 4px; }
+        .sara-stage-connector { flex: 0 0 40px; display: flex; align-items: center; justify-content: center; }
+        .sara-detail-panel { margin-top: 16px; padding: 20px; background: var(--gray-50); border-radius: var(--radius); border-left: 4px solid var(--chime-green); display: none; animation: slideDown 0.3s ease; }
+        .sara-detail-panel.show { display: block; }
+        @media (max-width: 768px) { .sara-stages-row { flex-wrap: wrap; gap: 8px; justify-content: center; } .sara-stage-connector { display: none; } .sara-stage-card { min-width: 100px; } }
+
+        /* Feedback Gap story */
+        .gap-story { margin: 32px 0; }
+        .gap-timeline { display: flex; align-items: center; justify-content: space-between; position: relative; margin-bottom: 32px; padding: 0 20px; }
+        .gap-timeline-track { position: absolute; left: 40px; right: 40px; top: 50%; height: 4px; background: var(--gray-200); border-radius: 2px; transform: translateY(-50%); z-index: 0; }
+        .gap-timeline-fill { height: 100%; background: linear-gradient(90deg, var(--chime-green), var(--green-700)); border-radius: 2px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); width: 0%; }
+        .gap-dot { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-200); color: var(--gray-500); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; z-index: 1; transition: all 0.4s ease; cursor: pointer; }
+        .gap-dot.active { background: var(--chime-green); color: white; transform: scale(1.15); box-shadow: 0 0 0 4px rgba(30, 198, 119, 0.2); }
+        .gap-dot.visited { background: var(--green-700); color: white; }
+        .gap-scene { display: none; animation: fadeSlideIn 0.5s ease; }
+        .gap-scene.active { display: flex; gap: 24px; align-items: stretch; }
+        .gap-scene-visual { flex: 0 0 160px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; min-height: 200px; }
+        .gap-scene-emoji { font-size: 64px; animation: gentleBounce 2s ease-in-out infinite; }
+        .gap-scene-content { flex: 1; }
+        .gap-scene-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--chime-green); margin-bottom: 8px; }
+        .gap-scene-title { font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 12px; font-family: Merriweather, Georgia, serif; }
+        .gap-scene-text { font-size: 15px; color: var(--gray-700); line-height: 1.7; }
+        .gap-scene-text em { color: var(--gray-500); }
+        @keyframes fadeSlideIn { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes gentleBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @media (max-width: 768px) { .gap-scene.active { flex-direction: column; } .gap-scene-visual { flex: none; min-height: 120px; } }
+
         /* Idea callout (SBI section) */
         .idea-callout { background: var(--accent-aspiration-50, #FDEBFF); border: 2px solid var(--accent-aspiration, #F7BDFE); border-radius: 12px; padding: 24px; margin: 24px 0; }
         .idea-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
@@ -1461,6 +1503,19 @@
         .brand-dot-accent { display: flex; gap: 6px; justify-content: center; margin: 16px 0; }
         .brand-dot { width: 8px; height: 8px; border-radius: 50%; }
 
+        /* Confetti celebration */
+        .confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
+        .confetti-piece { position: absolute; width: 10px; height: 10px; top: -20px; animation: confettiFall linear forwards; }
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg) scale(0.3); opacity: 0; }
+        }
+
+        /* Milestone toast */
+        .milestone-toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-100px); background: linear-gradient(135deg, var(--green-900), var(--green-700)); color: white; padding: 16px 32px; border-radius: 100px; font-size: 15px; font-weight: 700; z-index: 10000; box-shadow: 0 8px 32px rgba(0,0,0,0.2); transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; align-items: center; gap: 10px; }
+        .milestone-toast.show { transform: translateX(-50%) translateY(0); }
+
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
@@ -1607,10 +1662,27 @@
                 <div class="section-badge dark-badge">📖 Meet Kai</div>
                 <h2 class="section-title dark-title">Sound Familiar?</h2>
                 
-                <div class="story-card">
-                    <div class="story-avatar">👤</div>
-                    <div class="story-name">Kai</div>
-                    <div class="story-role">Product Manager, 2 years at Chime</div>
+                <div class="story-card" style="border: 2px solid var(--chime-green); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--chime-green), var(--accent-freedom), var(--accent-security));"></div>
+                    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                        <div class="story-avatar" style="margin-bottom: 0; position: relative;">
+                            👤
+                            <div style="position: absolute; bottom: -2px; right: -2px; width: 20px; height: 20px; background: var(--accent-freedom); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; border: 2px solid white;">😰</div>
+                        </div>
+                        <div>
+                            <div class="story-name">Kai</div>
+                            <div class="story-role" style="margin-bottom: 0;">Product Manager, 2 years at Chime</div>
+                            <div style="margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; background: var(--accent-ease-50); border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--coral);">
+                                <span>Feedback Confidence:</span>
+                                <span>Low</span>
+                                <span style="display: flex; gap: 2px;">
+                                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--coral);"></span>
+                                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gray-200);"></span>
+                                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gray-200);"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <p class="story-text">
                         "Jordan missed the deadline on a key deliverable again, and it pushed our whole launch back. I know I should say something – we're supposed to give each other feedback, right? But what if it comes across wrong? What if Jordan gets defensive? What if it makes things weird between us? I keep telling myself I'll bring it up next time... but I never do."
                     </p>
@@ -1754,14 +1826,14 @@
                 <div class="stat-grid" style="margin-top: 32px;">
                     <div class="stat-card">
                         <div class="stat-number">58%</div>
-                        <div class="stat-label">"Win Together" score<br></div>
+                        <div class="stat-label">"Win Together" score</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">&lt;50%</div>
-                        <div class="stat-label">believe feedback is<br>a common practice at Chime</div>
+                        <div class="stat-number">51%</div>
+                        <div class="stat-label">favorable on "Chimers regularly<br>give each other constructive feedback"</div>
                     </div>
                 </div>
-                <p style="font-size: 12px; color: var(--gray-400); text-align: center; margin-top: -16px; margin-bottom: 24px;">Source: Chimer Engagement Survey, 2025 (all Chime employees, n=2,000+)</p>
+                <p style="font-size: 12px; color: var(--gray-400); text-align: center; margin-top: -16px; margin-bottom: 24px;">Source: Q4 2025 Experience Survey</p>
 
                 <div class="content-block">
                     <h3>From Fear to Fuel</h3>
@@ -1939,35 +2011,77 @@
         </div>
 
 
-        <!-- Section 8: Video – The Feedback Gap -->
+        <!-- Section 7: The Feedback Gap (Interactive Story) -->
         <div class="section" id="section-7">
             <div class="card">
-                <div class="section-badge dark-badge">🎬 Watch</div>
+                <div class="section-badge dark-badge">💡 The Cost of Silence</div>
                 <h2 class="section-title dark-title">The Feedback Gap</h2>
-                <p class="section-subtitle dark-subtitle">A short video on the cost of silence – and what helpful feedback actually looks like.</p>
+                <p class="section-subtitle dark-subtitle">What happens when the feedback people need never reaches them?</p>
 
-                <div class="content-block" style="margin-bottom: 24px;">
-                    <p>Before we get into frameworks and practice, take a couple of minutes to watch this. It covers why the gap between the feedback people need and the feedback they get matters more than most of us realize.</p>
-                </div>
-
-                <div id="video-wrapper" style="position: relative; width: 100%; aspect-ratio: 16/9; margin: 0 auto 24px auto; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, var(--green-1000) 0%, var(--green-900) 50%, var(--green-700) 100%); box-shadow: 0 4px 20px rgba(0,0,0,0.15); cursor: pointer;" onclick="playFeedbackVideo()">
-                    <!-- Play overlay -->
-                    <div id="video-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; z-index: 2; transition: opacity 0.4s ease;">
-                        <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); border: 2px solid rgba(255,255,255,0.3); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                            <div style="font-size: 36px; margin-left: 4px; color: white;">▶</div>
+                <!-- Animated timeline story -->
+                <div class="gap-story" id="gap-story">
+                    <div class="gap-timeline">
+                        <div class="gap-timeline-track">
+                            <div class="gap-timeline-fill" id="gap-timeline-fill"></div>
                         </div>
-                        <div style="text-align: center; color: white;">
-                            <div style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">The Feedback Gap</div>
-                            <div style="font-size: 14px; opacity: 0.8;">Click to play · 2 min video</div>
+                        <div class="gap-dot active" id="gap-dot-0">1</div>
+                        <div class="gap-dot" id="gap-dot-1">2</div>
+                        <div class="gap-dot" id="gap-dot-2">3</div>
+                        <div class="gap-dot" id="gap-dot-3">4</div>
+                    </div>
+
+                    <div class="gap-scene active" id="gap-scene-0">
+                        <div class="gap-scene-visual" style="background: linear-gradient(135deg, var(--green-50), #E8FFF5);">
+                            <div class="gap-scene-emoji">👀</div>
+                        </div>
+                        <div class="gap-scene-content">
+                            <div class="gap-scene-label">Week 1</div>
+                            <div class="gap-scene-title">The Observation</div>
+                            <p class="gap-scene-text">Priya notices that her teammate Dex keeps going off-script in client calls, promising features the team hasn't scoped. It happened twice this week. She thinks: <em>"I should probably say something... but it's not really my place."</em></p>
                         </div>
                     </div>
-                    <!-- Actual video element -->
-                    <video id="feedback-video" style="position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 16px; object-fit: cover;" controls preload="metadata" controlslist="nodownload">
-                        <source src="The_Feedback_Gap.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+
+                    <div class="gap-scene" id="gap-scene-1">
+                        <div class="gap-scene-visual" style="background: linear-gradient(135deg, var(--accent-freedom-50), #FFFEF0);">
+                            <div class="gap-scene-emoji">😬</div>
+                        </div>
+                        <div class="gap-scene-content">
+                            <div class="gap-scene-label">Week 3</div>
+                            <div class="gap-scene-title">The Ripple Effect</div>
+                            <p class="gap-scene-text">Dex promises another unscoped feature. Engineering scrambles. The PM is frustrated. Two people vent about it in a side Slack channel. Dex has no idea any of this is happening. Priya still hasn't said anything: <em>"It'll probably sort itself out."</em></p>
+                        </div>
+                    </div>
+
+                    <div class="gap-scene" id="gap-scene-2">
+                        <div class="gap-scene-visual" style="background: linear-gradient(135deg, var(--accent-ease-50), #FFF0F0);">
+                            <div class="gap-scene-emoji">💥</div>
+                        </div>
+                        <div class="gap-scene-content">
+                            <div class="gap-scene-label">Week 6</div>
+                            <div class="gap-scene-title">The Breakdown</div>
+                            <p class="gap-scene-text">A client escalation. The promised feature wasn't delivered. Trust is damaged. Dex's manager pulls them into a hard conversation. Dex is blindsided: <em>"Why didn't anyone tell me this was a problem? I would have changed my approach weeks ago."</em></p>
+                        </div>
+                    </div>
+
+                    <div class="gap-scene" id="gap-scene-3">
+                        <div class="gap-scene-visual" style="background: linear-gradient(135deg, var(--green-50), var(--accent-security-50));">
+                            <div class="gap-scene-emoji">🔄</div>
+                        </div>
+                        <div class="gap-scene-content">
+                            <div class="gap-scene-label">The Rewind</div>
+                            <div class="gap-scene-title">What If Priya Had Spoken Up?</div>
+                            <p class="gap-scene-text">Back at Week 1, Priya says: <em>"Hey Dex, in the Acme call today, when you mentioned the analytics dashboard, engineering hasn't scoped that yet. It could create expectations we can't meet. What if we align on what's confirmed before each call?"</em></p>
+                            <div style="margin-top: 16px; padding: 16px; background: white; border-radius: 10px; border-left: 4px solid var(--chime-green);">
+                                <p style="font-size: 14px; color: var(--gray-700); margin: 0;"><strong>The gap</strong> isn't between good and bad employees. It's between the feedback people <em>need</em> and the feedback they actually <em>get</em>. Every day that gap stays open, small problems become big ones.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p id="video-fallback-msg" style="font-size: 13px; color: #666; text-align: center; margin: 0 0 24px 0; display: none;">If the video doesn't load, ensure The_Feedback_Gap.mp4 is in the same folder as this HTML file.</p>
+
+                <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
+                    <button class="btn btn-secondary" id="gap-prev-btn" onclick="prevGapScene()" disabled style="padding: 10px 20px;">← Previous</button>
+                    <button class="btn btn-primary" id="gap-next-btn" onclick="nextGapScene()" style="padding: 10px 20px;">Next →</button>
+                </div>
 
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
@@ -2215,22 +2329,47 @@
                 </div>
 
 
-                <div class="practice-builder" style="margin: 24px 0; padding: 24px; border: 2px solid var(--gray-200); border-radius: 12px; background: linear-gradient(135deg, var(--green-50) 0%, white 100%);">
-                    <h3 style="font-size: 16px; margin-bottom: 16px;">🎯 Try it: Build your own SBI</h3>
-                    <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 16px;">Think of real feedback you need to give. Draft it using SBI.</p>
+                <div class="practice-builder" style="margin: 24px 0; padding: 24px; border: 2px solid var(--gray-200); border-radius: 16px; background: linear-gradient(135deg, var(--green-50) 0%, white 100%);">
+                    <h3 style="font-size: 16px; margin-bottom: 4px;">🎯 Try it: Build your own SBI</h3>
+                    <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 16px;">Think of real feedback you need to give. As you type, we'll check your SBI structure.</p>
+
+                    <!-- Live quality meter -->
+                    <div id="sbi-meter" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding: 12px 16px; background: white; border-radius: 10px; border: 1px solid var(--gray-200);">
+                        <div style="font-size: 13px; font-weight: 700; color: var(--gray-500); white-space: nowrap;">SBI Score</div>
+                        <div style="flex: 1; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden;">
+                            <div id="sbi-meter-fill" style="height: 100%; width: 0%; background: var(--gray-400); border-radius: 4px; transition: all 0.4s ease;"></div>
+                        </div>
+                        <div id="sbi-meter-label" style="font-size: 13px; font-weight: 700; color: var(--gray-400); min-width: 30px;">0/3</div>
+                    </div>
+
                     <div style="margin-bottom: 14px;">
-                        <label style="display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">S – Situation (when &amp; where)</label>
-                        <input type="text" id="sbi-s" placeholder='e.g., "In Tuesday's standup..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: 'DM Sans', sans-serif;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="sbi-check-s" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            S – Situation (when &amp; where)
+                        </label>
+                        <input type="text" id="sbi-s" oninput="checkSBIProgress()" placeholder='e.g., "In Tuesday's standup..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
                     </div>
                     <div style="margin-bottom: 14px;">
-                        <label style="display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">B – Behavior (what you observed)</label>
-                        <input type="text" id="sbi-b" placeholder='e.g., "You jumped in before Priya finished her update..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: 'DM Sans', sans-serif;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="sbi-check-b" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            B – Behavior (what you observed)
+                        </label>
+                        <input type="text" id="sbi-b" oninput="checkSBIProgress()" placeholder='e.g., "You jumped in before Priya finished..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
                     </div>
                     <div style="margin-bottom: 14px;">
-                        <label style="display: block; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">I – Impact (effect on you, team, or outcome)</label>
-                        <input type="text" id="sbi-i" placeholder='e.g., "...which meant we missed context and had to revisit it later"' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: 'DM Sans', sans-serif;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="sbi-check-i" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            I – Impact (effect on you, team, or outcome)
+                        </label>
+                        <input type="text" id="sbi-i" oninput="checkSBIProgress()" placeholder='e.g., "...which meant we missed context"' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
                     </div>
-                    <p style="font-size: 12px; color: var(--gray-400);">🔒 This is for your eyes only.</p>
+
+                    <div id="sbi-preview" style="display: none; margin-top: 16px; padding: 16px; background: white; border-radius: 10px; border: 2px solid var(--chime-green);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--chime-green); margin-bottom: 8px;">✓ Your SBI feedback</div>
+                        <div id="sbi-preview-text" style="font-size: 15px; color: var(--gray-700); line-height: 1.6; font-style: italic;"></div>
+                    </div>
+
+                    <p style="font-size: 12px; color: var(--gray-400); margin-top: 12px;">🔒 This is for your eyes only — nothing is stored.</p>
                 </div>
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
@@ -2379,10 +2518,27 @@
                 <h2 class="section-title dark-title">Back to Kai's Situation</h2>
                 <p class="section-subtitle dark-subtitle">Let's help Kai give feedback to Jordan about the missed deadline.</p>
 
-                <div class="scenario-setup">
+                <div class="scenario-setup" style="border-color: var(--chime-green); background: linear-gradient(135deg, var(--green-50) 0%, white 100%);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--chime-green), var(--green-700)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; position: relative;">
+                            👤
+                            <div style="position: absolute; bottom: -2px; right: -2px; width: 18px; height: 18px; background: var(--accent-freedom); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; border: 2px solid white;">💪</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 15px; font-weight: 700; color: var(--text-primary);">Kai is ready to try</div>
+                            <div style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 8px; background: var(--green-50); border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--green-700); margin-top: 4px;">
+                                Confidence: Growing
+                                <span style="display: flex; gap: 2px;">
+                                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--chime-green);"></span>
+                                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--chime-green);"></span>
+                                    <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--gray-200);"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="scenario-label">The Situation</div>
                     <p class="scenario-context">
-                        Jordan missed the deadline on a key deliverable for the second time, pushing the team's launch back. Kai has been hesitant to say anything, but it's affecting the whole team. Kai decides to have a conversation.
+                        Jordan missed the deadline on a key deliverable for the second time, pushing the team's launch back. Kai has been hesitant to say anything, but it's affecting the whole team. Armed with SBI and "One Thing Better," Kai decides to have the conversation.
                     </p>
                 </div>
 
@@ -2424,26 +2580,62 @@
                     <p>When we receive critical feedback, we often move through predictable stages. Knowing this helps us navigate the emotions.</p>
                 </div>
 
-                <div class="sara-visual">
-                    <div class="sara-stage">
-                        <div class="sara-emoji">😲</div>
-                        <div class="sara-label">Shock</div>
+                <div class="sara-interactive" id="sara-interactive">
+                    <div class="sara-wave-bg">
+                        <svg viewBox="0 0 800 120" preserveAspectRatio="none" style="width:100%;height:120px;display:block;">
+                            <defs>
+                                <linearGradient id="saraBg" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#FFBFBF" stop-opacity="0.3"/>
+                                    <stop offset="35%" stop-color="#FFD600" stop-opacity="0.3"/>
+                                    <stop offset="70%" stop-color="#B0E9E5" stop-opacity="0.3"/>
+                                    <stop offset="100%" stop-color="#1EC677" stop-opacity="0.3"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,90 C100,90 150,30 200,30 C250,30 300,70 400,50 C500,30 550,20 600,25 C650,30 700,15 800,10 L800,120 L0,120 Z" fill="url(#saraBg)"/>
+                            <path d="M0,90 C100,90 150,30 200,30 C250,30 300,70 400,50 C500,30 550,20 600,25 C650,30 700,15 800,10" fill="none" stroke="var(--chime-green)" stroke-width="3" stroke-dasharray="1200" stroke-dashoffset="1200" id="sara-path">
+                                <animate attributeName="stroke-dashoffset" from="1200" to="0" dur="2s" fill="freeze" begin="0.3s"/>
+                            </path>
+                        </svg>
                     </div>
-                    <div class="sara-arrow">→</div>
-                    <div class="sara-stage">
-                        <div class="sara-emoji">😤</div>
-                        <div class="sara-label">Anger</div>
+                    <div class="sara-stages-row">
+                        <div class="sara-stage-card" onclick="showSaraDetail(0)" id="sara-card-0">
+                            <div class="sara-stage-icon" style="background: linear-gradient(135deg, #FFE5E5, #FFBFBF);">
+                                <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#E53E3E" stroke-width="2"/><circle cx="12" cy="14" r="2.5" fill="#E53E3E"/><circle cx="24" cy="14" r="2.5" fill="#E53E3E"/><ellipse cx="18" cy="24" rx="4" ry="3" fill="none" stroke="#E53E3E" stroke-width="2"/></svg>
+                            </div>
+                            <div class="sara-stage-letter">S</div>
+                            <div class="sara-stage-name">Shock</div>
+                            <div class="sara-stage-micro">"Wait, what?"</div>
+                        </div>
+                        <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
+                        <div class="sara-stage-card" onclick="showSaraDetail(1)" id="sara-card-1">
+                            <div class="sara-stage-icon" style="background: linear-gradient(135deg, var(--accent-freedom-50), var(--accent-freedom));">
+                                <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#D97706" stroke-width="2"/><line x1="10" y1="12" x2="14" y2="15" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="12" x2="22" y2="15" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/><path d="M12,24 Q18,20 24,24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="sara-stage-letter">A</div>
+                            <div class="sara-stage-name">Anger</div>
+                            <div class="sara-stage-micro">"That's not fair!"</div>
+                        </div>
+                        <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
+                        <div class="sara-stage-card" onclick="showSaraDetail(2)" id="sara-card-2">
+                            <div class="sara-stage-icon" style="background: linear-gradient(135deg, #E5FFF9, var(--accent-security));">
+                                <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#0891B2" stroke-width="2"/><line x1="11" y1="14" x2="15" y2="14" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="14" x2="25" y2="14" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="24" x2="23" y2="24" stroke="#0891B2" stroke-width="2.5" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="sara-stage-letter">R</div>
+                            <div class="sara-stage-name">Resistance</div>
+                            <div class="sara-stage-micro">"Yeah, but..."</div>
+                        </div>
+                        <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
+                        <div class="sara-stage-card" onclick="showSaraDetail(3)" id="sara-card-3">
+                            <div class="sara-stage-icon" style="background: linear-gradient(135deg, var(--green-50), var(--chime-green));">
+                                <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#059669" stroke-width="2"/><circle cx="13" cy="14" r="2" fill="#059669"/><circle cx="23" cy="14" r="2" fill="#059669"/><path d="M12,22 Q18,28 24,22" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round"/></svg>
+                            </div>
+                            <div class="sara-stage-letter">A</div>
+                            <div class="sara-stage-name">Acceptance</div>
+                            <div class="sara-stage-micro">"OK, I can see that."</div>
+                        </div>
                     </div>
-                    <div class="sara-arrow">→</div>
-                    <div class="sara-stage">
-                        <div class="sara-emoji">🙅</div>
-                        <div class="sara-label">Resistance</div>
-                    </div>
-                    <div class="sara-arrow">→</div>
-                    <div class="sara-stage">
-                        <div class="sara-emoji">💯</div>
-                        <div class="sara-label">Acceptance</div>
-                    </div>
+                    <div class="sara-detail-panel" id="sara-detail-panel"></div>
+                    <p style="font-size: 12px; color: var(--gray-400); text-align: center; margin-top: 8px;">Click each stage to learn more</p>
                 </div>
 
                 <div class="content-block">
@@ -3212,7 +3404,9 @@
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
             try { SCORM.setLocation(currentSection); } catch(e) {}
+            checkMilestones(num);
 
+            if (num === 5) animateStats();
             if (num === 21 && document.getElementById('assessment-container').children.length === 0) {
                 initAssessment();
             }
@@ -3492,6 +3686,8 @@
             var passed = assessmentScore >= 70;
             if (passed) {
                 try { SCORM.complete(assessmentScore, true); } catch(e) {}
+                launchConfetti();
+                showMilestoneToast('🎉 ' + assessmentScore + '% — you passed!');
                 showAssessmentResults();
             } else {
                 if (assessmentAttempts >= 3) {
@@ -3734,6 +3930,10 @@
             // Update progress to 100%
             document.getElementById('progressFill').style.width = '100%';
             document.getElementById('progressText').textContent = '100% complete';
+
+            // Celebrate!
+            launchConfetti();
+            setTimeout(function() { launchConfetti(); }, 800);
         }
 
         function closeModule() {
@@ -3741,42 +3941,47 @@
             window.close();
         }
 
-        // ===== VIDEO PLAYER =====
-        function playFeedbackVideo() {
-            var video = document.getElementById('feedback-video');
-            var overlay = document.getElementById('video-overlay');
-            var wrapper = document.getElementById('video-wrapper');
-            if (!video) return;
-            overlay.style.opacity = '0';
-            overlay.style.pointerEvents = 'none';
-            wrapper.style.cursor = 'default';
-            wrapper.onclick = null;
-            video.style.objectFit = 'contain';
-            video.play().catch(function(e) {
-                // Autoplay blocked – show controls, user can click play on the video itself
-                console.log('Autoplay blocked, showing controls');
-            });
-        }
-        // Detect if video fails to load and show fallback message
-        document.addEventListener('DOMContentLoaded', function() {
-            var video = document.getElementById('feedback-video');
-            if (video) {
-                video.addEventListener('error', function() {
-                    var msg = document.getElementById('video-fallback-msg');
-                    if (msg) msg.style.display = 'block';
-                    var overlay = document.getElementById('video-overlay');
-                    if (overlay) {
-                        overlay.querySelector('div:last-child div:last-child').textContent = 'Video file not found – check file location';
-                    }
-                });
-                // Also check source errors
-                var source = video.querySelector('source');
-                if (source) {
-                    source.addEventListener('error', function() {
-                        var msg = document.getElementById('video-fallback-msg');
-                        if (msg) msg.style.display = 'block';
-                    });
+        // ===== FEEDBACK GAP STORY =====
+        var gapScene = 0;
+        var gapTotal = 4;
+        function showGapScene(n) {
+            gapScene = n;
+            for (var i = 0; i < gapTotal; i++) {
+                var scene = document.getElementById('gap-scene-' + i);
+                var dot = document.getElementById('gap-dot-' + i);
+                if (scene) scene.classList.remove('active');
+                if (dot) { dot.classList.remove('active'); if (i < n) dot.classList.add('visited'); else dot.classList.remove('visited'); }
+            }
+            var active = document.getElementById('gap-scene-' + n);
+            var activeDot = document.getElementById('gap-dot-' + n);
+            if (active) active.classList.add('active');
+            if (activeDot) { activeDot.classList.add('active'); activeDot.classList.remove('visited'); }
+            var fill = document.getElementById('gap-timeline-fill');
+            if (fill) fill.style.width = (n / (gapTotal - 1) * 100) + '%';
+            var prev = document.getElementById('gap-prev-btn');
+            var next = document.getElementById('gap-next-btn');
+            if (prev) prev.disabled = n === 0;
+            if (next) {
+                if (n >= gapTotal - 1) {
+                    next.textContent = 'Done ✓';
+                    next.disabled = true;
+                    var s7btn = document.getElementById('section7-continue');
+                    if (s7btn) s7btn.disabled = false;
+                } else {
+                    next.textContent = 'Next →';
+                    next.disabled = false;
                 }
+            }
+        }
+        function nextGapScene() { if (gapScene < gapTotal - 1) showGapScene(gapScene + 1); }
+        function prevGapScene() { if (gapScene > 0) showGapScene(gapScene - 1); }
+        // Allow clicking dots to jump
+        document.addEventListener('DOMContentLoaded', function() {
+            for (var i = 0; i < gapTotal; i++) {
+                (function(idx) {
+                    var dot = document.getElementById('gap-dot-' + idx);
+                    if (dot) dot.addEventListener('click', function() { if (idx <= gapScene + 1) showGapScene(idx); });
+                })(i);
             }
         });
 
@@ -4081,6 +4286,130 @@
             showSection(1);
         }
 
+        // ===== ANIMATED STAT COUNTERS =====
+        var statsAnimated = false;
+        function animateStats() {
+            if (statsAnimated) return;
+            statsAnimated = true;
+            document.querySelectorAll('#section-5 .stat-number').forEach(function(el) {
+                var text = el.textContent.trim();
+                var match = text.match(/(\d+)/);
+                if (!match) return;
+                var target = parseInt(match[1]);
+                var prefix = text.replace(match[0], '').replace('%', '');
+                var suffix = text.includes('%') ? '%' : '';
+                var start = 0;
+                var duration = 1200;
+                var startTime = null;
+                function step(ts) {
+                    if (!startTime) startTime = ts;
+                    var elapsed = ts - startTime;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.round(start + (target - start) * eased);
+                    el.textContent = prefix + current + suffix;
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            });
+        }
+
+        // ===== SBI LIVE CHECKER =====
+        function checkSBIProgress() {
+            var s = document.getElementById('sbi-s').value.trim();
+            var b = document.getElementById('sbi-b').value.trim();
+            var ip = document.getElementById('sbi-i').value.trim();
+            var count = 0;
+            var fields = [
+                { val: s, check: 'sbi-check-s', input: 'sbi-s' },
+                { val: b, check: 'sbi-check-b', input: 'sbi-b' },
+                { val: ip, check: 'sbi-check-i', input: 'sbi-i' }
+            ];
+            fields.forEach(function(f) {
+                var checkEl = document.getElementById(f.check);
+                var inputEl = document.getElementById(f.input);
+                if (f.val.length >= 10) {
+                    count++;
+                    checkEl.innerHTML = '✓';
+                    checkEl.style.background = 'var(--chime-green)';
+                    checkEl.style.borderColor = 'var(--chime-green)';
+                    checkEl.style.color = 'white';
+                    inputEl.style.borderColor = 'var(--chime-green)';
+                } else {
+                    checkEl.innerHTML = '';
+                    checkEl.style.background = 'transparent';
+                    checkEl.style.borderColor = 'var(--gray-300)';
+                    inputEl.style.borderColor = 'var(--gray-200)';
+                }
+            });
+            var fill = document.getElementById('sbi-meter-fill');
+            var label = document.getElementById('sbi-meter-label');
+            var pct = (count / 3) * 100;
+            fill.style.width = pct + '%';
+            label.textContent = count + '/3';
+            if (count === 3) {
+                fill.style.background = 'var(--chime-green)';
+                label.style.color = 'var(--chime-green)';
+                var preview = document.getElementById('sbi-preview');
+                var previewText = document.getElementById('sbi-preview-text');
+                preview.style.display = 'block';
+                previewText.textContent = '"' + s + ', ' + b + ', ' + ip + '"';
+                var s10btn = document.getElementById('section10-continue');
+                if (s10btn) s10btn.disabled = false;
+            } else if (count >= 2) {
+                fill.style.background = 'var(--accent-freedom)';
+                label.style.color = 'var(--accent-freedom)';
+                document.getElementById('sbi-preview').style.display = 'none';
+            } else {
+                fill.style.background = 'var(--gray-400)';
+                label.style.color = 'var(--gray-400)';
+                document.getElementById('sbi-preview').style.display = 'none';
+            }
+        }
+
+        // ===== CELEBRATIONS =====
+        function launchConfetti() {
+            var container = document.createElement('div');
+            container.className = 'confetti-container';
+            document.body.appendChild(container);
+            var colors = ['#1EC677', '#FFD600', '#B0E9E5', '#FFBFBF', '#F7BDFE', '#3182CE'];
+            for (var i = 0; i < 50; i++) {
+                var piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                var color = colors[Math.floor(Math.random() * colors.length)];
+                var size = 6 + Math.random() * 10;
+                var shapes = ['50%', '0', '2px'];
+                piece.style.cssText = 'left:' + Math.random() * 100 + '%;width:' + size + 'px;height:' + size + 'px;background:' + color + ';border-radius:' + shapes[Math.floor(Math.random() * shapes.length)] + ';animation-duration:' + (1.5 + Math.random() * 2) + 's;animation-delay:' + Math.random() * 0.5 + 's;';
+                container.appendChild(piece);
+            }
+            setTimeout(function() { container.remove(); }, 4000);
+        }
+        function showMilestoneToast(text) {
+            var toast = document.createElement('div');
+            toast.className = 'milestone-toast';
+            toast.innerHTML = text;
+            document.body.appendChild(toast);
+            requestAnimationFrame(function() { requestAnimationFrame(function() { toast.classList.add('show'); }); });
+            setTimeout(function() { toast.classList.remove('show'); setTimeout(function() { toast.remove(); }, 500); }, 3000);
+        }
+        var celebratedMilestones = {};
+        function checkMilestones(sectionNum) {
+            var progress = ((sectionNum - 1) / (totalSections - 1)) * 100;
+            if (progress >= 25 && !celebratedMilestones['25']) {
+                celebratedMilestones['25'] = true;
+                showMilestoneToast('🔥 25% complete — you\'re building momentum!');
+            }
+            if (progress >= 50 && !celebratedMilestones['50']) {
+                celebratedMilestones['50'] = true;
+                launchConfetti();
+                showMilestoneToast('🎯 Halfway there — keep going!');
+            }
+            if (progress >= 75 && !celebratedMilestones['75']) {
+                celebratedMilestones['75'] = true;
+                showMilestoneToast('💪 75% — the home stretch!');
+            }
+        }
+
         // Initialize
         updateProgress();
         initSidebar();
@@ -4105,6 +4434,26 @@
                     if (s6btn) s6btn.disabled = false;
                 }
             }
+        }
+
+        // SARA interactive detail
+        var saraDetails = [
+            { title: 'Shock', text: '<strong>What happens:</strong> Your brain freezes. You might feel a physical jolt — tightness in your chest, a flushed face. You\'re processing the surprise before you can even think about the content.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond immediately. "Thank you for sharing that — let me think about it" is a perfectly valid first response.' },
+            { title: 'Anger', text: '<strong>What happens:</strong> Your inner critic activates. "They\'re wrong." "Who are they to say that?" "They don\'t have the full picture." You might feel the urge to defend, explain, or counter-attack.<br><br><strong>What helps:</strong> Notice the anger without acting on it. Ask yourself: "Is this about the feedback, or about how it was delivered?" The anger is often about delivery, not content.' },
+            { title: 'Resistance', text: '<strong>What happens:</strong> You start negotiating. "Maybe it\'s partly true, but..." You might minimize, rationalize, or find exceptions. This is your brain\'s way of protecting your self-image while partially letting the feedback in.<br><br><strong>What helps:</strong> Look for the 2% that might be true. Even feedback that\'s mostly off-base usually contains a kernel worth examining.' },
+            { title: 'Acceptance', text: '<strong>What happens:</strong> The emotional charge fades. You can see the feedback more clearly — what\'s useful, what\'s not, and what you want to do about it. This doesn\'t mean you agree with everything. It means you can engage with it rationally.<br><br><strong>What helps:</strong> Propose a path forward. "Here\'s what I\'ll try differently..." This turns acceptance into action.' }
+        ];
+        var saraClicked = new Set();
+        function showSaraDetail(idx) {
+            saraClicked.add(idx);
+            for (var i = 0; i < 4; i++) {
+                var c = document.getElementById('sara-card-' + i);
+                if (c) c.classList.remove('active');
+            }
+            document.getElementById('sara-card-' + idx).classList.add('active');
+            var panel = document.getElementById('sara-detail-panel');
+            panel.innerHTML = '<div style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">' + saraDetails[idx].title + '</div><div style="font-size: 14px; color: var(--gray-700); line-height: 1.7;">' + saraDetails[idx].text + '</div>';
+            panel.className = 'sara-detail-panel show';
         }
 
         // Receiving feedback self-check
@@ -4270,31 +4619,7 @@
 
         // ===== ADDITIONAL GATING LOGIC =====
 
-        // Section 7 (Video): Enable continue when video plays or ends
-        document.addEventListener('DOMContentLoaded', function() {
-            var video = document.getElementById('feedback-video');
-            if (video) {
-                video.addEventListener('play', function() {
-                    var btn = document.getElementById('section7-continue');
-                    if (btn) btn.disabled = false;
-                });
-                video.addEventListener('ended', function() {
-                    var btn = document.getElementById('section7-continue');
-                    if (btn) btn.disabled = false;
-                });
-            }
-            // Also enable if user clicks the play overlay
-            var overlay = document.getElementById('video-overlay');
-            if (overlay) {
-                var origClick = overlay.onclick;
-                overlay.addEventListener('click', function() {
-                    setTimeout(function() {
-                        var btn = document.getElementById('section7-continue');
-                        if (btn) btn.disabled = false;
-                    }, 500);
-                });
-            }
-        });
+        // Section 7 (Feedback Gap): Gating is handled by showGapScene when reaching final scene
 
         // Section 10 (SBI Framework): Enable when collapsible is opened
         (function() {
