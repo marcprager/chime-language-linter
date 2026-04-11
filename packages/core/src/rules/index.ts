@@ -1,5 +1,6 @@
 import { LintRule } from '../types';
 import { emDashRule } from './em-dash';
+import { doubleDashRule } from './double-dash';
 import { struggleRule } from './struggle';
 import { chimeValuesRule } from './chime-values';
 import { winTogetherQuoteRule } from './win-together-quote';
@@ -13,9 +14,18 @@ import { clinicalTermsRule } from './clinical-terms';
 import { hardModeRule } from './hard-mode';
 import { fabricatedGreenHeartRule } from './fabricated-green-heart';
 import { levelLabelsRule } from './level-labels';
+import { emojiDensityRule } from './emoji-density';
+import { absoluteLanguageRule } from './absolute-language';
+import { accusatoryFramingRule } from './accusatory-framing';
+import { paragraphLengthRule } from './paragraph-length';
+import { spellingRule } from './spelling';
+import { jargonRule } from './jargon';
+import { passiveVoiceRule } from './passive-voice';
+import { hedgeWordsRule } from './hedge-words';
 
 export const allRules: LintRule[] = [
   emDashRule,
+  doubleDashRule,
   struggleRule,
   chimeValuesRule,
   winTogetherQuoteRule,
@@ -29,10 +39,19 @@ export const allRules: LintRule[] = [
   hardModeRule,
   fabricatedGreenHeartRule,
   levelLabelsRule,
+  emojiDensityRule,
+  absoluteLanguageRule,
+  accusatoryFramingRule,
+  paragraphLengthRule,
+  spellingRule,
+  jargonRule,
+  passiveVoiceRule,
+  hedgeWordsRule,
 ];
 
 export {
   emDashRule,
+  doubleDashRule,
   struggleRule,
   chimeValuesRule,
   winTogetherQuoteRule,
@@ -46,4 +65,12 @@ export {
   hardModeRule,
   fabricatedGreenHeartRule,
   levelLabelsRule,
+  emojiDensityRule,
+  absoluteLanguageRule,
+  accusatoryFramingRule,
+  paragraphLengthRule,
+  spellingRule,
+  jargonRule,
+  passiveVoiceRule,
+  hedgeWordsRule,
 };
