@@ -13,10 +13,10 @@ export default function Header({ wordCount, charCount, hasText }: HeaderProps) {
       <div className="flex items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-800 tracking-tight">
-            <span className="text-chime-600">Chime</span> Voice Checker
+            <span className="text-chime-600">Feedback</span> LX
           </h1>
           <p className="mt-1 text-slate-400 text-sm">
-            Check your content against Chime's communication standards
+            Interactive feedback quality checker for Chime content authors
           </p>
         </div>
 

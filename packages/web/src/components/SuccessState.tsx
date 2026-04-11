@@ -29,10 +29,10 @@ export default function SuccessState() {
       </div>
 
       <p className="text-base font-semibold text-chime-700 mb-1">
-        Meets Chime standards!
+        Looks great!
       </p>
       <p className="text-sm text-slate-500 max-w-sm mx-auto">
-        Your content aligns with Chime's voice, accuracy, inclusivity, and style standards. Nice work!
+        Your content meets Chime's voice, accuracy, inclusivity, and style standards. Nice work!
       </p>
     </div>
   );
