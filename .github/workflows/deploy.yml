@@ -24,12 +24,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
       - run: npm run build -w packages/core
       - run: npm run build -w packages/web
-      - uses: actions/upload-pages-artifact@v3
+      - run: cp feedback-lx/index.html packages/web/dist/feedback-lx.html
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: packages/web/dist
       - id: deployment
