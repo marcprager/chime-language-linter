@@ -30,6 +30,7 @@ jobs:
       - run: npm run build -w packages/core
       - run: npm run build -w packages/web
       - run: cp feedback-lx/index.html packages/web/dist/feedback-lx.html
+      - run: cp feedback-lx/The_Feedback_Gap.mp4 packages/web/dist/The_Feedback_Gap.mp4
       - uses: actions/upload-pages-artifact@v4
         with:
           path: packages/web/dist
