@@ -71,7 +71,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
+            padding: 16px 16px;
             margin-bottom: 24px;
             border-bottom: 1px solid var(--gray-200);
             position: sticky;
@@ -1899,28 +1899,57 @@
                     <p>Chime's leadership has named a clear goal: to shift our culture <strong>from avoidance to a genuine culture of feedback</strong>. That means building an environment where:</p>
                 </div>
 
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-icon">🔄</div>
-                        <div class="tip-title">Feedback is normal</div>
-                        <div class="tip-text">It's a regular part of how we work, not a rare event tied to reviews.</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;" id="fuel-cards-grid">
+                    <div class="fuel-card" onclick="revealFuelCard(this)" style="background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-sm); padding: 20px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 120px;">
+                        <div class="fuel-front" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s;">
+                            <div style="font-size: 28px; margin-bottom: 8px;">🔄</div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--gray-700);">Feedback is normal</div>
+                            <div style="font-size: 11px; color: var(--gray-400); margin-top: 6px;">tap to reveal</div>
+                        </div>
+                        <div class="fuel-back" style="position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 0; transform: rotateY(90deg); transition: all 0.4s ease; background: linear-gradient(135deg, #f0fdf4, white);">
+                            <div style="font-size: 22px; margin-bottom: 6px;">🔄</div>
+                            <div style="font-size: 13px; font-weight: 700; color: #059669; margin-bottom: 6px;">Feedback is normal</div>
+                            <div style="font-size: 13px; color: var(--gray-600); line-height: 1.5;">A regular part of how we work -- not a rare event tied to reviews.</div>
+                        </div>
                     </div>
-                    <div class="tip-card">
-                        <div class="tip-icon">💚</div>
-                        <div class="tip-title">Positive intent is assumed</div>
-                        <div class="tip-text">We trust that feedback comes from a place of wanting to help.</div>
+                    <div class="fuel-card" onclick="revealFuelCard(this)" style="background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-sm); padding: 20px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 120px;">
+                        <div class="fuel-front" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s;">
+                            <div style="font-size: 28px; margin-bottom: 8px;">💚</div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--gray-700);">Positive intent is assumed</div>
+                            <div style="font-size: 11px; color: var(--gray-400); margin-top: 6px;">tap to reveal</div>
+                        </div>
+                        <div class="fuel-back" style="position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 0; transform: rotateY(90deg); transition: all 0.4s ease; background: linear-gradient(135deg, #f0fdf4, white);">
+                            <div style="font-size: 22px; margin-bottom: 6px;">💚</div>
+                            <div style="font-size: 13px; font-weight: 700; color: #059669; margin-bottom: 6px;">Positive intent is assumed</div>
+                            <div style="font-size: 13px; color: var(--gray-600); line-height: 1.5;">We trust that feedback comes from a place of wanting to help.</div>
+                        </div>
                     </div>
-                    <div class="tip-card">
-                        <div class="tip-icon">🙋</div>
-                        <div class="tip-title">People seek feedback</div>
-                        <div class="tip-text">We proactively ask: "What could I do differently next time?"</div>
+                    <div class="fuel-card" onclick="revealFuelCard(this)" style="background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-sm); padding: 20px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 120px;">
+                        <div class="fuel-front" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s;">
+                            <div style="font-size: 28px; margin-bottom: 8px;">🙋</div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--gray-700);">People seek feedback</div>
+                            <div style="font-size: 11px; color: var(--gray-400); margin-top: 6px;">tap to reveal</div>
+                        </div>
+                        <div class="fuel-back" style="position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 0; transform: rotateY(90deg); transition: all 0.4s ease; background: linear-gradient(135deg, #f0fdf4, white);">
+                            <div style="font-size: 22px; margin-bottom: 6px;">🙋</div>
+                            <div style="font-size: 13px; font-weight: 700; color: #059669; margin-bottom: 6px;">People seek feedback</div>
+                            <div style="font-size: 13px; color: var(--gray-600); line-height: 1.5;">We proactively ask: "What could I do differently next time?"</div>
+                        </div>
                     </div>
-                    <div class="tip-card">
-                        <div class="tip-icon">🌱</div>
-                        <div class="tip-title">Growth mindset prevails</div>
-                        <div class="tip-text">We see feedback as information that helps us improve.</div>
+                    <div class="fuel-card" onclick="revealFuelCard(this)" style="background: white; border: 2px solid var(--gray-200); border-radius: var(--radius-sm); padding: 20px; cursor: pointer; transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 120px;">
+                        <div class="fuel-front" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transition: all 0.3s;">
+                            <div style="font-size: 28px; margin-bottom: 8px;">🌱</div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--gray-700);">Growth mindset prevails</div>
+                            <div style="font-size: 11px; color: var(--gray-400); margin-top: 6px;">tap to reveal</div>
+                        </div>
+                        <div class="fuel-back" style="position: absolute; inset: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 0; transform: rotateY(90deg); transition: all 0.4s ease; background: linear-gradient(135deg, #f0fdf4, white);">
+                            <div style="font-size: 22px; margin-bottom: 6px;">🌱</div>
+                            <div style="font-size: 13px; font-weight: 700; color: #059669; margin-bottom: 6px;">Growth mindset prevails</div>
+                            <div style="font-size: 13px; color: var(--gray-600); line-height: 1.5;">We see feedback as information that helps us improve.</div>
+                        </div>
                     </div>
                 </div>
+                <p id="fuel-cards-hint" style="font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 8px; transition: opacity 0.5s;">Tap all four to continue</p>
 
                 <div class="brand-accent-bar"></div>
 
@@ -4381,6 +4410,33 @@
 
         // ===== ANIMATED STAT COUNTERS =====
         var statsAnimated = false;
+        // "From Fear to Fuel" reveal cards
+        var fuelRevealed = 0;
+        function revealFuelCard(card) {
+            if (card.classList.contains('revealed')) return;
+            card.classList.add('revealed');
+            fuelRevealed++;
+
+            // Animate front out
+            var front = card.querySelector('.fuel-front');
+            var back = card.querySelector('.fuel-back');
+            front.style.transform = 'rotateY(90deg)';
+            front.style.opacity = '0';
+            setTimeout(function() {
+                back.style.transform = 'rotateY(0deg)';
+                back.style.opacity = '1';
+                card.style.borderColor = 'var(--chime-green)';
+                card.style.background = 'linear-gradient(135deg, #f0fdf4, white)';
+                card.style.cursor = 'default';
+            }, 200);
+
+            // Update hint and check if all revealed
+            if (fuelRevealed >= 4) {
+                var hint = document.getElementById('fuel-cards-hint');
+                if (hint) { hint.textContent = 'All revealed!'; hint.style.color = '#059669'; }
+            }
+        }
+
         function animateStats() {
             if (statsAnimated) return;
             statsAnimated = true;
