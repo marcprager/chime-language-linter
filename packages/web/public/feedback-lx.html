@@ -2758,135 +2758,135 @@
         </div>
 
         <!-- Section 16: Receiving Practice Scenarios -->
-        <div class=”section” id=”section-16”>
-            <div class=”card”>
-                <div class=”section-badge dark-badge”>🎯 Receiving Well</div>
-                <h2 class=”section-title dark-title”>Practice: Receive Like a Pro</h2>
-                <p class=”section-subtitle dark-subtitle”>Three real workplace moments. Pick the response that keeps the conversation open and productive.</p>
+        <div class="section" id="section-16">
+            <div class="card">
+                <div class="section-badge dark-badge">🎯 Receiving Well</div>
+                <h2 class="section-title dark-title">Practice: Receive Like a Pro</h2>
+                <p class="section-subtitle dark-subtitle">Three real workplace moments. Pick the response that keeps the conversation open and productive.</p>
 
-                <div style=”display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 24px;” id=”receive-scenario-dots”>
-                    <div class=”recv-dot active” id=”recv-dot-0”>1</div>
-                    <div style=”width: 32px; height: 2px; background: var(--gray-200); border-radius: 1px;” class=”recv-dot-line” id=”recv-line-0”></div>
-                    <div class=”recv-dot” id=”recv-dot-1”>2</div>
-                    <div style=”width: 32px; height: 2px; background: var(--gray-200); border-radius: 1px;” class=”recv-dot-line” id=”recv-line-1”></div>
-                    <div class=”recv-dot” id=”recv-dot-2”>3</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 24px;" id="receive-scenario-dots">
+                    <div class="recv-dot active" id="recv-dot-0">1</div>
+                    <div style="width: 32px; height: 2px; background: var(--gray-200); border-radius: 1px;" class="recv-dot-line" id="recv-line-0"></div>
+                    <div class="recv-dot" id="recv-dot-1">2</div>
+                    <div style="width: 32px; height: 2px; background: var(--gray-200); border-radius: 1px;" class="recv-dot-line" id="recv-line-1"></div>
+                    <div class="recv-dot" id="recv-dot-2">3</div>
                 </div>
 
                 <!-- Scenario 1: The Incomplete Plan -->
-                <div class=”recv-panel active” id=”recv-panel-0”>
-                    <div style=”background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--blue);”>
-                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--blue); margin-bottom: 8px;”>Scenario 1 of 3</div>
-                        <p style=”font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;”>Your PM says in a 1:1: <em>”The launch plan you put together was missing some key dependencies. A few teams were caught off-guard.”</em></p>
+                <div class="recv-panel active" id="recv-panel-0">
+                    <div style="background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--blue);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--blue); margin-bottom: 8px;">Scenario 1 of 3</div>
+                        <p style="font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;">Your PM says in a 1:1: <em>"The launch plan you put together was missing some key dependencies. A few teams were caught off-guard."</em></p>
                     </div>
-                    <div style=”font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;”>What’s your first move?</div>
-                    <div style=”display: flex; flex-direction: column; gap: 10px;” id=”recv-choices-0”>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 0, ‘best’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>A</div>
-                            <div class=”scenario-choice-text”>”Thanks for flagging that. Can you walk me through which dependencies were missing so I can fix it?”</div>
+                    <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">What’s your first move?</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-0">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, ‘best’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">A</div>
+                            <div class="scenario-choice-text">"Thanks for flagging that. Can you walk me through which dependencies were missing so I can fix it?"</div>
                         </div>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 0, ‘poor’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>B</div>
-                            <div class=”scenario-choice-text”>”I based it on the template we always use. I’m not sure what else I was supposed to include.”</div>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, ‘poor’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">B</div>
+                            <div class="scenario-choice-text">"I based it on the template we always use. I’m not sure what else I was supposed to include."</div>
                         </div>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 0, ‘okay’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>C</div>
-                            <div class=”scenario-choice-text”>”OK, I’ll take another look at it.”</div>
-                        </div>
-                    </div>
-                    <div class=”scenario-outcome” id=”recv-outcome-0” style=”display: none;”></div>
-                    <div id=”recv-skill-0” style=”display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);”>
-                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;”>Skills in action</div>
-                        <div style=”display: flex; gap: 8px; flex-wrap: wrap;”>
-                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>🙏 Thank the Giver</span>
-                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>❓ Ask Questions</span>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 0, ‘okay’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">C</div>
+                            <div class="scenario-choice-text">"OK, I’ll take another look at it."</div>
                         </div>
                     </div>
-                    <div style=”text-align: right; margin-top: 16px;”>
-                        <button class=”btn btn-primary” id=”recv-next-0” style=”display: none;” onclick=”nextRecvScenario()”>Next Scenario</button>
+                    <div class="scenario-outcome" id="recv-outcome-0" style="display: none;"></div>
+                    <div id="recv-skill-0" style="display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;">Skills in action</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);">🙏 Thank the Giver</span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);">❓ Ask Questions</span>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 16px;">
+                        <button class="btn btn-primary" id="recv-next-0" style="display: none;" onclick="nextRecvScenario()">Next Scenario</button>
                     </div>
                 </div>
 
                 <!-- Scenario 2: The Brainstorm -->
-                <div class=”recv-panel” id=”recv-panel-1” style=”display: none;”>
-                    <div style=”background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--accent-aspiration);”>
-                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9333EA; margin-bottom: 8px;”>Scenario 2 of 3</div>
-                        <p style=”font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;”>After a team brainstorm, a peer Slacks you: <em>”Hey, just wanted to flag -- I had some ideas in today’s session but couldn’t really get a word in. Felt like the conversation was mostly one-directional.”</em></p>
+                <div class="recv-panel" id="recv-panel-1" style="display: none;">
+                    <div style="background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--accent-aspiration);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9333EA; margin-bottom: 8px;">Scenario 2 of 3</div>
+                        <p style="font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;">After a team brainstorm, a peer Slacks you: <em>"Hey, just wanted to flag -- I had some ideas in today’s session but couldn’t really get a word in. Felt like the conversation was mostly one-directional."</em></p>
                     </div>
-                    <div style=”font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;”>How do you respond?</div>
-                    <div style=”display: flex; flex-direction: column; gap: 10px;” id=”recv-choices-1”>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 1, ‘poor’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>A</div>
-                            <div class=”scenario-choice-text”>”I was just excited about the project. Everyone had a chance to speak up.”</div>
+                    <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">How do you respond?</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-1">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, ‘poor’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">A</div>
+                            <div class="scenario-choice-text">"I was just excited about the project. Everyone had a chance to speak up."</div>
                         </div>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 1, ‘okay’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>B</div>
-                            <div class=”scenario-choice-text”>”I appreciate you telling me. I’ll try to be more aware next time.”</div>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, ‘okay’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">B</div>
+                            <div class="scenario-choice-text">"I appreciate you telling me. I’ll try to be more aware next time."</div>
                         </div>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 1, ‘best’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>C</div>
-                            <div class=”scenario-choice-text”>”So you’re saying I was talking too much and not leaving room? Yeah, I can see that -- I did get carried away. Sorry about that.”</div>
-                        </div>
-                    </div>
-                    <div class=”scenario-outcome” id=”recv-outcome-1” style=”display: none;”></div>
-                    <div id=”recv-skill-1” style=”display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);”>
-                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;”>Skills in action</div>
-                        <div style=”display: flex; gap: 8px; flex-wrap: wrap;”>
-                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>🔄 Paraphrase Back</span>
-                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>✋ Own What’s Yours</span>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, ‘best’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">C</div>
+                            <div class="scenario-choice-text">"So you’re saying I was talking too much and not leaving room? Yeah, I can see that -- I did get carried away. Sorry about that."</div>
                         </div>
                     </div>
-                    <div style=”text-align: right; margin-top: 16px;”>
-                        <button class=”btn btn-primary” id=”recv-next-1” style=”display: none;” onclick=”nextRecvScenario()”>Next Scenario</button>
+                    <div class="scenario-outcome" id="recv-outcome-1" style="display: none;"></div>
+                    <div id="recv-skill-1" style="display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;">Skills in action</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);">🔄 Paraphrase Back</span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);">✋ Own What’s Yours</span>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 16px;">
+                        <button class="btn btn-primary" id="recv-next-1" style="display: none;" onclick="nextRecvScenario()">Next Scenario</button>
                     </div>
                 </div>
 
                 <!-- Scenario 3: The Skip-Level -->
-                <div class=”recv-panel” id=”recv-panel-2” style=”display: none;”>
-                    <div style=”background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--accent-freedom);”>
-                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #B45309; margin-bottom: 8px;”>Scenario 3 of 3</div>
-                        <p style=”font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;”>In a skip-level, your VP says: <em>”I’ve noticed your team seems unsure about Q3 priorities. A couple of people mentioned they’re working on things that might not be aligned.”</em></p>
+                <div class="recv-panel" id="recv-panel-2" style="display: none;">
+                    <div style="background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--accent-freedom);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #B45309; margin-bottom: 8px;">Scenario 3 of 3</div>
+                        <p style="font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;">In a skip-level, your VP says: <em>"I’ve noticed your team seems unsure about Q3 priorities. A couple of people mentioned they’re working on things that might not be aligned."</em></p>
                     </div>
-                    <div style=”font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;”>What do you say?</div>
-                    <div style=”display: flex; flex-direction: column; gap: 10px;” id=”recv-choices-2”>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 2, ‘poor’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>A</div>
-                            <div class=”scenario-choice-text”>”That’s surprising -- we just did planning last month. Who said that?”</div>
+                    <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">What do you say?</div>
+                    <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-2">
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, ‘poor’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">A</div>
+                            <div class="scenario-choice-text">"That’s surprising -- we just did planning last month. Who said that?"</div>
                         </div>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 2, ‘okay’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>B</div>
-                            <div class=”scenario-choice-text”>”You’re right, I should probably do another alignment session with the team.”</div>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, ‘okay’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">B</div>
+                            <div class="scenario-choice-text">"You’re right, I should probably do another alignment session with the team."</div>
                         </div>
-                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 2, ‘best’)” style=”cursor: pointer;”>
-                            <div class=”scenario-choice-label”>C</div>
-                            <div class=”scenario-choice-text”>”That’s really important to hear. I want to sit with this and check in with my team before responding. Can we revisit this on Thursday?”</div>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, ‘best’)" style="cursor: pointer;">
+                            <div class="scenario-choice-label">C</div>
+                            <div class="scenario-choice-text">"That’s really important to hear. I want to sit with this and check in with my team before responding. Can we revisit this on Thursday?"</div>
                         </div>
                     </div>
-                    <div class=”scenario-outcome” id=”recv-outcome-2” style=”display: none;”></div>
-                    <div id=”recv-skill-2” style=”display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);”>
-                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;”>Skills in action</div>
-                        <div style=”display: flex; gap: 8px; flex-wrap: wrap;”>
-                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>⏸ Take Space If Needed</span>
-                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>🚀 Propose a Path Forward</span>
+                    <div class="scenario-outcome" id="recv-outcome-2" style="display: none;"></div>
+                    <div id="recv-skill-2" style="display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;">Skills in action</div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);">⏸ Take Space If Needed</span>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);">🚀 Propose a Path Forward</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Summary (shown after all 3 complete) -->
-                <div id=”recv-summary” style=”display: none; margin-top: 20px;”>
-                    <div style=”background: linear-gradient(135deg, var(--green-50) 0%, var(--accent-security-50) 100%); border-radius: var(--radius); padding: 24px; border: 2px solid var(--chime-green);”>
-                        <div style=”text-align: center; margin-bottom: 16px;”>
-                            <div style=”font-size: 28px; margin-bottom: 4px;” id=”recv-score-emoji”></div>
-                            <div style=”font-size: 18px; font-weight: 700; color: var(--green-900);” id=”recv-score-text”></div>
+                <div id="recv-summary" style="display: none; margin-top: 20px;">
+                    <div style="background: linear-gradient(135deg, var(--green-50) 0%, var(--accent-security-50) 100%); border-radius: var(--radius); padding: 24px; border: 2px solid var(--chime-green);">
+                        <div style="text-align: center; margin-bottom: 16px;">
+                            <div style="font-size: 28px; margin-bottom: 4px;" id="recv-score-emoji"></div>
+                            <div style="font-size: 18px; font-weight: 700; color: var(--green-900);" id="recv-score-text"></div>
                         </div>
-                        <div style=”font-size: 14px; color: var(--gray-600); line-height: 1.7; text-align: center;”>
+                        <div style="font-size: 14px; color: var(--gray-600); line-height: 1.7; text-align: center;">
                             These six moves -- <strong>Thank, Paraphrase, Ask, Take Space, Own It, Path Forward</strong> -- turn any feedback moment from a threat into a growth opportunity.
                         </div>
                     </div>
                 </div>
 
-                <div class=”nav-buttons”>
-                    <button class=”btn btn-secondary” onclick=”prevSection()”>← Back</button>
-                    <button class=”btn btn-primary” id=”section16-continue” onclick=”nextSection()” disabled>Continue</button>
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+                    <button class="btn btn-primary" id="section16-continue" onclick="nextSection()" disabled>Continue</button>
                 </div>
             </div>
         </div>
