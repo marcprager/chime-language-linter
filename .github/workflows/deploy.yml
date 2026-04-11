@@ -29,6 +29,7 @@ jobs:
       - run: npm ci
       - run: npm run build -w packages/core
       - run: npm run build -w packages/web
+      - run: cp feedback-lx/index.html packages/web/dist/feedback-lx.html
       - uses: actions/upload-pages-artifact@v4
         with:
           path: packages/web/dist
