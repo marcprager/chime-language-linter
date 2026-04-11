@@ -1119,6 +1119,16 @@
 
         .flip-counter { font-size: 13px; color: var(--gray-500); text-align: center; margin-top: 8px; }
 
+        /* Receiving scenario stepper */
+        .recv-dot {
+            width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 700; color: var(--gray-400); background: var(--gray-100); border: 2px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        .recv-dot.active { color: white; background: var(--chime-green); border-color: var(--chime-green); transform: scale(1.1); }
+        .recv-dot.done { color: white; background: var(--green-700); border-color: var(--green-700); }
+        .recv-panel { animation: slideDown 0.3s ease; }
+
         .collapsible-toggle {
             display: flex;
             align-items: center;
@@ -1565,6 +1575,9 @@
                     <p class="section-subtitle" style="margin-top: 16px; opacity: 0.85; font-size: 16px;">
                         A practical guide to giving and receiving peer feedback that drives growth, builds trust, and strengthens how we work together at Chime.
                     </p>
+                    <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.9);">
+                        <span>⏱</span> <span>About 20 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
+                    </div>
                     <div class="brand-dot-accent" style="margin-top: 20px;">
                         <div class="brand-dot" style="background: var(--chime-green);"></div>
                         <div class="brand-dot" style="background: var(--accent-freedom);"></div>
@@ -1951,9 +1964,13 @@
                 </div>
                 <p id="fuel-cards-hint" style="font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 8px; transition: opacity 0.5s;">Tap all four to continue</p>
 
-                <div class="brand-accent-bar"></div>
-
-                <h3 style="margin-bottom: 8px;">Sort It Out</h3>
+                <!-- Activity break -->
+                <div style="margin: 32px -64px; padding: 32px 64px; background: linear-gradient(135deg, var(--gray-50), white); border-top: 2px solid var(--gray-200); border-bottom: 2px solid var(--gray-200);">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <div style="width: 36px; height: 36px; background: var(--chime-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px;">✋</div>
+                        <div style="font-size: 18px; font-weight: 800; color: var(--text-primary); font-family: Merriweather, Georgia, serif;">Your Turn: Sort It Out</div>
+                    </div>
+                    <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 16px;">Now that you've seen the goal, let's test your instincts. Which of these behaviors help build a feedback culture, and which hold it back?</p>
                 <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 16px;">Drag each behavior into the correct category – does it <strong>help</strong> or <strong>hinder</strong> a feedback culture?</p>
                 <p style="font-size: 12px; color: var(--gray-500); margin-bottom: 8px;">💡 <em>Click a placed item to move it back if you change your mind.</em></p>
                 <div class="sort-exercise" id="sort-culture">
@@ -1981,6 +1998,7 @@
                     </div>
                     <div class="sort-feedback" id="sort-feedback"></div>
                 </div>
+                </div><!-- close activity break wrapper -->
 
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
@@ -2295,71 +2313,34 @@
                 <h2 class="section-title dark-title">Feedback & "Win Together"</h2>
                 <p class="section-subtitle dark-subtitle">Peer feedback is directly tied to how we live our values at Chime.</p>
 
-                <div class="values-box">
-                    <div class="values-title">WIN TOGETHER</div>
-                    <div class="values-text">
-                        "We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others. We believe that <strong>clarity is kindness</strong>."
-                    </div>
-                    <div class="values-quote">"Clarity is kindness."</div>
-                    <div class="values-text">
-                        When you give someone clear, direct feedback, you're not being harsh – you're being respectful. You're trusting them to handle the truth and giving them the information they need to grow.
+                <div class="content-block" style="margin-top: 24px;">
+                    <p>Chime's <strong>Win Together</strong> value makes feedback explicit. But do you know the actual words? Let's find out.</p>
+                </div>
+
+                <!-- Quote fill-in-the-blank -->
+                <div style="margin: 24px 0; padding: 28px; background: linear-gradient(135deg, #052316, #0D4029); border-radius: var(--radius-lg); color: white;">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--chime-green); margin-bottom: 16px;">Win Together Value Quote</div>
+                    <p id="quote-fill" style="font-size: 18px; line-height: 2; color: rgba(255,255,255,0.9); margin: 0; font-family: Merriweather, Georgia, serif;">
+                        "We hold each other
+                        <span class="quote-blank" id="qb-0" onclick="fillQuoteBlank(0)" style="display: inline-block; min-width: 120px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">accountable</span>.
+                        We ask for open, honest
+                        <span class="quote-blank" id="qb-1" onclick="fillQuoteBlank(1)" style="display: inline-block; min-width: 100px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">feedback</span>,
+                        and Chime In to provide it to
+                        <span class="quote-blank" id="qb-2" onclick="fillQuoteBlank(2)" style="display: inline-block; min-width: 80px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">others</span>.
+                        We believe that
+                        <span class="quote-blank" id="qb-3" onclick="fillQuoteBlank(3)" style="display: inline-block; min-width: 80px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">clarity</span>
+                        is
+                        <span class="quote-blank" id="qb-4" onclick="fillQuoteBlank(4)" style="display: inline-block; min-width: 90px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">kindness</span>."
+                    </p>
+                    <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 16px;">Tap each blank to reveal the missing word</p>
+                    <div id="quote-result" style="margin-top: 16px; padding: 12px 16px; background: rgba(30,198,119,0.15); border-radius: 8px; display: none; font-size: 14px; color: #a7f3d0; line-height: 1.5;">
+                        <strong>That's the full quote.</strong> Every word matters -- "accountable" means we don't let things slide. "To others" means face-to-face, not behind backs. And "clarity is kindness" is the whole philosophy: being direct IS being caring.
                     </div>
                 </div>
 
-                <div class="tips-grid">
-                    <div class="tip-card" style="border-color: var(--chime-green);">
-                        <div class="tip-icon">💬</div>
-                        <div class="tip-title">Share Timely Feedback</div>
-                        <div class="tip-text">About both work quality and working relationships – don't wait for reviews.</div>
-                    </div>
-                    <div class="tip-card" style="border-color: var(--chime-green);">
-                        <div class="tip-icon">🤝</div>
-                        <div class="tip-title">Go Direct</div>
-                        <div class="tip-text">Share feedback with the person, not about them to others (no triangulation).</div>
-                    </div>
-                    <div class="tip-card" style="border-color: var(--chime-green);">
-                        <div class="tip-icon">🙋</div>
-                        <div class="tip-title">Proactively Request It</div>
-                        <div class="tip-text">Ask colleagues: "What's one thing I could have done better?"</div>
-                    </div>
-                    <div class="tip-card" style="border-color: var(--chime-green);">
-                        <div class="tip-icon">🔄</div>
-                        <div class="tip-title">Engage Constructively</div>
-                        <div class="tip-text">Help surface and resolve different viewpoints productively.</div>
-                    </div>
+                <div class="content-block">
+                    <p>When you give someone clear, direct feedback, you're not being harsh -- you're being respectful. You're trusting them to handle the truth and giving them the information they need to grow.</p>
                 </div>
-
-                <div class="brand-accent-bar"></div>
-
-                <h3 style="margin-bottom: 8px;">Self-Check: How Are You Living "Win Together"?</h3>
-                <p style="font-size: 14px; color: var(--gray-600); margin-bottom: 12px;">Be honest – check the behaviors you already practice regularly:</p>
-                <div class="checklist-container" id="checklist-values">
-                    <div class="checklist-item" onclick="toggleCheck(this)">
-                        <div class="check-box"></div>
-                        <span class="check-label">I share feedback within 48 hours rather than saving it for later.</span>
-                    </div>
-                    <div class="checklist-item" onclick="toggleCheck(this)">
-                        <div class="check-box"></div>
-                        <span class="check-label">I go directly to the person instead of talking to others about them.</span>
-                    </div>
-                    <div class="checklist-item" onclick="toggleCheck(this)">
-                        <div class="check-box"></div>
-                        <span class="check-label">I proactively ask colleagues for feedback on my own work.</span>
-                    </div>
-                    <div class="checklist-item" onclick="toggleCheck(this)">
-                        <div class="check-box"></div>
-                        <span class="check-label">I say "thank you" when someone gives me constructive feedback.</span>
-                    </div>
-                    <div class="checklist-item" onclick="toggleCheck(this)">
-                        <div class="check-box"></div>
-                        <span class="check-label">I assume positive intent when receiving feedback from peers.</span>
-                    </div>
-                    <div class="checklist-item" onclick="toggleCheck(this)">
-                        <div class="check-box"></div>
-                        <span class="check-label">I give specific examples rather than vague generalities.</span>
-                    </div>
-                </div>
-                <div class="checklist-summary" id="checklist-summary"></div>
 
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
@@ -2583,30 +2564,27 @@
             </div>
         </div>
 
-        <!-- Section 13: Quiz 2 -->
+        <!-- Section 13: Rewrite Exercise -->
         <div class="section" id="section-13">
             <div class="card">
-                <div class="section-badge dark-badge">🧪 Knowledge Check</div>
-                <h2 class="section-title dark-title">One More Practice</h2>
-                <p class="section-subtitle dark-subtitle">Which response uses SBI + "One Thing Better" correctly?</p>
+                <div class="section-badge dark-badge">✏️ Rewrite It</div>
+                <h2 class="section-title dark-title">Fix This Feedback</h2>
+                <p class="section-subtitle dark-subtitle">Read the poorly-delivered feedback below. Then rewrite it using SBI + One Thing Better.</p>
 
-                <div class="quiz-container" id="quiz2">
-                    <div class="quiz-question">A peer committed to a deadline without checking with you first, causing you to scramble.</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" onclick="selectQuizOption(this, 'quiz2', 'A')">
-                            <div class="quiz-letter">A</div>
-                            <div class="quiz-text">"You always jump into commitments without looping in the people who'll be affected. It happened again with the Friday deadline – you agreed to it on the spot without checking whether the rest of us could deliver."</div>
-                        </div>
-                        <div class="quiz-option" onclick="selectQuizOption(this, 'quiz2', 'B')">
-                            <div class="quiz-letter">B</div>
-                            <div class="quiz-text">"In yesterday's client call, you committed to the Friday deadline without checking with me first, which meant I had to reprioritize my week. One thing to try – can we do a quick sync before locking in shared timelines?"</div>
-                        </div>
-                        <div class="quiz-option" onclick="selectQuizOption(this, 'quiz2', 'C')">
-                            <div class="quiz-letter">C</div>
-                            <div class="quiz-text">"I was frustrated when you locked in that Friday deadline. It would have been better to check with me first, since it affected my workload too. Going forward, a quick heads-up before committing would make a big difference."</div>
-                        </div>
-                    </div>
-                    <div class="quiz-feedback" id="quiz2-feedback"></div>
+                <div style="margin: 20px 0; padding: 20px; background: #fff5f5; border-radius: var(--radius-sm); border-left: 4px solid var(--coral);">
+                    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--coral); margin-bottom: 8px;">Original (vague + judgmental)</div>
+                    <p style="font-size: 15px; color: var(--gray-700); line-height: 1.6; margin: 0; font-style: italic;">"You always jump into commitments without thinking about how it affects the rest of us. You need to be more considerate."</p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <label style="font-size: 14px; font-weight: 700; color: var(--gray-700); display: block; margin-bottom: 8px;">Your rewrite:</label>
+                    <textarea id="rewrite-input" style="width: 100%; min-height: 120px; padding: 16px; border: 2px solid var(--gray-200); border-radius: var(--radius-sm); font-size: 14px; line-height: 1.6; font-family: inherit; resize: vertical; transition: border-color 0.2s;" oninput="checkRewrite()" placeholder="Try: Specific situation + observable behavior + impact + one thing to try differently..."></textarea>
+                </div>
+
+                <button class="btn btn-secondary" onclick="showRewriteExample()" id="rewrite-example-btn" style="margin-bottom: 16px;">Show Example Rewrite</button>
+                <div id="rewrite-example" style="display: none; margin-bottom: 16px; padding: 20px; background: #f0fdf4; border-radius: var(--radius-sm); border-left: 4px solid var(--chime-green);">
+                    <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #059669; margin-bottom: 8px;">Example rewrite</div>
+                    <p style="font-size: 14px; color: var(--gray-700); line-height: 1.6; margin: 0;">"In yesterday's client call, you committed to the Friday deadline without checking with me first, which meant I had to reprioritize my whole week. Could we do a quick sync before locking in shared timelines?"</p>
                 </div>
 
                 <div class="nav-buttons">
@@ -2779,105 +2757,136 @@
             </div>
         </div>
 
-        <!-- Section 16: Receiving Tips -->
-        <div class="section" id="section-16">
-            <div class="card">
-                <div class="section-badge dark-badge">🎯 Receiving Well</div>
-                <h2 class="section-title dark-title">How to Receive Feedback with Confidence</h2>
-                <p class="section-subtitle dark-subtitle">Practical moves that help you stay open and get the most from feedback.</p>
+        <!-- Section 16: Receiving Practice Scenarios -->
+        <div class=”section” id=”section-16”>
+            <div class=”card”>
+                <div class=”section-badge dark-badge”>🎯 Receiving Well</div>
+                <h2 class=”section-title dark-title”>Practice: Receive Like a Pro</h2>
+                <p class=”section-subtitle dark-subtitle”>Three real workplace moments. Pick the response that keeps the conversation open and productive.</p>
 
-                <div class="flip-grid" id="receive-flip-grid">
-                    <div class="flip-card" onclick="flipCard(this, 'receive-flip-grid')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="flip-icon">🙏</div>
-                                <div class="flip-title">Thank the Giver</div>
-                                <div class="flip-hint">Tap to learn more</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-title">Thank the Giver</div>
-                                <div class="flip-text">Even if it stings. They took a risk to share. “Thanks for telling me – I appreciate you being direct.”</div>
-                            </div>
+                <div style=”display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 24px;” id=”receive-scenario-dots”>
+                    <div class=”recv-dot active” id=”recv-dot-0”>1</div>
+                    <div style=”width: 32px; height: 2px; background: var(--gray-200); border-radius: 1px;” class=”recv-dot-line” id=”recv-line-0”></div>
+                    <div class=”recv-dot” id=”recv-dot-1”>2</div>
+                    <div style=”width: 32px; height: 2px; background: var(--gray-200); border-radius: 1px;” class=”recv-dot-line” id=”recv-line-1”></div>
+                    <div class=”recv-dot” id=”recv-dot-2”>3</div>
+                </div>
+
+                <!-- Scenario 1: The Incomplete Plan -->
+                <div class=”recv-panel active” id=”recv-panel-0”>
+                    <div style=”background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--blue);”>
+                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--blue); margin-bottom: 8px;”>Scenario 1 of 3</div>
+                        <p style=”font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;”>Your PM says in a 1:1: <em>”The launch plan you put together was missing some key dependencies. A few teams were caught off-guard.”</em></p>
+                    </div>
+                    <div style=”font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;”>What’s your first move?</div>
+                    <div style=”display: flex; flex-direction: column; gap: 10px;” id=”recv-choices-0”>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 0, ‘best’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>A</div>
+                            <div class=”scenario-choice-text”>”Thanks for flagging that. Can you walk me through which dependencies were missing so I can fix it?”</div>
+                        </div>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 0, ‘poor’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>B</div>
+                            <div class=”scenario-choice-text”>”I based it on the template we always use. I’m not sure what else I was supposed to include.”</div>
+                        </div>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 0, ‘okay’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>C</div>
+                            <div class=”scenario-choice-text”>”OK, I’ll take another look at it.”</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="flipCard(this, 'receive-flip-grid')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="flip-icon">🔄</div>
-                                <div class="flip-title">Paraphrase Back</div>
-                                <div class="flip-hint">Tap to learn more</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-title">Paraphrase Back</div>
-                                <div class="flip-text">Check your understanding. “So what I’m hearing is...” This shows you’re listening.</div>
-                            </div>
+                    <div class=”scenario-outcome” id=”recv-outcome-0” style=”display: none;”></div>
+                    <div id=”recv-skill-0” style=”display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);”>
+                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;”>Skills in action</div>
+                        <div style=”display: flex; gap: 8px; flex-wrap: wrap;”>
+                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>🙏 Thank the Giver</span>
+                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>❓ Ask Questions</span>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="flipCard(this, 'receive-flip-grid')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="flip-icon">❓</div>
-                                <div class="flip-title">Ask Questions</div>
-                                <div class="flip-hint">Tap to learn more</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-title">Ask Questions</div>
-                                <div class="flip-text">“Can you give me a specific example?” Get clarity before reacting.</div>
-                            </div>
+                    <div style=”text-align: right; margin-top: 16px;”>
+                        <button class=”btn btn-primary” id=”recv-next-0” style=”display: none;” onclick=”nextRecvScenario()”>Next Scenario</button>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: The Brainstorm -->
+                <div class=”recv-panel” id=”recv-panel-1” style=”display: none;”>
+                    <div style=”background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--accent-aspiration);”>
+                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9333EA; margin-bottom: 8px;”>Scenario 2 of 3</div>
+                        <p style=”font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;”>After a team brainstorm, a peer Slacks you: <em>”Hey, just wanted to flag -- I had some ideas in today’s session but couldn’t really get a word in. Felt like the conversation was mostly one-directional.”</em></p>
+                    </div>
+                    <div style=”font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;”>How do you respond?</div>
+                    <div style=”display: flex; flex-direction: column; gap: 10px;” id=”recv-choices-1”>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 1, ‘poor’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>A</div>
+                            <div class=”scenario-choice-text”>”I was just excited about the project. Everyone had a chance to speak up.”</div>
+                        </div>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 1, ‘okay’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>B</div>
+                            <div class=”scenario-choice-text”>”I appreciate you telling me. I’ll try to be more aware next time.”</div>
+                        </div>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 1, ‘best’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>C</div>
+                            <div class=”scenario-choice-text”>”So you’re saying I was talking too much and not leaving room? Yeah, I can see that -- I did get carried away. Sorry about that.”</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="flipCard(this, 'receive-flip-grid')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="flip-icon">⏸️</div>
-                                <div class="flip-title">Take Space If Needed</div>
-                                <div class="flip-hint">Tap to learn more</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-title">Take Space If Needed</div>
-                                <div class="flip-text">“I want to think about this. Can we revisit tomorrow?” Just make sure to come back.</div>
-                            </div>
+                    <div class=”scenario-outcome” id=”recv-outcome-1” style=”display: none;”></div>
+                    <div id=”recv-skill-1” style=”display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);”>
+                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;”>Skills in action</div>
+                        <div style=”display: flex; gap: 8px; flex-wrap: wrap;”>
+                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>🔄 Paraphrase Back</span>
+                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>✋ Own What’s Yours</span>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="flipCard(this, 'receive-flip-grid')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="flip-icon">✋</div>
-                                <div class="flip-title">Own What’s Yours</div>
-                                <div class="flip-hint">Tap to learn more</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-title">Own What’s Yours</div>
-                                <div class="flip-text">Acknowledge what landed. “You’re right – I did cut you off. I’ll work on that.”</div>
-                            </div>
+                    <div style=”text-align: right; margin-top: 16px;”>
+                        <button class=”btn btn-primary” id=”recv-next-1” style=”display: none;” onclick=”nextRecvScenario()”>Next Scenario</button>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: The Skip-Level -->
+                <div class=”recv-panel” id=”recv-panel-2” style=”display: none;”>
+                    <div style=”background: var(--gray-50); border-radius: var(--radius); padding: 20px; margin-bottom: 20px; border-left: 4px solid var(--accent-freedom);”>
+                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #B45309; margin-bottom: 8px;”>Scenario 3 of 3</div>
+                        <p style=”font-size: 16px; color: var(--gray-700); line-height: 1.7; margin: 0;”>In a skip-level, your VP says: <em>”I’ve noticed your team seems unsure about Q3 priorities. A couple of people mentioned they’re working on things that might not be aligned.”</em></p>
+                    </div>
+                    <div style=”font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;”>What do you say?</div>
+                    <div style=”display: flex; flex-direction: column; gap: 10px;” id=”recv-choices-2”>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 2, ‘poor’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>A</div>
+                            <div class=”scenario-choice-text”>”That’s surprising -- we just did planning last month. Who said that?”</div>
+                        </div>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 2, ‘okay’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>B</div>
+                            <div class=”scenario-choice-text”>”You’re right, I should probably do another alignment session with the team.”</div>
+                        </div>
+                        <div class=”scenario-choice” onclick=”selectRecvScenario(this, 2, ‘best’)” style=”cursor: pointer;”>
+                            <div class=”scenario-choice-label”>C</div>
+                            <div class=”scenario-choice-text”>”That’s really important to hear. I want to sit with this and check in with my team before responding. Can we revisit this on Thursday?”</div>
                         </div>
                     </div>
-                    <div class="flip-card" onclick="flipCard(this, 'receive-flip-grid')">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <div class="flip-icon">🚀</div>
-                                <div class="flip-title">Propose a Path Forward</div>
-                                <div class="flip-hint">Tap to learn more</div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="flip-title">Propose a Path Forward</div>
-                                <div class="flip-text">“Here’s what I’ll try differently...” Action shows you heard them.</div>
-                            </div>
+                    <div class=”scenario-outcome” id=”recv-outcome-2” style=”display: none;”></div>
+                    <div id=”recv-skill-2” style=”display: none; margin-top: 16px; padding: 16px; background: linear-gradient(135deg, var(--green-50), #F0FFF4); border-radius: var(--radius-sm); border: 1px solid var(--green-300);”>
+                        <div style=”font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--green-700); margin-bottom: 6px;”>Skills in action</div>
+                        <div style=”display: flex; gap: 8px; flex-wrap: wrap;”>
+                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>⏸ Take Space If Needed</span>
+                            <span style=”display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; background: white; border-radius: 100px; font-size: 13px; font-weight: 600; color: var(--green-900);”>🚀 Propose a Path Forward</span>
                         </div>
                     </div>
                 </div>
-                <div class="flip-counter" id="receive-flip-counter">Flip all 6 cards to continue</div>
 
-                <div class="content-block">
-                    <h3>What to Avoid</h3>
-                    <p style="color: var(--coral);"><strong>❌ Defending immediately</strong> – Let them finish before responding.</p>
-                    <p style="color: var(--coral);"><strong>❌ Dismissing</strong> – "That's just your opinion" shuts down the conversation.</p>
-                    <p style="color: var(--coral);"><strong>❌ Counter-attacking</strong> – "Well, you also..." derails into conflict.</p>
+                <!-- Summary (shown after all 3 complete) -->
+                <div id=”recv-summary” style=”display: none; margin-top: 20px;”>
+                    <div style=”background: linear-gradient(135deg, var(--green-50) 0%, var(--accent-security-50) 100%); border-radius: var(--radius); padding: 24px; border: 2px solid var(--chime-green);”>
+                        <div style=”text-align: center; margin-bottom: 16px;”>
+                            <div style=”font-size: 28px; margin-bottom: 4px;” id=”recv-score-emoji”></div>
+                            <div style=”font-size: 18px; font-weight: 700; color: var(--green-900);” id=”recv-score-text”></div>
+                        </div>
+                        <div style=”font-size: 14px; color: var(--gray-600); line-height: 1.7; text-align: center;”>
+                            These six moves -- <strong>Thank, Paraphrase, Ask, Take Space, Own It, Path Forward</strong> -- turn any feedback moment from a threat into a growth opportunity.
+                        </div>
+                    </div>
                 </div>
 
-                <div class="nav-buttons">
-                    <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
-                    <button class="btn btn-primary" id="section16-continue" onclick="nextSection()" disabled>Continue →</button>
+                <div class=”nav-buttons”>
+                    <button class=”btn btn-secondary” onclick=”prevSection()”>← Back</button>
+                    <button class=”btn btn-primary” id=”section16-continue” onclick=”nextSection()” disabled>Continue</button>
                 </div>
             </div>
         </div>
@@ -3659,6 +3668,26 @@
         }
 
         // Quiz
+        // Section 13: Rewrite exercise
+        function checkRewrite() {
+            var input = document.getElementById('rewrite-input');
+            var btn = document.getElementById('quiz2-next');
+            if (input && btn) {
+                btn.disabled = input.value.trim().length < 30;
+                if (input.value.trim().length >= 30) {
+                    input.style.borderColor = 'var(--chime-green)';
+                } else {
+                    input.style.borderColor = 'var(--gray-200)';
+                }
+            }
+        }
+        function showRewriteExample() {
+            var ex = document.getElementById('rewrite-example');
+            var btn = document.getElementById('rewrite-example-btn');
+            if (ex) ex.style.display = 'block';
+            if (btn) btn.style.display = 'none';
+        }
+
         function selectQuizOption(element, quizId, answer) {
             const container = document.getElementById(quizId);
             const options = container.querySelectorAll('.quiz-option');
@@ -4293,6 +4322,25 @@
 
         // --- Self-Assessment Checklist (Section 9) ---
         var checklistCount = 0;
+        // Win Together quote fill-in-the-blank
+        var quoteBlanksRevealed = 0;
+        var quoteBlanksTotal = 5;
+        function fillQuoteBlank(idx) {
+            var blank = document.getElementById('qb-' + idx);
+            if (!blank || blank.style.color !== 'transparent') return;
+            blank.style.color = '#a7f3d0';
+            blank.style.borderBottomColor = '#a7f3d0';
+            blank.style.background = 'rgba(30,198,119,0.15)';
+            blank.style.cursor = 'default';
+            quoteBlanksRevealed++;
+            if (quoteBlanksRevealed >= quoteBlanksTotal) {
+                var result = document.getElementById('quote-result');
+                if (result) result.style.display = 'block';
+                var s9btn = document.getElementById('section9-continue');
+                if (s9btn) s9btn.disabled = false;
+            }
+        }
+
         function toggleCheck(el) {
             el.classList.toggle('checked');
             checklistCount = document.querySelectorAll('#checklist-values .checklist-item.checked').length;
@@ -4623,6 +4671,109 @@
             outcome.style.display = 'block';
             var s15btn = document.getElementById('section15-continue');
             if (s15btn) s15btn.disabled = false;
+        }
+
+        // Section 16: Receiving scenario stepper
+        var recvCurrentScene = 0;
+        var recvResults = []; // 'best', 'okay', or 'poor' for each
+        var recvScenarioData = [
+            {
+                best: { badge: '✅ Strong move', text: 'You thanked them for the heads-up and immediately asked a clarifying question. This gets you specific, actionable information instead of a vague takeaway.' },
+                okay: { badge: '👍 OK start', text: 'Accepting the feedback is a good instinct, but without asking which dependencies were missed, you might fix the wrong things or repeat the same gap.' },
+                poor: { badge: '⚠️ Watch out', text: 'Pointing to the template sounds like deflection. Even if the template is incomplete, the impact was real -- teams were caught off-guard.' }
+            },
+            {
+                best: { badge: '✅ Strong move', text: 'You paraphrased what you heard and owned the behavior. This shows genuine understanding and makes the giver feel heard, not dismissed.' },
+                okay: { badge: '👍 OK start', text: 'Thanking them is good, but "I\'ll try" without showing you understand the specific issue can feel like a brush-off. Paraphrasing back proves you actually get it.' },
+                poor: { badge: '⚠️ Watch out', text: 'Saying "everyone had a chance" dismisses their experience. They\'re telling you they didn\'t feel heard -- defending against that proves their point.' }
+            },
+            {
+                best: { badge: '✅ Strong move', text: 'Taking space before reacting shows maturity. You acknowledged the importance, committed to investigating, and set a clear follow-up time. That\'s leadership.' },
+                okay: { badge: '👍 OK start', text: 'Jumping to a fix is tempting, but without understanding the root cause first, you might hold an alignment session that misses the real issue. A pause to investigate goes further.' },
+                poor: { badge: '⚠️ Watch out', text: 'Questioning the source shifts focus from the message to the messenger. Your VP is sharing a pattern, not naming names -- asking "who said that?" can feel like you\'re looking for someone to blame.' }
+            }
+        ];
+
+        function selectRecvScenario(el, idx, quality) {
+            // Disable all choices in this scenario
+            var choices = document.getElementById('recv-choices-' + idx);
+            choices.querySelectorAll('.scenario-choice').forEach(function(c) {
+                c.style.opacity = '0.5'; c.style.pointerEvents = 'none';
+            });
+            el.style.opacity = '1'; el.style.border = '2px solid var(--chime-green)';
+
+            // Show outcome
+            var data = recvScenarioData[idx][quality];
+            var outcomeType = quality === 'best' ? 'best-approach' : (quality === 'okay' ? 'needs-work' : 'avoid');
+            var outcome = document.getElementById('recv-outcome-' + idx);
+            outcome.className = 'scenario-outcome show ' + (quality === 'best' ? 'best' : (quality === 'okay' ? 'okay' : 'poor'));
+            outcome.innerHTML = '<div class="outcome-badge">' + data.badge + '</div><div class="outcome-text">' + data.text + '</div>';
+            outcome.style.display = 'block';
+
+            // Show skill spotlight
+            var skill = document.getElementById('recv-skill-' + idx);
+            if (skill) { skill.style.display = 'block'; }
+
+            // Track result
+            recvResults[idx] = quality;
+
+            if (idx < 2) {
+                // Show "Next Scenario" button
+                var nextBtn = document.getElementById('recv-next-' + idx);
+                if (nextBtn) { nextBtn.style.display = 'inline-block'; }
+            } else {
+                // Last scenario -- show summary and enable continue
+                showRecvSummary();
+            }
+        }
+
+        function nextRecvScenario() {
+            // Hide current panel
+            var current = document.getElementById('recv-panel-' + recvCurrentScene);
+            current.style.display = 'none';
+
+            // Update dot
+            var dotCur = document.getElementById('recv-dot-' + recvCurrentScene);
+            dotCur.className = 'recv-dot done';
+            dotCur.textContent = '\u2713';
+            var lineCur = document.getElementById('recv-line-' + recvCurrentScene);
+            if (lineCur) { lineCur.style.background = 'var(--chime-green)'; }
+
+            // Advance
+            recvCurrentScene++;
+            var dotNext = document.getElementById('recv-dot-' + recvCurrentScene);
+            dotNext.className = 'recv-dot active';
+
+            // Show next panel
+            var next = document.getElementById('recv-panel-' + recvCurrentScene);
+            next.style.display = 'block';
+        }
+
+        function showRecvSummary() {
+            // Update last dot
+            var dotLast = document.getElementById('recv-dot-' + recvCurrentScene);
+            dotLast.className = 'recv-dot done';
+            dotLast.textContent = '\u2713';
+
+            var bestCount = recvResults.filter(function(r) { return r === 'best'; }).length;
+            var summary = document.getElementById('recv-summary');
+            var emoji = document.getElementById('recv-score-emoji');
+            var text = document.getElementById('recv-score-text');
+
+            if (bestCount === 3) {
+                emoji.textContent = '🌟';
+                text.textContent = 'Perfect! You nailed all three scenarios.';
+            } else if (bestCount >= 2) {
+                emoji.textContent = '💪';
+                text.textContent = 'Great instincts! You picked the strongest response ' + bestCount + ' out of 3 times.';
+            } else {
+                emoji.textContent = '🌱';
+                text.textContent = 'Good effort! Receiving well is a skill that gets stronger with practice.';
+            }
+
+            summary.style.display = 'block';
+            var s16btn = document.getElementById('section16-continue');
+            if (s16btn) s16btn.disabled = false;
         }
 
         // Feedback Paradox tug-of-war interaction
