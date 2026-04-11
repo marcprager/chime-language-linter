@@ -1733,165 +1733,165 @@
         <!-- I'll include key sections below and abbreviate others for space -->
 
 <!-- Section 4: The Feedback Paradox -->
-        <div class=”section” id=”section-4”>
-            <div class=”card”>
-                <div class=”section-badge dark-badge”>🧠 The Psychology</div>
-                <h2 class=”section-title dark-title”>The Feedback Paradox</h2>
-                <p class=”section-subtitle dark-subtitle”>Two needs. One brain. Zero easy answers.</p>
+        <div class="section" id="section-4">
+            <div class="card">
+                <div class="section-badge dark-badge">🧠 The Psychology</div>
+                <h2 class="section-title dark-title">The Feedback Paradox</h2>
+                <p class="section-subtitle dark-subtitle">Two needs. One brain. Zero easy answers.</p>
 
-                <div class=”content-block” style=”margin-top: 24px;”>
-                    <p>Before we get into frameworks and practice, it helps to understand something fundamental about how we’re wired. Every human being carries two competing psychological needs that feedback activates <em>simultaneously</em>:</p>
+                <div class="content-block" style="margin-top: 24px;">
+                    <p>Before we get into frameworks and practice, it helps to understand something fundamental about how we're wired. Every human being carries two competing psychological needs that feedback activates <em>simultaneously</em>:</p>
                 </div>
 
                 <!-- Interactive tug-of-war visual -->
-                <div style=”margin: 32px 0;”>
-                    <div style=”position: relative; border-radius: 16px; overflow: hidden; border: 2px solid var(--gray-200);”>
+                <div style="margin: 32px 0;">
+                    <div style="position: relative; border-radius: 16px; overflow: hidden; border: 2px solid var(--gray-200);">
                         <!-- Animated tug bar -->
-                        <div style=”height: 6px; display: flex;”>
-                            <div id=”tug-grow” style=”flex: 1; background: linear-gradient(90deg, #059669, #10b981); transition: flex 1s ease;”></div>
-                            <div id=”tug-accept” style=”flex: 1; background: linear-gradient(90deg, #3b82f6, #1d4ed8); transition: flex 1s ease;”></div>
+                        <div style="height: 6px; display: flex;">
+                            <div id="tug-grow" style="flex: 1; background: linear-gradient(90deg, #059669, #10b981); transition: flex 1s ease;"></div>
+                            <div id="tug-accept" style="flex: 1; background: linear-gradient(90deg, #3b82f6, #1d4ed8); transition: flex 1s ease;"></div>
                         </div>
 
-                        <div style=”display: flex; gap: 0;”>
+                        <div style="display: flex; gap: 0;">
                             <!-- Growth need -->
-                            <div style=”flex: 1; padding: 32px 28px; background: linear-gradient(180deg, #f0fdf4 0%, white 100%); cursor: pointer; transition: all 0.3s ease;” onclick=”tugToward(‘grow’)” onmouseenter=”this.style.background=’linear-gradient(180deg, #dcfce7 0%, #f0fdf4 100%)’” onmouseleave=”this.style.background=’linear-gradient(180deg, #f0fdf4 0%, white 100%)’”>
-                                <div style=”text-align: center; margin-bottom: 16px;”>
-                                    <svg width=”64” height=”64” viewBox=”0 0 64 64”>
-                                        <circle cx=”32” cy=”32” r=”28” fill=”none” stroke=”#059669” stroke-width=”2” stroke-dasharray=”4 3” opacity=”0.4”/>
-                                        <circle cx=”32” cy=”32” r=”20” fill=”#dcfce7”/>
-                                        <path d=”M32,20 L32,44” stroke=”#059669” stroke-width=”3” stroke-linecap=”round”/>
-                                        <path d=”M24,28 L32,20 L40,28” stroke=”#059669” stroke-width=”3” stroke-linecap=”round” fill=”none”/>
-                                        <circle cx=”22” cy=”38” r=”3” fill=”#059669” opacity=”0.3”><animate attributeName=”r” values=”3;5;3” dur=”3s” repeatCount=”indefinite”/></circle>
-                                        <circle cx=”42” cy=”36” r=”2” fill=”#059669” opacity=”0.3”><animate attributeName=”r” values=”2;4;2” dur=”2.5s” repeatCount=”indefinite”/></circle>
+                            <div style="flex: 1; padding: 32px 28px; background: linear-gradient(180deg, #f0fdf4 0%, white 100%); cursor: pointer; transition: all 0.3s ease;" onclick="tugToward('grow')" onmouseenter="this.style.background='linear-gradient(180deg, #dcfce7 0%, #f0fdf4 100%)'" onmouseleave="this.style.background='linear-gradient(180deg, #f0fdf4 0%, white 100%)'">
+                                <div style="text-align: center; margin-bottom: 16px;">
+                                    <svg width="64" height="64" viewBox="0 0 64 64">
+                                        <circle cx="32" cy="32" r="28" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+                                        <circle cx="32" cy="32" r="20" fill="#dcfce7"/>
+                                        <path d="M32,20 L32,44" stroke="#059669" stroke-width="3" stroke-linecap="round"/>
+                                        <path d="M24,28 L32,20 L40,28" stroke="#059669" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                        <circle cx="22" cy="38" r="3" fill="#059669" opacity="0.3"><animate attributeName="r" values="3;5;3" dur="3s" repeatCount="indefinite"/></circle>
+                                        <circle cx="42" cy="36" r="2" fill="#059669" opacity="0.3"><animate attributeName="r" values="2;4;2" dur="2.5s" repeatCount="indefinite"/></circle>
                                     </svg>
                                 </div>
-                                <div style=”font-size: 18px; font-weight: 800; color: #059669; text-align: center; margin-bottom: 8px; font-family: Merriweather, Georgia, serif;”>The Need to Grow</div>
-                                <p style=”font-size: 14px; color: var(--gray-600); line-height: 1.6; text-align: center; margin: 0 0 16px;”><em>”I want to learn, improve, and become better at what I do. Tell me what I’m missing.”</em></p>
-                                <div style=”font-size: 12px; color: var(--gray-500); line-height: 1.6;”>
-                                    <div style=”display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;”><span style=”color: #059669; font-weight: 700;”>→</span> Drives us to seek challenges</div>
-                                    <div style=”display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;”><span style=”color: #059669; font-weight: 700;”>→</span> Fuels learning and adaptation</div>
-                                    <div style=”display: flex; align-items: flex-start; gap: 8px;”><span style=”color: #059669; font-weight: 700;”>→</span> Embraces the gap between “now” and “next”</div>
+                                <div style="font-size: 18px; font-weight: 800; color: #059669; text-align: center; margin-bottom: 8px; font-family: Merriweather, Georgia, serif;">The Need to Grow</div>
+                                <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6; text-align: center; margin: 0 0 16px;"><em>"I want to learn, improve, and become better at what I do. Tell me what I'm missing."</em></p>
+                                <div style="font-size: 12px; color: var(--gray-500); line-height: 1.6;">
+                                    <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;"><span style="color: #059669; font-weight: 700;">→</span> Drives us to seek challenges</div>
+                                    <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;"><span style="color: #059669; font-weight: 700;">→</span> Fuels learning and adaptation</div>
+                                    <div style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: #059669; font-weight: 700;">→</span> Embraces the gap between "now" and "next"</div>
                                 </div>
                             </div>
 
                             <!-- Center divider with animated pulse -->
-                            <div style=”width: 2px; background: var(--gray-200); position: relative;”>
-                                <div style=”position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;”>
-                                    <div id=”tug-center” style=”background: white; border: 3px solid var(--gray-300); border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: var(--gray-400); transition: all 0.5s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.1);”>
-                                        <svg width=”24” height=”24” viewBox=”0 0 24 24” fill=”none”><path d=”M4,12 L10,12 M14,12 L20,12” stroke=”currentColor” stroke-width=”2.5” stroke-linecap=”round”/><path d=”M7,9 L4,12 L7,15” stroke=”currentColor” stroke-width=”2” stroke-linecap=”round” fill=”none”/><path d=”M17,9 L20,12 L17,15” stroke=”currentColor” stroke-width=”2” stroke-linecap=”round” fill=”none”/></svg>
+                            <div style="width: 2px; background: var(--gray-200); position: relative;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+                                    <div id="tug-center" style="background: white; border: 3px solid var(--gray-300); border-radius: 50%; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: var(--gray-400); transition: all 0.5s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4,12 L10,12 M14,12 L20,12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M7,9 L4,12 L7,15" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M17,9 L20,12 L17,15" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Acceptance need -->
-                            <div style=”flex: 1; padding: 32px 28px; background: linear-gradient(180deg, #eff6ff 0%, white 100%); cursor: pointer; transition: all 0.3s ease;” onclick=”tugToward(‘accept’)” onmouseenter=”this.style.background=’linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%)’” onmouseleave=”this.style.background=’linear-gradient(180deg, #eff6ff 0%, white 100%)’”>
-                                <div style=”text-align: center; margin-bottom: 16px;”>
-                                    <svg width=”64” height=”64” viewBox=”0 0 64 64”>
-                                        <circle cx=”32” cy=”32” r=”28” fill=”none” stroke=”#3b82f6” stroke-width=”2” stroke-dasharray=”4 3” opacity=”0.4”/>
-                                        <circle cx=”32” cy=”32” r=”20” fill=”#dbeafe”/>
-                                        <path d=”M22,26 C22,26 27,22 32,22 C37,22 42,26 42,26” stroke=”#3b82f6” stroke-width=”2.5” stroke-linecap=”round” fill=”none”/>
-                                        <path d=”M22,38 C22,38 27,42 32,42 C37,42 42,38 42,38” stroke=”#3b82f6” stroke-width=”2.5” stroke-linecap=”round” fill=”none”/>
-                                        <circle cx=”32” cy=”32” r=”6” fill=”none” stroke=”#3b82f6” stroke-width=”2”/>
-                                        <circle cx=”32” cy=”32” r=”2” fill=”#3b82f6”/>
+                            <div style="flex: 1; padding: 32px 28px; background: linear-gradient(180deg, #eff6ff 0%, white 100%); cursor: pointer; transition: all 0.3s ease;" onclick="tugToward('accept')" onmouseenter="this.style.background='linear-gradient(180deg, #dbeafe 0%, #eff6ff 100%)'" onmouseleave="this.style.background='linear-gradient(180deg, #eff6ff 0%, white 100%)'">
+                                <div style="text-align: center; margin-bottom: 16px;">
+                                    <svg width="64" height="64" viewBox="0 0 64 64">
+                                        <circle cx="32" cy="32" r="28" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 3" opacity="0.4"/>
+                                        <circle cx="32" cy="32" r="20" fill="#dbeafe"/>
+                                        <path d="M22,26 C22,26 27,22 32,22 C37,22 42,26 42,26" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                        <path d="M22,38 C22,38 27,42 32,42 C37,42 42,38 42,38" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="32" cy="32" r="6" fill="none" stroke="#3b82f6" stroke-width="2"/>
+                                        <circle cx="32" cy="32" r="2" fill="#3b82f6"/>
                                     </svg>
                                 </div>
-                                <div style=”font-size: 18px; font-weight: 800; color: #1d4ed8; text-align: center; margin-bottom: 8px; font-family: Merriweather, Georgia, serif;”>The Need to Be Accepted</div>
-                                <p style=”font-size: 14px; color: var(--gray-600); line-height: 1.6; text-align: center; margin: 0 0 16px;”><em>”I want to be respected and valued for who I am right now. Don’t tell me I’m not enough.”</em></p>
-                                <div style=”font-size: 12px; color: var(--gray-500); line-height: 1.6;”>
-                                    <div style=”display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;”><span style=”color: #3b82f6; font-weight: 700;”>→</span> Protects our sense of self</div>
-                                    <div style=”display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;”><span style=”color: #3b82f6; font-weight: 700;”>→</span> Maintains belonging and safety</div>
-                                    <div style=”display: flex; align-items: flex-start; gap: 8px;”><span style=”color: #3b82f6; font-weight: 700;”>→</span> Says: “I’m OK as I am”</div>
+                                <div style="font-size: 18px; font-weight: 800; color: #1d4ed8; text-align: center; margin-bottom: 8px; font-family: Merriweather, Georgia, serif;">The Need to Be Accepted</div>
+                                <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6; text-align: center; margin: 0 0 16px;"><em>"I want to be respected and valued for who I am right now. Don't tell me I'm not enough."</em></p>
+                                <div style="font-size: 12px; color: var(--gray-500); line-height: 1.6;">
+                                    <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;"><span style="color: #3b82f6; font-weight: 700;">→</span> Protects our sense of self</div>
+                                    <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;"><span style="color: #3b82f6; font-weight: 700;">→</span> Maintains belonging and safety</div>
+                                    <div style="display: flex; align-items: flex-start; gap: 8px;"><span style="color: #3b82f6; font-weight: 700;">→</span> Says: "I'm OK as I am"</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p style=”font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 8px;”>Click each side to feel the pull</p>
+                    <p style="font-size: 11px; color: var(--gray-400); text-align: center; margin-top: 8px;">Click each side to feel the pull</p>
                 </div>
 
-                <div class=”content-block”>
+                <div class="content-block">
                     <p>Both of these needs are real, legitimate, and present in <strong>every one of us</strong>. We genuinely want to grow. And we genuinely want to feel accepted. The problem? Feedback activates both at the same time.</p>
-                    <p>When someone says, “Here’s something you could do differently,” part of you hears a growth opportunity. But another part hears: <em>you’re not OK as you are.</em> That’s not a character flaw — it’s human wiring.</p>
+                    <p>When someone says, "Here's something you could do differently," part of you hears a growth opportunity. But another part hears: <em>you're not OK as you are.</em> That's not a character flaw — it's human wiring.</p>
                 </div>
 
                 <!-- Brain science moment -->
-                <div style=”margin: 28px 0; padding: 28px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: var(--radius-lg); color: white; position: relative; overflow: hidden;”>
-                    <div style=”position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(30,198,119,0.15) 0%, transparent 70%); pointer-events: none;”></div>
-                    <div style=”display: flex; align-items: flex-start; gap: 20px;”>
-                        <div style=”flex-shrink: 0;”>
-                            <svg width=”56” height=”56” viewBox=”0 0 56 56”>
-                                <circle cx=”28” cy=”28” r=”24” fill=”none” stroke=”rgba(255,255,255,0.2)” stroke-width=”1.5”/>
-                                <path d=”M28,12 C20,12 16,18 16,24 C16,28 18,30 18,34 C18,38 20,40 24,40 L32,40 C36,40 38,38 38,34 C38,30 40,28 40,24 C40,18 36,12 28,12 Z” fill=”none” stroke=”rgba(255,255,255,0.6)” stroke-width=”1.5”/>
-                                <path d=”M28,12 C28,12 28,24 22,30” stroke=”#10b981” stroke-width=”1.5” stroke-linecap=”round” fill=”none” opacity=”0.8”/>
-                                <path d=”M28,12 C28,12 28,24 34,30” stroke=”#60a5fa” stroke-width=”1.5” stroke-linecap=”round” fill=”none” opacity=”0.8”/>
-                                <circle cx=”22” cy=”30” r=”4” fill=”#10b981” opacity=”0.6”><animate attributeName=”opacity” values=”0.4;0.8;0.4” dur=”2s” repeatCount=”indefinite”/></circle>
-                                <circle cx=”34” cy=”30” r=”4” fill=”#60a5fa” opacity=”0.6”><animate attributeName=”opacity” values=”0.8;0.4;0.8” dur=”2s” repeatCount=”indefinite”/></circle>
-                                <line x1=”24” y1=”40” x2=”24” y2=”46” stroke=”rgba(255,255,255,0.3)” stroke-width=”1.5”/>
-                                <line x1=”28” y1=”40” x2=”28” y2=”48” stroke=”rgba(255,255,255,0.3)” stroke-width=”1.5”/>
-                                <line x1=”32” y1=”40” x2=”32” y2=”46” stroke=”rgba(255,255,255,0.3)” stroke-width=”1.5”/>
+                <div style="margin: 28px 0; padding: 28px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: var(--radius-lg); color: white; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -30px; right: -30px; width: 120px; height: 120px; background: radial-gradient(circle, rgba(30,198,119,0.15) 0%, transparent 70%); pointer-events: none;"></div>
+                    <div style="display: flex; align-items: flex-start; gap: 20px;">
+                        <div style="flex-shrink: 0;">
+                            <svg width="56" height="56" viewBox="0 0 56 56">
+                                <circle cx="28" cy="28" r="24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                                <path d="M28,12 C20,12 16,18 16,24 C16,28 18,30 18,34 C18,38 20,40 24,40 L32,40 C36,40 38,38 38,34 C38,30 40,28 40,24 C40,18 36,12 28,12 Z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+                                <path d="M28,12 C28,12 28,24 22,30" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+                                <path d="M28,12 C28,12 28,24 34,30" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+                                <circle cx="22" cy="30" r="4" fill="#10b981" opacity="0.6"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/></circle>
+                                <circle cx="34" cy="30" r="4" fill="#60a5fa" opacity="0.6"><animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/></circle>
+                                <line x1="24" y1="40" x2="24" y2="46" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <line x1="28" y1="40" x2="28" y2="48" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                                <line x1="32" y1="40" x2="32" y2="46" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
                             </svg>
                         </div>
-                        <div style=”flex: 1;”>
-                            <div style=”font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #a7f3d0;”>What’s Happening in Your Brain</div>
-                            <p style=”font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0 0 12px;”>When feedback challenges our self-image, the brain’s <strong style=”color: #fbbf24;”>threat detection system</strong> (amygdala) fires before our rational brain (prefrontal cortex) can even process the words. This is why your first reaction to tough feedback is often physical — a flush, a tightness in the chest, a clenched jaw — before you’ve even decided whether the feedback is fair.</p>
-                            <p style=”font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0 0 12px;”>Psychologist William Swann discovered something even more surprising: we don’t just want <em>positive</em> feedback. We want <strong style=”color: #a7f3d0;”>consistent</strong> feedback — information that matches how we already see ourselves. Even a compliment that contradicts our self-image can feel unsettling.</p>
-                            <p style=”font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;”>This means feedback can feel threatening even when it’s accurate, kind, and well-intentioned. <strong style=”color: white;”>It’s not the feedback that’s the problem — it’s that feedback asks us to update our picture of who we are, and our brains resist that instinctively.</strong></p>
+                        <div style="flex: 1;">
+                            <div style="font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #a7f3d0;">What's Happening in Your Brain</div>
+                            <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0 0 12px;">When feedback challenges our self-image, the brain's <strong style="color: #fbbf24;">threat detection system</strong> (amygdala) fires before our rational brain (prefrontal cortex) can even process the words. This is why your first reaction to tough feedback is often physical — a flush, a tightness in the chest, a clenched jaw — before you've even decided whether the feedback is fair.</p>
+                            <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0 0 12px;">Psychologist William Swann discovered something even more surprising: we don't just want <em>positive</em> feedback. We want <strong style="color: #a7f3d0;">consistent</strong> feedback — information that matches how we already see ourselves. Even a compliment that contradicts our self-image can feel unsettling.</p>
+                            <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.85); margin: 0;">This means feedback can feel threatening even when it's accurate, kind, and well-intentioned. <strong style="color: white;">It's not the feedback that's the problem — it's that feedback asks us to update our picture of who we are, and our brains resist that instinctively.</strong></p>
                         </div>
                     </div>
                 </div>
 
                 <!-- The key stat -->
-                <div style=”text-align: center; margin: 32px 0; padding: 24px; background: var(--accent-freedom-50); border-radius: var(--radius); border: 2px solid var(--accent-freedom);”>
-                    <div style=”font-size: 48px; font-weight: 900; color: var(--text-primary); line-height: 1;” id=”feedback-stat-num”>1/3</div>
-                    <div style=”font-size: 15px; color: var(--gray-600); margin-top: 8px; line-height: 1.5;”>of all feedback interventions actually <strong>decrease</strong> performance.<br>The difference? How the feedback accounts for the receiver’s psychology.</div>
-                    <div style=”font-size: 11px; color: var(--gray-400); margin-top: 8px;”>Kluger &amp; DeNisi (1996). Effects of feedback intervention on performance: A historical review. <em>Psychological Bulletin</em>.</div>
+                <div style="text-align: center; margin: 32px 0; padding: 24px; background: var(--accent-freedom-50); border-radius: var(--radius); border: 2px solid var(--accent-freedom);">
+                    <div style="font-size: 48px; font-weight: 900; color: var(--text-primary); line-height: 1;" id="feedback-stat-num">1/3</div>
+                    <div style="font-size: 15px; color: var(--gray-600); margin-top: 8px; line-height: 1.5;">of all feedback interventions actually <strong>decrease</strong> performance.<br>The difference? How the feedback accounts for the receiver's psychology.</div>
+                    <div style="font-size: 11px; color: var(--gray-400); margin-top: 8px;">Kluger &amp; DeNisi (1996). Effects of feedback intervention on performance: A historical review. <em>Psychological Bulletin</em>.</div>
                 </div>
 
-                <div class=”brand-accent-bar”></div>
+                <div class="brand-accent-bar"></div>
 
-                <h3 style=”font-size: 16px; margin-top: 28px; margin-bottom: 12px;”>Where are you right now?</h3>
-                <p style=”font-size: 14px; color: var(--gray-500); margin-bottom: 16px;”>When you think about receiving feedback at work, which voice feels louder today? No right answer — just honest reflection.</p>
+                <h3 style="font-size: 16px; margin-top: 28px; margin-bottom: 12px;">Where are you right now?</h3>
+                <p style="font-size: 14px; color: var(--gray-500); margin-bottom: 16px;">When you think about receiving feedback at work, which voice feels louder today? No right answer — just honest reflection.</p>
 
-                <div id=”paradox-check” style=”display: flex; flex-direction: column; gap: 10px;”>
-                    <div class=”paradox-option” onclick=”selectParadox(this, ‘grow’)” style=”padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;”>
-                        <div style=”width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #dcfce7, #bbf7d0); display: flex; align-items: center; justify-content: center; flex-shrink: 0;”>
-                            <svg width=”22” height=”22” viewBox=”0 0 22 22”><path d=”M11,3 L11,19” stroke=”#059669” stroke-width=”2.5” stroke-linecap=”round”/><path d=”M6,8 L11,3 L16,8” stroke=”#059669” stroke-width=”2.5” stroke-linecap=”round” fill=”none”/></svg>
+                <div id="paradox-check" style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="paradox-option" onclick="selectParadox(this, 'grow')" style="padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #dcfce7, #bbf7d0); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M11,3 L11,19" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/><path d="M6,8 L11,3 L16,8" stroke="#059669" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
                         </div>
                         <div>
-                            <div style=”font-weight: 700; font-size: 15px; color: var(--gray-700);”>Growth voice is louder</div>
-                            <div style=”font-size: 13px; color: var(--gray-500); margin-top: 2px;”>”I actively want more feedback, even when it’s hard to hear.”</div>
+                            <div style="font-weight: 700; font-size: 15px; color: var(--gray-700);">Growth voice is louder</div>
+                            <div style="font-size: 13px; color: var(--gray-500); margin-top: 2px;">"I actively want more feedback, even when it's hard to hear."</div>
                         </div>
                     </div>
-                    <div class=”paradox-option” onclick=”selectParadox(this, ‘accept’)” style=”padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;”>
-                        <div style=”width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #dbeafe, #bfdbfe); display: flex; align-items: center; justify-content: center; flex-shrink: 0;”>
-                            <svg width=”22” height=”22” viewBox=”0 0 22 22”><circle cx=”11” cy=”11” r=”7” fill=”none” stroke=”#3b82f6” stroke-width=”2”/><circle cx=”11” cy=”11” r=”2.5” fill=”#3b82f6”/></svg>
+                    <div class="paradox-option" onclick="selectParadox(this, 'accept')" style="padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #dbeafe, #bfdbfe); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="7" fill="none" stroke="#3b82f6" stroke-width="2"/><circle cx="11" cy="11" r="2.5" fill="#3b82f6"/></svg>
                         </div>
                         <div>
-                            <div style=”font-weight: 700; font-size: 15px; color: var(--gray-700);”>Acceptance voice is louder</div>
-                            <div style=”font-size: 13px; color: var(--gray-500); margin-top: 2px;”>”I know feedback helps, but my first reaction is usually to protect myself.”</div>
+                            <div style="font-weight: 700; font-size: 15px; color: var(--gray-700);">Acceptance voice is louder</div>
+                            <div style="font-size: 13px; color: var(--gray-500); margin-top: 2px;">"I know feedback helps, but my first reaction is usually to protect myself."</div>
                         </div>
                     </div>
-                    <div class=”paradox-option” onclick=”selectParadox(this, ‘depends’)” style=”padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;”>
-                        <div style=”width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #f3f4f6, #e5e7eb); display: flex; align-items: center; justify-content: center; flex-shrink: 0;”>
-                            <svg width=”22” height=”22” viewBox=”0 0 22 22”><path d=”M4,11 L18,11” stroke=”#6b7280” stroke-width=”2.5” stroke-linecap=”round”/><path d=”M7,7 L4,11 L7,15” stroke=”#6b7280” stroke-width=”2” stroke-linecap=”round” fill=”none”/><path d=”M15,7 L18,11 L15,15” stroke=”#6b7280” stroke-width=”2” stroke-linecap=”round” fill=”none”/></svg>
+                    <div class="paradox-option" onclick="selectParadox(this, 'depends')" style="padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #f3f4f6, #e5e7eb); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M4,11 L18,11" stroke="#6b7280" stroke-width="2.5" stroke-linecap="round"/><path d="M7,7 L4,11 L7,15" stroke="#6b7280" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M15,7 L18,11 L15,15" stroke="#6b7280" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
                         </div>
                         <div>
-                            <div style=”font-weight: 700; font-size: 15px; color: var(--gray-700);”>Depends on the situation</div>
-                            <div style=”font-size: 13px; color: var(--gray-500); margin-top: 2px;”>”Who’s giving it, what it’s about, and how my day is going all matter.”</div>
+                            <div style="font-weight: 700; font-size: 15px; color: var(--gray-700);">Depends on the situation</div>
+                            <div style="font-size: 13px; color: var(--gray-500); margin-top: 2px;">"Who's giving it, what it's about, and how my day is going all matter."</div>
                         </div>
                     </div>
                 </div>
 
-                <div id=”paradox-response” style=”display: none; margin-top: 20px; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, var(--green-50) 0%, white 100%); border: 1px solid #bbf7d0;”></div>
+                <div id="paradox-response" style="display: none; margin-top: 20px; padding: 20px; border-radius: 10px; background: linear-gradient(135deg, var(--green-50) 0%, white 100%); border: 1px solid #bbf7d0;"></div>
 
-                <div class=”content-block” style=”margin-top: 28px;”>
-                    <p>The point isn’t to silence either voice. It’s to recognize that <strong>both are in the room every time feedback happens</strong> — for you and for the person you’re giving feedback to.</p>
-                    <p>That awareness — that the person across from you is navigating the same tug-of-war you are — is what separates feedback that lands from feedback that backfires. It’s also why <em>how</em> you deliver feedback matters just as much as <em>what</em> you say.</p>
-                    <p style=”font-size: 12px; color: var(--gray-400); margin-top: 16px;”>Stone, D. &amp; Heen, S. (2014). <em>Thanks for the Feedback</em>. Viking/Penguin. &nbsp;|&nbsp; Swann, W. B. Jr. (1983). Self-verification. &nbsp;|&nbsp; Kluger, A. N. &amp; DeNisi, A. (1996). <em>Psychological Bulletin</em>.</p>
+                <div class="content-block" style="margin-top: 28px;">
+                    <p>The point isn't to silence either voice. It's to recognize that <strong>both are in the room every time feedback happens</strong> — for you and for the person you're giving feedback to.</p>
+                    <p>That awareness — that the person across from you is navigating the same tug-of-war you are — is what separates feedback that lands from feedback that backfires. It's also why <em>how</em> you deliver feedback matters just as much as <em>what</em> you say.</p>
+                    <p style="font-size: 12px; color: var(--gray-400); margin-top: 16px;">Stone, D. &amp; Heen, S. (2014). <em>Thanks for the Feedback</em>. Viking/Penguin. &nbsp;|&nbsp; Swann, W. B. Jr. (1983). Self-verification. &nbsp;|&nbsp; Kluger, A. N. &amp; DeNisi, A. (1996). <em>Psychological Bulletin</em>.</p>
                 </div>
 
-                <div class=”nav-buttons”>
-                    <button class=”btn btn-secondary” onclick=”prevSection()”>← Back</button>
-                    <button class=”btn btn-primary” id=”section4-continue” onclick=”nextSection()” disabled>Continue →</button>
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
+                    <button class="btn btn-primary" id="section4-continue" onclick="nextSection()" disabled>Continue →</button>
                 </div>
             </div>
         </div>
