@@ -1975,12 +1975,12 @@
                 <p style="font-size: 12px; color: var(--gray-500); margin-bottom: 8px;">💡 <em>Click a placed item to move it back if you change your mind.</em></p>
                 <div class="sort-exercise" id="sort-culture">
                     <div class="sort-bank" id="sort-bank">
-                        <div class="sort-item" draggable="true" data-answer="help" ondragstart="dragStart(event)" onclick="clickSort(this)">Saying "thank you" after receiving feedback</div>
-                        <div class="sort-item" draggable="true" data-answer="hinder" ondragstart="dragStart(event)" onclick="clickSort(this)">Venting about a peer to someone else</div>
-                        <div class="sort-item" draggable="true" data-answer="help" ondragstart="dragStart(event)" onclick="clickSort(this)">Asking "What's one thing I could do better?"</div>
                         <div class="sort-item" draggable="true" data-answer="hinder" ondragstart="dragStart(event)" onclick="clickSort(this)">Waiting for annual review to share concerns</div>
                         <div class="sort-item" draggable="true" data-answer="help" ondragstart="dragStart(event)" onclick="clickSort(this)">Sharing specific examples, not generalizations</div>
                         <div class="sort-item" draggable="true" data-answer="hinder" ondragstart="dragStart(event)" onclick="clickSort(this)">Saying "You always do this..."</div>
+                        <div class="sort-item" draggable="true" data-answer="help" ondragstart="dragStart(event)" onclick="clickSort(this)">Saying "thank you" after receiving feedback</div>
+                        <div class="sort-item" draggable="true" data-answer="hinder" ondragstart="dragStart(event)" onclick="clickSort(this)">Venting about a peer to someone else</div>
+                        <div class="sort-item" draggable="true" data-answer="help" ondragstart="dragStart(event)" onclick="clickSort(this)">Asking "What's one thing I could do better?"</div>
                     </div>
                     <div class="sort-zones">
                         <div class="sort-zone" id="sort-zone-help" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropSort(event, 'help')">
@@ -3655,7 +3655,7 @@
             try { SCORM.setLocation(currentSection); } catch(e) {}
             checkMilestones(num);
 
-            if (num === 5) animateStats();
+            if (num === 5) { animateStats(); shuffleSortBank(); }
             if (num === 21 && document.getElementById('assessment-container').children.length === 0) {
                 initAssessment();
             }
@@ -4334,6 +4334,22 @@
         // --- Drag-Drop Sort (Section 5) ---
         var draggedItem = null;
         var sortPlaced = 0;
+        var sortBankShuffled = false;
+
+        function shuffleSortBank() {
+            if (sortBankShuffled) return;
+            sortBankShuffled = true;
+            var bank = document.getElementById('sort-bank');
+            var items = Array.from(bank.children);
+            // Fisher-Yates shuffle
+            for (var i = items.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                bank.appendChild(items[j]);
+                items.splice(j, 1, items[i]);
+            }
+            // Re-append all in shuffled order
+            items.forEach(function(item) { bank.appendChild(item); });
+        }
 
         function dragStart(e) {
             draggedItem = e.target;
