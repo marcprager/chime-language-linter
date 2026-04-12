@@ -1576,7 +1576,7 @@
                         A practical guide to giving and receiving peer feedback that drives growth, builds trust, and strengthens how we work together at Chime.
                     </p>
                     <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.9);">
-                        <span>⏱</span> <span>About 25 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
+                        <span>⏱</span> <span>About 30 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
                     </div>
                     <div class="brand-dot-accent" style="margin-top: 20px;">
                         <div class="brand-dot" style="background: var(--chime-green);"></div>
@@ -2099,7 +2099,7 @@
                                 <div class="tf-btn" onclick="answerTF('ftf2', true, this)">False</div>
                             </div>
                         </div>
-                        <div class="tf-explain">False. Feeling defensive is normal and human. The SARA model shows we all move through shock and resistance. The skill is not getting stuck there.</div>
+                        <div class="tf-explain">False. Feeling defensive is normal and human. The SARA model shows we all move through surprise and resistance. The skill is not getting stuck there.</div>
                     </div>
                     <div class="tf-item" id="ftf3">
                         <div class="tf-row">
@@ -2762,8 +2762,8 @@
                                 <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#E53E3E" stroke-width="2"/><circle cx="12" cy="14" r="2.5" fill="#E53E3E"/><circle cx="24" cy="14" r="2.5" fill="#E53E3E"/><ellipse cx="18" cy="24" rx="4" ry="3" fill="none" stroke="#E53E3E" stroke-width="2"/></svg>
                             </div>
                             <div class="sara-stage-letter">S</div>
-                            <div class="sara-stage-name">Shock</div>
-                            <div class="sara-stage-micro">"Wait, what?"</div>
+                            <div class="sara-stage-name">Surprise</div>
+                            <div class="sara-stage-micro">"Hmm, really?"</div>
                         </div>
                         <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
                         <div class="sara-stage-card" onclick="showSaraDetail(1)" id="sara-card-1">
@@ -2771,8 +2771,8 @@
                                 <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#D97706" stroke-width="2"/><line x1="10" y1="12" x2="14" y2="15" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="12" x2="22" y2="15" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/><path d="M12,24 Q18,20 24,24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"/></svg>
                             </div>
                             <div class="sara-stage-letter">A</div>
-                            <div class="sara-stage-name">Anger</div>
-                            <div class="sara-stage-micro">"That's not fair!"</div>
+                            <div class="sara-stage-name">Awareness</div>
+                            <div class="sara-stage-micro">"They don't get it."</div>
                         </div>
                         <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
                         <div class="sara-stage-card" onclick="showSaraDetail(2)" id="sara-card-2">
@@ -4973,8 +4973,8 @@
 
         // SARA interactive detail
         var saraDetails = [
-            { title: 'Shock', text: '<strong>What happens:</strong> Your brain freezes. You might feel a physical jolt – tightness in your chest, a flushed face. You\'re processing the surprise before you can even think about the content.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond immediately. "Thank you for sharing that – let me think about it" is a perfectly valid first response.' },
-            { title: 'Anger', text: '<strong>What happens:</strong> Your inner critic activates. "They\'re wrong." "Who are they to say that?" "They don\'t have the full picture." You might feel the urge to defend, explain, or counter-attack.<br><br><strong>What helps:</strong> Notice the anger without acting on it. Ask yourself: "Is this about the feedback, or about how it was delivered?" The anger is often about delivery, not content.' },
+            { title: 'Surprise', text: '<strong>What happens:</strong> Your brain pauses. You weren\'t expecting this, and you need a moment to catch up. It\'s completely normal \u2013 your mind is shifting gears from whatever you were focused on to processing something new.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond right away. "Thank you for sharing that \u2013 let me sit with it" is a perfectly valid first response.' }
+            { title: 'Awareness', text: '<strong>What happens:</strong> Your protective instinct kicks in. You might think: "They don\'t have the full picture" or "That\'s not how I see it." This is your brain trying to make sense of information that doesn\'t match your self-image. It\'s natural and temporary.<br><br><strong>What helps:</strong> Name what you\'re feeling without acting on it. Ask yourself: "Is my reaction about the content, or about how it landed?" Separating the two helps you stay open.' },
             { title: 'Resistance', text: '<strong>What happens:</strong> You start negotiating. "Maybe it\'s partly true, but..." You might minimize, rationalize, or find exceptions. This is your brain\'s way of protecting your self-image while partially letting the feedback in.<br><br><strong>What helps:</strong> Look for the 2% that might be true. Even feedback that\'s mostly off-base usually contains a kernel worth examining.' },
             { title: 'Acceptance', text: '<strong>What happens:</strong> The emotional charge fades. You can see the feedback more clearly – what\'s useful, what\'s not, and what you want to do about it. This doesn\'t mean you agree with everything. It means you can engage with it rationally.<br><br><strong>What helps:</strong> Propose a path forward. "Here\'s what I\'ll try differently..." This turns acceptance into action.' }
         ];
