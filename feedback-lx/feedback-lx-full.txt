@@ -1625,7 +1625,7 @@
                 <div class="section-badge dark-badge">📊 Quick Check</div>
                 <h2 class="section-title dark-title">Before We Begin</h2>
                 <p class="section-subtitle dark-subtitle">Let's see where you're starting. Be honest – there are no wrong answers here.</p>
-                <p style="font-size: 12px; color: var(--gray-500); margin-top: 8px; font-style: italic;">🔒 Your responses aren't shared with your manager and aren't tied to your name.</p>
+                <p style="font-size: 12px; color: var(--gray-500); margin-top: 8px; font-style: italic;">🔒 Your responses aren't shared with your manager. People Dev may review aggregated results; completion is tracked for participation.</p>
 
                 <div class="confidence-scale-container">
                     <div class="confidence-scale-question">How confident are you in <strong>giving</strong> constructive feedback to peers?</div>
@@ -1712,7 +1712,7 @@
 
                 <div class="content-block">
                     <p>Kai's hesitation is incredibly common. Most of us have been there – holding back feedback that could help a colleague grow, worried about the conversation going sideways.</p>
-                    <p>But here's the thing: <strong>when we withhold feedback, we're not being kind – we're denying someone the chance to improve.</strong> This module will give you the tools and confidence to have these conversations well. We'll check in with Kai throughout.</p>
+                    <p>Here's the thing: <strong>when feedback doesn't get shared, people lose the chance to adjust early.</strong> Avoidance is normal -- most of us do it. This module will give you tools and confidence to go direct sooner, while it's still small. We'll check in with Kai throughout.</p>
                 </div>
 
                 <div class="brand-accent-bar"></div>
@@ -1909,7 +1909,7 @@
 
                 <div class="content-block">
                     <h3>From Fear to Fuel</h3>
-                    <p>Chime's leadership has named a clear goal: to shift our culture <strong>from avoidance to a genuine culture of feedback</strong>. That means building an environment where:</p>
+                    <p>Recent survey results show a clear opportunity: moving <strong>from feedback avoidance to feedback as a normal part of how we work together</strong>. That means building an environment where:</p>
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;" id="fuel-cards-grid">
@@ -2109,7 +2109,7 @@
                                 <div class="tf-btn" onclick="answerTF('ftf3', false, this)">False</div>
                             </div>
                         </div>
-                        <div class="tf-explain">True. Evaluation (rating against expectations) is typically a manager responsibility. Peers are best positioned for appreciation and coaching.</div>
+                        <div class="tf-explain">True. Evaluation (rating against expectations) is typically a manager responsibility, though peers can offer informal perspective. Peers are best positioned for appreciation and coaching.</div>
                     </div>
                 </div>
                 <div class="nav-buttons">
@@ -2236,7 +2236,7 @@
                         <div class="type-icon">💙</div>
                         <div class="type-title">Evaluation</div>
                         <div class="type-quote">"Here's where you stand."</div>
-                        <div class="type-desc">Rating or ranking against expectations. Usually from managers.</div>
+                        <div class="type-desc">Rating or ranking against expectations. Typically a manager responsibility.</div>
                     </div>
                 </div>
 
@@ -2518,7 +2518,7 @@
                         <div id="sbi-preview-text" style="font-size: 15px; color: var(--gray-700); line-height: 1.6; font-style: italic;"></div>
                     </div>
 
-                    <p style="font-size: 12px; color: var(--gray-400); margin-top: 12px;">🔒 This is for your eyes only — nothing is stored.</p>
+                    <p style="font-size: 12px; color: var(--gray-400); margin-top: 12px;">🔒 This exercise is for you; it isn't submitted.</p>
                 </div>
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
@@ -2998,7 +2998,7 @@
                 <div class="delivery-content" id="delivery-workday">
                     <div class="delivery-tip">
                         <div class="delivery-tip-icon">📝</div>
-                        <div class="delivery-tip-text"><strong>Use Chime's 3-Question Template:</strong> (1) How did you work together? (2) What did they do well? (3) One thing better?</div>
+                        <div class="delivery-tip-text"><strong>Try the recommended 3-Question Template:</strong> (1) How did you work together? (2) What did they do well? (3) One thing better?</div>
                     </div>
                     <div class="delivery-tip">
                         <div class="delivery-tip-icon">🎯</div>
@@ -3100,7 +3100,7 @@
 
                 <div class="content-block">
                     <h3>Remember</h3>
-                    <p>Feedback is a gift. When you share it thoughtfully, you're investing in someone's growth. When you receive it openly, you're showing courage and a commitment to getting better.</p>
+                    <p>Clear feedback is an investment in how we work together. When you share it thoughtfully, you're helping someone grow. When you receive it openly, you're showing courage and a commitment to getting better.</p>
                     <p><strong>Clarity is kindness.</strong> You've got this.</p>
                 </div>
 
@@ -3429,7 +3429,7 @@
                     <div class="nav-buttons" style="justify-content: center; margin-top: 32px;">
                         <button class="btn btn-primary btn-large" id="submit-feedback-btn" onclick="submitFeedback()" disabled>Submit & Finish</button>
                     </div>
-                    <p class="submit-note">🔒 L&D may see completion and overall scores to improve the program and confirm participation.</p>
+                    <p class="submit-note">🔒 People Dev may review aggregated results to improve the program. Your individual responses aren't shared with your manager.</p>
                 </div>
             </div>
         </div>
@@ -3553,11 +3553,11 @@
             'scenario1': {
                 'best': { type: 'best', badge: 'Best Approach', text: "Perfect! Kai uses SBI clearly: specific situation (spec doc late), behavior (came in two days late), and impact (pushed back handoff). The 'one thing' suggestion (flag blockers earlier) is collaborative. Ending with 'how does that land?' invites dialogue." },
                 'okay': { type: 'okay', badge: 'Needs Work', text: "This calls out a pattern, but 'be more reliable' is about character, not behavior. It's likely to trigger defensiveness. Better to use SBI and focus on specific instances." },
-                'poor': { type: 'poor', badge: 'Avoid This', text: "Saying nothing means Jordan doesn't get the chance to improve. This isn't kind – it's avoidance. Kai owes Jordan honest feedback." }
+                'poor': { type: 'poor', badge: 'Avoid This', text: "Saying nothing feels safe, but Jordan loses the chance to adjust early. Going direct sooner -- while it's still small -- is one of the most generous things Kai can do." }
             },
             'scenario2': {
                 'best': { type: 'best', badge: 'Best Approach', text: "Great use of SBI for cross-functional feedback. You're direct about the behavior (framing focused on problems), specific about impact (made team look ineffective), and collaborative about the solution." },
-                'poor': { type: 'poor', badge: 'Avoid This', text: "Escalating to someone's manager before having a direct conversation is triangulation – a feedback anti-pattern at Chime. Give Alex the chance to hear it from you first." },
+                'poor': { type: 'poor', badge: 'Avoid This', text: "Going to someone's manager before talking to them directly can create a 'telephone effect' and erode trust. When possible, give Alex the chance to hear it from you first." },
                 'okay': { type: 'okay', badge: 'Needs Work', text: "You're approaching Alex directly, which is good. But 'didn't sit right' and 'felt like our contributions were overlooked' are feelings, not observable behaviors. Use SBI to anchor in specifics so Alex knows exactly what to do differently." }
             }
         };
@@ -3569,7 +3569,7 @@
             { question: "Which type of feedback focuses on helping someone learn and grow?", options: ["Appreciation", "Evaluation", "Coaching", "Ranking"], correct: 2, explain: "Coaching feedback is forward-looking – it identifies specific behaviors and offers suggestions for growth. Appreciation acknowledges effort; evaluation rates performance. Coaching is what drives development." },
             { question: "When should you ideally give feedback after an event?", options: ["Within 24-48 hours", "At the next annual review", "After a month", "Only if asked"], correct: 0, explain: "Timely feedback is more effective because both people can recall the specific details. Waiting weeks or months means the context fades and the opportunity for change narrows." },
             { question: "What's the BEST first response when receiving critical feedback?", options: ["Defend your actions", "Thank the giver", "Explain why they're wrong", "Change the subject"], correct: 1, explain: "Thanking the giver acknowledges the risk they took in sharing. It doesn't mean you agree – it creates space for you to process the feedback before responding. Defensiveness shuts the conversation down." },
-            { question: "What's 'triangulation' in feedback?", options: ["Using three examples", "Sharing feedback about someone to a third party instead of directly", "Getting feedback from three people", "A mathematical approach"], correct: 1, explain: "Triangulation is a feedback anti-pattern where you talk about someone to a third party instead of going to them directly. It erodes trust and denies the person the chance to improve." },
+            { question: "What's 'triangulation' in feedback?", options: ["Using three examples", "Sharing feedback about someone to a third party instead of directly", "Getting feedback from three people", "A mathematical approach"], correct: 1, explain: "Triangulation means talking about someone to a third party instead of going to them directly. It can erode trust and means the person doesn't get the chance to adjust." },
             { question: "Which trigger makes us discount feedback based on WHO is giving it?", options: ["Truth triggers", "Identity triggers", "Relationship triggers", "Content triggers"], correct: 2, explain: "Relationship triggers cause us to dismiss feedback because of our feelings about the giver: 'Who are they to tell me this?' Truth triggers focus on the content; identity triggers threaten our self-image." },
             { question: "In SBI, what should the 'B' (Behavior) describe?", options: ["Your opinion of the person", "Observable actions you saw or heard", "The person's personality", "What they should do next"], correct: 1, explain: "Behavior in SBI means observable, factual actions – what you saw or heard, not your interpretation. 'You interrupted twice' vs. 'You're rude.' Sticking to observable behavior keeps feedback fair and non-judgmental." },
             { question: "What Chime value is most directly connected to peer feedback?", options: ["Be Bold", "Member Obsessed", "Win Together", "Respect the Rules"], correct: 2, explain: "Win Together is Chime's value most tied to feedback: 'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others.'" }
