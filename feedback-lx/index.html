@@ -1576,7 +1576,7 @@
                         A practical guide to giving and receiving peer feedback that drives growth, builds trust, and strengthens how we work together at Chime.
                     </p>
                     <div style="margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255,255,255,0.15); border-radius: 100px; font-size: 13px; color: rgba(255,255,255,0.9);">
-                        <span>⏱</span> <span>About 25 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
+                        <span>⏱</span> <span>About 30 minutes</span> <span style="opacity: 0.5;">|</span> <span>Interactive</span>
                     </div>
                     <div class="brand-dot-accent" style="margin-top: 20px;">
                         <div class="brand-dot" style="background: var(--chime-green);"></div>
@@ -2099,7 +2099,7 @@
                                 <div class="tf-btn" onclick="answerTF('ftf2', true, this)">False</div>
                             </div>
                         </div>
-                        <div class="tf-explain">False. Feeling defensive is normal and human. The SARA model shows we all move through shock and resistance. The skill is not getting stuck there.</div>
+                        <div class="tf-explain">False. Feeling defensive is normal and human. The SARA model shows we all move through surprise and resistance. The skill is not getting stuck there.</div>
                     </div>
                     <div class="tf-item" id="ftf3">
                         <div class="tf-row">
@@ -2762,8 +2762,8 @@
                                 <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#E53E3E" stroke-width="2"/><circle cx="12" cy="14" r="2.5" fill="#E53E3E"/><circle cx="24" cy="14" r="2.5" fill="#E53E3E"/><ellipse cx="18" cy="24" rx="4" ry="3" fill="none" stroke="#E53E3E" stroke-width="2"/></svg>
                             </div>
                             <div class="sara-stage-letter">S</div>
-                            <div class="sara-stage-name">Shock</div>
-                            <div class="sara-stage-micro">"Wait, what?"</div>
+                            <div class="sara-stage-name">Surprise</div>
+                            <div class="sara-stage-micro">"Hmm, really?"</div>
                         </div>
                         <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
                         <div class="sara-stage-card" onclick="showSaraDetail(1)" id="sara-card-1">
@@ -2771,8 +2771,8 @@
                                 <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="16" fill="none" stroke="#D97706" stroke-width="2"/><line x1="10" y1="12" x2="14" y2="15" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="12" x2="22" y2="15" stroke="#D97706" stroke-width="2.5" stroke-linecap="round"/><path d="M12,24 Q18,20 24,24" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"/></svg>
                             </div>
                             <div class="sara-stage-letter">A</div>
-                            <div class="sara-stage-name">Anger</div>
-                            <div class="sara-stage-micro">"That's not fair!"</div>
+                            <div class="sara-stage-name">Awareness</div>
+                            <div class="sara-stage-micro">"They don't get it."</div>
                         </div>
                         <div class="sara-stage-connector"><svg width="40" height="20"><path d="M0,10 L30,10" stroke="var(--gray-300)" stroke-width="2" stroke-dasharray="4 4"/><polygon points="30,5 40,10 30,15" fill="var(--gray-300)"/></svg></div>
                         <div class="sara-stage-card" onclick="showSaraDetail(2)" id="sara-card-2">
@@ -2798,7 +2798,7 @@
                 </div>
 
                 <div class="content-block">
-                    <p><strong>Key insight:</strong> How quickly we move from shock to acceptance depends on context, delivery, and our own mindset. The goal isn't to skip the emotions – it's to not get stuck in them.</p>
+                    <p><strong>Key insight:</strong> How quickly we move from surprise to acceptance depends on context, delivery, and our own mindset. The goal isn't to skip the emotions – it's to not get stuck in them.</p>
                 </div>
 
                 <div class="values-box" style="border-color: var(--blue); background: linear-gradient(135deg, var(--blue-light) 0%, #F0F9FF 100%);">
@@ -3597,7 +3597,7 @@
             'scenario1': {
                 'best': { type: 'best', badge: 'Best Approach', text: "Perfect! Kai uses SBI clearly: specific situation (spec doc late), behavior (came in two days late), and impact (pushed back handoff). The 'one thing' suggestion (flag blockers earlier) is collaborative. Ending with 'how does that land?' invites dialogue." },
                 'okay': { type: 'okay', badge: 'Needs Work', text: "This calls out a pattern, but 'be more reliable' is about character, not behavior. It's likely to trigger defensiveness. Better to use SBI and focus on specific instances." },
-                'poor': { type: 'poor', badge: 'Avoid This', text: "Saying nothing feels safe, but Jordan loses the chance to adjust early. Going direct sooner -- while it's still small -- is one of the most generous things Kai can do." }
+                'poor': { type: 'poor', badge: 'Avoid This', text: "Saying nothing feels safe, but Jordan loses the chance to adjust early. Going direct sooner – while it's still small – is one of the most generous things Kai can do." }
             },
             'scenario2': {
                 'best': { type: 'best', badge: 'Best Approach', text: "Great use of SBI for cross-functional feedback. You're direct about the behavior (framing focused on problems), specific about impact (made team look ineffective), and collaborative about the solution." },
@@ -4776,7 +4776,7 @@
             var hasGeneralization = /\b(always|never|every time|constantly)\b/i.test(t);
             if (hasGeneralization) return { quality: 'warn', hint: 'Tip: A specific moment works better than "always" or "never." When exactly did this happen?' };
             if (!hasEnoughWords) return { quality: 'short', hint: '' };
-            if (hasTime) return { quality: 'good', hint: 'Good -- specific time/place grounds the feedback.' };
+            if (hasTime) return { quality: 'good', hint: 'Good – specific time/place grounds the feedback.' };
             return { quality: 'nudge', hint: 'Try adding when and where: "In Monday\'s sync..." or "During the sprint review..."' };
         }
 
@@ -4789,10 +4789,10 @@
             // Red flags: character judgments instead of behaviors
             var hasJudgment = /\b(you('re| are) (lazy|careless|rude|disorganized|unprofessional|incompetent|difficult|selfish|aggressive)|you don't care|you lack|your attitude)\b/i.test(t);
             var hasGeneralization = /\b(always|never|every time|constantly)\b/i.test(t);
-            if (hasJudgment) return { quality: 'warn', hint: 'Watch out -- this reads as a character judgment, not a behavior. What did they actually do or say?' };
+            if (hasJudgment) return { quality: 'warn', hint: 'Watch out – this reads as a character judgment, not a behavior. What did they actually do or say?' };
             if (hasGeneralization) return { quality: 'warn', hint: '"Always" and "never" feel like attacks. Describe one specific thing they did.' };
             if (!hasEnoughWords) return { quality: 'short', hint: '' };
-            if (hasObservable) return { quality: 'good', hint: 'Nice -- describing what you directly observed keeps it factual.' };
+            if (hasObservable) return { quality: 'good', hint: 'Nice – describing what you directly observed keeps it factual.' };
             return { quality: 'nudge', hint: 'Describe what you saw or heard: "You said..." or "I noticed you..."' };
         }
 
@@ -4806,7 +4806,7 @@
             var hasJudgment = /\b(you('re| are) (the|a) problem|everyone thinks|nobody|people say)\b/i.test(t);
             if (hasJudgment) return { quality: 'warn', hint: 'Focus on the effect, not blame. How did the behavior affect the work, the team, or you personally?' };
             if (!hasEnoughWords) return { quality: 'short', hint: '' };
-            if (hasImpact) return { quality: 'good', hint: 'Strong -- connecting behavior to a real consequence makes feedback actionable.' };
+            if (hasImpact) return { quality: 'good', hint: 'Strong – connecting behavior to a real consequence makes feedback actionable.' };
             return { quality: 'nudge', hint: 'Try: "...which made it harder to..." or "...the effect was..." or "...I felt..."' };
         }
 
@@ -4973,8 +4973,8 @@
 
         // SARA interactive detail
         var saraDetails = [
-            { title: 'Shock', text: '<strong>What happens:</strong> Your brain freezes. You might feel a physical jolt – tightness in your chest, a flushed face. You\'re processing the surprise before you can even think about the content.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond immediately. "Thank you for sharing that – let me think about it" is a perfectly valid first response.' },
-            { title: 'Anger', text: '<strong>What happens:</strong> Your inner critic activates. "They\'re wrong." "Who are they to say that?" "They don\'t have the full picture." You might feel the urge to defend, explain, or counter-attack.<br><br><strong>What helps:</strong> Notice the anger without acting on it. Ask yourself: "Is this about the feedback, or about how it was delivered?" The anger is often about delivery, not content.' },
+            { title: 'Surprise', text: '<strong>What happens:</strong> Your brain pauses. You weren\'t expecting this, and you need a moment to catch up. It\'s completely normal \u2013 your mind is shifting gears from whatever you were focused on to processing something new.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond right away. "Thank you for sharing that \u2013 let me sit with it" is a perfectly valid first response.' },
+            { title: 'Awareness', text: '<strong>What happens:</strong> Your protective instinct kicks in. You might think: "They don\'t have the full picture" or "That\'s not how I see it." This is your brain trying to make sense of information that doesn\'t match your self-image. It\'s natural and temporary.<br><br><strong>What helps:</strong> Name what you\'re feeling without acting on it. Ask yourself: "Is my reaction about the content, or about how it landed?" Separating the two helps you stay open.' },
             { title: 'Resistance', text: '<strong>What happens:</strong> You start negotiating. "Maybe it\'s partly true, but..." You might minimize, rationalize, or find exceptions. This is your brain\'s way of protecting your self-image while partially letting the feedback in.<br><br><strong>What helps:</strong> Look for the 2% that might be true. Even feedback that\'s mostly off-base usually contains a kernel worth examining.' },
             { title: 'Acceptance', text: '<strong>What happens:</strong> The emotional charge fades. You can see the feedback more clearly – what\'s useful, what\'s not, and what you want to do about it. This doesn\'t mean you agree with everything. It means you can engage with it rationally.<br><br><strong>What helps:</strong> Propose a path forward. "Here\'s what I\'ll try differently..." This turns acceptance into action.' }
         ];
@@ -5018,17 +5018,17 @@
             {
                 best: { badge: '✅ Strong move', text: 'You thanked them for the heads-up and immediately asked a clarifying question. This gets you specific, actionable information instead of a vague takeaway.' },
                 okay: { badge: '👍 OK start', text: 'Accepting the feedback is a good instinct, but without asking which dependencies were missed, you might fix the wrong things or repeat the same gap.' },
-                poor: { badge: '⚠️ Watch out', text: 'Pointing to the template sounds like deflection. Even if the template is incomplete, the impact was real -- teams were caught off-guard.' }
+                poor: { badge: '⚠️ Watch out', text: 'Pointing to the template sounds like deflection. Even if the template is incomplete, the impact was real – teams were caught off-guard.' }
             },
             {
                 best: { badge: '✅ Strong move', text: 'You paraphrased what you heard and owned the behavior. This shows genuine understanding and makes the giver feel heard, not dismissed.' },
                 okay: { badge: '👍 OK start', text: 'Thanking them is good, but "I\'ll try" without showing you understand the specific issue can feel like a brush-off. Paraphrasing back proves you actually get it.' },
-                poor: { badge: '⚠️ Watch out', text: 'Saying "everyone had a chance" dismisses their experience. They\'re telling you they didn\'t feel heard -- defending against that proves their point.' }
+                poor: { badge: '⚠️ Watch out', text: 'Saying "everyone had a chance" dismisses their experience. They\'re telling you they didn\'t feel heard – defending against that proves their point.' }
             },
             {
                 best: { badge: '✅ Strong move', text: 'Taking space before reacting shows maturity. You acknowledged the importance, committed to investigating, and set a clear follow-up time. That\'s leadership.' },
                 okay: { badge: '👍 OK start', text: 'Jumping to a fix is tempting, but without understanding the root cause first, you might hold an alignment session that misses the real issue. A pause to investigate goes further.' },
-                poor: { badge: '⚠️ Watch out', text: 'Questioning the source shifts focus from the message to the messenger. Your VP is sharing a pattern, not naming names -- asking "who said that?" can feel like you\'re looking for someone to blame.' }
+                poor: { badge: '⚠️ Watch out', text: 'Questioning the source shifts focus from the message to the messenger. Your VP is sharing a pattern, not naming names – asking "who said that?" can feel like you\'re looking for someone to blame.' }
             }
         ];
 
@@ -5121,11 +5121,11 @@
         var tugRevealed = 0; // tracks which insights have appeared
         var growVoices = [
             '"Tell me what I\'m missing. I want to be better."',
-            '"I know I can improve -- help me see how."',
+            '"I know I can improve – help me see how."',
             '"Even if it stings, I\'d rather know than not know."',
             '"Growth means being uncomfortable sometimes."',
             '"I\'d rather have a hard truth than a comfortable lie."',
-            '"The gap between where I am and where I could be -- that\'s where the magic is."'
+            '"The gap between where I am and where I could be – that\'s where the magic is."'
         ];
         var acceptVoices = [
             '"Don\'t tell me I\'m not enough. Respect who I am."',
@@ -5408,8 +5408,8 @@
             var outcome = document.getElementById('channel-check-outcome');
             var data = {
                 best: { type: 'best', badge: '✅ Best choice', text: 'Constructive feedback about behavior should happen live, in private. It lets you read body language, show empathy, and have a real dialogue.' },
-                okay: { type: 'okay', badge: '👍 Partial credit', text: 'Workday is great for structured, documented feedback -- but for a sensitive behavioral topic like this, a live conversation first lets you read the room and adjust your delivery.' },
-                poor: { type: 'poor', badge: '⚠️ Risky', text: 'Slack is too informal for constructive feedback and creates a written record that can be misread. Tone doesn\'t translate well in text -- especially for something that could feel personal.' }
+                okay: { type: 'okay', badge: '👍 Partial credit', text: 'Workday is great for structured, documented feedback – but for a sensitive behavioral topic like this, a live conversation first lets you read the room and adjust your delivery.' },
+                poor: { type: 'poor', badge: '⚠️ Risky', text: 'Slack is too informal for constructive feedback and creates a written record that can be misread. Tone doesn\'t translate well in text – especially for something that could feel personal.' }
             };
             var d = data[quality];
             outcome.className = 'scenario-outcome show ' + d.type;
