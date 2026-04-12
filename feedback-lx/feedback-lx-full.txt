@@ -2406,19 +2406,19 @@
                             <div class="idea-icon">💡</div>
                             <div class="idea-title">For Live Conversations: IDEA</div>
                         </div>
-                        <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px;">SBI is excellent for written feedback and structured documentation like Workday. But in a <strong>live conversation</strong>, you need two things SBI doesn't include: <strong>why you're bringing it up</strong> and <strong>what to do next</strong>. That's where IDEA comes in.</p>
+                        <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px;">SBI is excellent for written feedback and structured documentation like Workday. But in a <strong>live conversation</strong>, you need more: <strong>why you're bringing it up</strong>, a <strong>two-way exchange</strong>, and <strong>a path forward</strong>. That's where IDEA comes in.</p>
                         <div class="idea-grid">
                             <div class="idea-item">
                                 <div class="idea-letter">I</div>
-                                <div class="idea-word">Intention</div>
+                                <div class="idea-word">Intent</div>
                             </div>
                             <div class="idea-item">
                                 <div class="idea-letter">D</div>
-                                <div class="idea-word">Data</div>
+                                <div class="idea-word">Describe</div>
                             </div>
                             <div class="idea-item">
                                 <div class="idea-letter">E</div>
-                                <div class="idea-word">Effect</div>
+                                <div class="idea-word">Exchange</div>
                             </div>
                             <div class="idea-item">
                                 <div class="idea-letter">A</div>
@@ -2428,7 +2428,7 @@
                     </div>
 
                     <div style="padding: 0 24px 8px;">
-                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Same feedback, two frameworks -- tap to compare</div>
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Same feedback, two frameworks – tap to compare</div>
                     </div>
 
                     <div style="display: flex; gap: 0; border-top: 1px solid rgba(0,0,0,0.08);" id="idea-compare">
@@ -2466,11 +2466,11 @@
                             </div>
                             <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
                                 <span style="background: var(--accent-aspiration); color: var(--text-primary); font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">D</span>
-                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"In Monday's sync, I noticed you jumped in twice while Sam was explaining the timeline."</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"In Monday's sync, you jumped in twice while Sam was explaining the timeline. It meant we missed some context before moving to solutions."</span>
                             </div>
                             <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
                                 <span style="background: var(--accent-aspiration); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">E</span>
-                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"It meant we missed some context and jumped into solutions too fast."</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"I'm curious how you saw it – did you feel the same way, or was there something I missed?"</span>
                             </div>
                             <div style="display: flex; gap: 10px; align-items: flex-start;">
                                 <span style="background: var(--accent-aspiration); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">A</span>
@@ -2478,7 +2478,7 @@
                             </div>
                         </div>
                         <div style="margin-top: 12px; padding: 10px 14px; background: var(--accent-aspiration-50); border-radius: 8px; font-size: 13px; color: var(--text-primary); line-height: 1.5;">
-                            <strong>Why this works live:</strong> Leading with <em>Intention</em> lowers defensiveness before you share the data. Ending with a collaborative <em>Action</em> makes it forward-looking, not just a critique. The other person leaves knowing both why you care and what to try.
+                            <strong>Why this works live:</strong> Leading with <em>Intent</em> lowers defensiveness. <em>Describe</em> keeps it factual. <em>Exchange</em> makes it a conversation, not a lecture – you invite their perspective before proposing next steps. <em>Action</em> makes it forward-looking. The other person leaves knowing why you care, feeling heard, and clear on what to try.
                         </div>
                     </div>
 
@@ -3880,7 +3880,7 @@
             });
             el.style.opacity = '1'; el.style.border = '2px solid var(--chime-green)';
             var data = {
-                best: { type: 'best', badge: 'Strong move', text: 'You acknowledged their busy schedule (no guilt trip), stated the specific pattern (three cancellations), explained the impact on your work (decisions slowing), and proposed a small, concrete ask (15 minutes). That\'s IDEA in action: Intention, Data, Effect, Action.' },
+                best: { type: 'best', badge: 'Strong move', text: 'You acknowledged their busy schedule (no guilt trip), stated the specific pattern (three cancellations), explained the impact on your work (decisions slowing), and proposed a small, concrete ask (15 minutes). That\'s IDEA in action: Intent, Describe, Exchange, Action.' },
                 okay: { type: 'okay', badge: 'Understandable but risky', text: 'Deferring to avoid rocking the boat is common with managers, but it means your needs go unmet. "Ping on Slack" isn\'t a real substitute for a 1:1. You\'re absorbing the cost of the cancellations without giving your manager the chance to fix it.' },
                 poor: { type: 'poor', badge: 'Watch out', text: 'The sarcasm ("I guess they\'re not a priority") and veiled threat ("don\'t be surprised") will put your manager on the defensive. Even when the frustration is valid, leading with passive aggression makes it harder for them to hear the real message.' }
             };
