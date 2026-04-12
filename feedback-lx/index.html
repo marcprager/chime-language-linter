@@ -1845,7 +1845,7 @@
                 <div class="brand-accent-bar"></div>
 
                 <h3 style="font-size: 16px; margin-top: 28px; margin-bottom: 12px;">Where are you right now?</h3>
-                <p style="font-size: 14px; color: var(--gray-500); margin-bottom: 16px;">When you think about receiving feedback at work, which voice feels louder today? No right answer — just honest reflection.</p>
+                <p style="font-size: 14px; color: var(--gray-500); margin-bottom: 16px;">When you think about receiving feedback at work, which voice feels louder today? No right answer – just honest reflection.</p>
 
                 <div id="paradox-check" style="display: flex; flex-direction: column; gap: 10px;">
                     <div class="paradox-option" onclick="selectParadox(this, 'grow')" style="padding: 16px 20px; border: 2px solid var(--gray-200); border-radius: 10px; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 14px; background: white;">
@@ -2137,7 +2137,7 @@
                 </div>
 
                 <div style="margin: 0 0 32px; padding: 20px 24px; background: var(--green-50); border-radius: var(--radius-sm); border-left: 4px solid var(--chime-green);">
-                    <p style="font-size: 14px; color: var(--gray-700); line-height: 1.6; margin: 0;"><strong>Now let's explore this in action.</strong> Step through the story below to see exactly how a small feedback gap grows into a big problem — and what one conversation could have changed.</p>
+                    <p style="font-size: 14px; color: var(--gray-700); line-height: 1.6; margin: 0;"><strong>Now let's explore this in action.</strong> Step through the story below to see exactly how a small feedback gap grows into a big problem – and what one conversation could have changed.</p>
                 </div>
 
                 <!-- Animated timeline story -->
@@ -2365,7 +2365,7 @@
         <div class="section" id="section-10">
             <div class="card">
                 <div class="section-badge dark-badge">🎯 The Framework</div>
-                <h2 class="section-title dark-title">SBI: Chime's Feedback Model</h2>
+                <h2 class="section-title dark-title">SBI: The Feedback Framework</h2>
                 <p class="section-subtitle dark-subtitle">A simple structure that keeps feedback specific, fair, and actionable.</p>
 
                 <div class="sbi-container">
@@ -3673,20 +3673,20 @@
                 'Before We Begin',
                 'Sound Familiar?',
                 'The Feedback Paradox',
-                'Why Peer Feedback Matters',
+                'Why Peer Feedback Matters at Chime',
                 'Why Feedback Feels Hard',
                 'The Feedback Gap',
                 'Not All Feedback Is the Same',
                 'Feedback & "Win Together"',
-                "SBI: Chime's Feedback Model",
+                "SBI: The Feedback Framework",
                 '"One Thing Better"',
                 'Is This Constructive Feedback?',
                 'Fix This Feedback',
                 "Back to Kai's Situation",
                 'The Other Side: Receiving Well',
-                'Receive Like a Pro',
+                'Practice: Receive Like a Pro',
                 'In-Person vs. Workday',
-                'Cross-Functional & Upward',
+                'Feedback Across Boundaries',
                 'Put It Into Practice',
                 'Key Takeaways',
                 'Check Your Understanding',
@@ -3979,7 +3979,7 @@
             if (passed) {
                 try { SCORM.complete(assessmentScore, true); } catch(e) {}
                 launchConfetti();
-                showMilestoneToast('🎉 ' + assessmentScore + '% — you passed!');
+                showMilestoneToast('🎉 ' + assessmentScore + '% – you passed!');
                 showAssessmentResults();
             } else {
                 if (assessmentAttempts >= 3) {
@@ -4485,7 +4485,6 @@
         }
 
         // --- Self-Assessment Checklist (Section 9) ---
-        var checklistCount = 0;
         // Win Together quote fill-in-the-blank
         var quoteBlanksRevealed = 0;
         var quoteBlanksTotal = 5;
@@ -4590,32 +4589,6 @@
             }
         }
 
-        function toggleCheck(el) {
-            el.classList.toggle('checked');
-            checklistCount = document.querySelectorAll('#checklist-values .checklist-item.checked').length;
-            var total = document.querySelectorAll('#checklist-values .checklist-item').length;
-            var summary = document.getElementById('checklist-summary');
-            if (checklistCount > 0) {
-                summary.classList.add('show');
-                var s9btn = document.getElementById('section9-continue');
-                if (s9btn) s9btn.disabled = false;
-                if (checklistCount >= 5) {
-                    summary.style.background = '#D1FAE5';
-                    summary.style.borderLeft = '4px solid #059669';
-                    summary.innerHTML = '<strong>' + checklistCount + '/' + total + ' – Feedback champion!</strong> You\'re already modeling "Win Together" behaviors. This module will sharpen your edge even more.';
-                } else if (checklistCount >= 3) {
-                    summary.style.background = 'var(--green-50)';
-                    summary.style.borderLeft = '4px solid var(--chime-green)';
-                    summary.innerHTML = '<strong>' + checklistCount + '/' + total + ' – Solid foundation!</strong> You\'re on the right track. Let\'s build on what\'s already working.';
-                } else {
-                    summary.style.background = 'var(--accent-freedom-50)';
-                    summary.style.borderLeft = '4px solid var(--accent-freedom)';
-                    summary.innerHTML = '<strong>' + checklistCount + '/' + total + ' – Room to grow.</strong> That\'s why you\'re here! This module will help you build these habits.';
-                }
-            } else {
-                summary.classList.remove('show');
-            }
-        }
 
         // --- Practice Scenario (Section 11) ---
         var scenarios = [
@@ -4951,16 +4924,16 @@
             var progress = ((sectionNum - 1) / (totalSections - 1)) * 100;
             if (progress >= 25 && !celebratedMilestones['25']) {
                 celebratedMilestones['25'] = true;
-                showMilestoneToast('🔥 25% complete — you\'re building momentum!');
+                showMilestoneToast('🔥 25% complete – you\'re building momentum!');
             }
             if (progress >= 50 && !celebratedMilestones['50']) {
                 celebratedMilestones['50'] = true;
                 launchConfetti();
-                showMilestoneToast('🎯 Halfway there — keep going!');
+                showMilestoneToast('🎯 Halfway there – keep going!');
             }
             if (progress >= 75 && !celebratedMilestones['75']) {
                 celebratedMilestones['75'] = true;
-                showMilestoneToast('💪 75% — the home stretch!');
+                showMilestoneToast('💪 75% – the home stretch!');
             }
         }
 
@@ -4992,10 +4965,10 @@
 
         // SARA interactive detail
         var saraDetails = [
-            { title: 'Shock', text: '<strong>What happens:</strong> Your brain freezes. You might feel a physical jolt — tightness in your chest, a flushed face. You\'re processing the surprise before you can even think about the content.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond immediately. "Thank you for sharing that — let me think about it" is a perfectly valid first response.' },
+            { title: 'Shock', text: '<strong>What happens:</strong> Your brain freezes. You might feel a physical jolt – tightness in your chest, a flushed face. You\'re processing the surprise before you can even think about the content.<br><br><strong>What helps:</strong> Take a breath. You don\'t need to respond immediately. "Thank you for sharing that – let me think about it" is a perfectly valid first response.' },
             { title: 'Anger', text: '<strong>What happens:</strong> Your inner critic activates. "They\'re wrong." "Who are they to say that?" "They don\'t have the full picture." You might feel the urge to defend, explain, or counter-attack.<br><br><strong>What helps:</strong> Notice the anger without acting on it. Ask yourself: "Is this about the feedback, or about how it was delivered?" The anger is often about delivery, not content.' },
             { title: 'Resistance', text: '<strong>What happens:</strong> You start negotiating. "Maybe it\'s partly true, but..." You might minimize, rationalize, or find exceptions. This is your brain\'s way of protecting your self-image while partially letting the feedback in.<br><br><strong>What helps:</strong> Look for the 2% that might be true. Even feedback that\'s mostly off-base usually contains a kernel worth examining.' },
-            { title: 'Acceptance', text: '<strong>What happens:</strong> The emotional charge fades. You can see the feedback more clearly — what\'s useful, what\'s not, and what you want to do about it. This doesn\'t mean you agree with everything. It means you can engage with it rationally.<br><br><strong>What helps:</strong> Propose a path forward. "Here\'s what I\'ll try differently..." This turns acceptance into action.' }
+            { title: 'Acceptance', text: '<strong>What happens:</strong> The emotional charge fades. You can see the feedback more clearly – what\'s useful, what\'s not, and what you want to do about it. This doesn\'t mean you agree with everything. It means you can engage with it rationally.<br><br><strong>What helps:</strong> Propose a path forward. "Here\'s what I\'ll try differently..." This turns acceptance into action.' }
         ];
         var saraClicked = new Set();
         function showSaraDetail(idx) {
@@ -5280,7 +5253,7 @@
             var responses = {
                 grow: "That openness is a real strength. As you go through this module, pay attention to the moments where the acceptance voice might still show up unexpectedly \u2013 it often surfaces around topics tied to our identity, even for people who genuinely welcome feedback.",
                 accept: "That\u2019s honest, and more common than most people admit. Recognizing the protective instinct is the first step to working with it rather than against it. This module will give you practical ways to stay open even when that voice is loud.",
-                depends: "That\u2019s the most common answer, and it lines up with what the research shows. Context matters enormously \u2013 who\u2019s giving it, how it\u2019s delivered, and how central it is to our identity all shift the balance between those two needs."
+                depends: "That\u2019s the most common answer, and it lines up with what Stone & Heen found in their research. Context matters enormously \u2013 who\u2019s giving it, how it\u2019s delivered, and how central it is to our identity all shift the balance between those two needs."
             };
 
             var resp = document.getElementById('paradox-response');
