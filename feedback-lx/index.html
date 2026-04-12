@@ -2313,7 +2313,7 @@
                 <p class="section-subtitle dark-subtitle">Peer feedback is directly tied to how we live our values at Chime.</p>
 
                 <div class="content-block" style="margin-top: 24px;">
-                    <p>Chime's <strong>Win Together</strong> value makes feedback explicit. But do you know the actual words? Let's find out.</p>
+                    <p>Chime has five core values: <strong>Member Obsessed</strong>, <strong>Be Bold</strong>, <strong>Win Together</strong>, <strong>Respect the Rules</strong>, and <strong>Be an Owner</strong>. Of these, <strong>Win Together</strong> makes feedback explicit. But do you know the actual words? Let's find out.</p>
                 </div>
 
                 <!-- Quote word-bank challenge -->
@@ -3569,7 +3569,7 @@
         let quizAnswers = {};
         
         // Assessment
-        let assessmentAnswers = [];
+        let assessmentAnswers = {};
         let currentAssessmentQuestion = 0;
         let assessmentScore = 0;
         let assessmentAttempts = 0;
@@ -3601,7 +3601,7 @@
             },
             'scenario2': {
                 'best': { type: 'best', badge: 'Best Approach', text: "Great use of SBI for cross-functional feedback. You're direct about the behavior (framing focused on problems), specific about impact (made team look ineffective), and collaborative about the solution." },
-                'poor': { type: 'poor', badge: 'Avoid This', text: "Going to someone's manager before talking to them directly can create a 'telephone effect' and erode trust. When possible, give Alex the chance to hear it from you first." },
+                'poor': { type: 'poor', badge: 'Avoid This', text: "Going to someone's manager before talking to them directly is called triangulation \u2013 it can create a 'telephone effect' and erode trust. When possible, give Alex the chance to hear it from you first." },
                 'okay': { type: 'okay', badge: 'Needs Work', text: "You're approaching Alex directly, which is good. But 'didn't sit right' and 'felt like our contributions were overlooked' are feelings, not observable behaviors. Use SBI to anchor in specifics so Alex knows exactly what to do differently." }
             }
         };
@@ -3616,7 +3616,7 @@
             { question: "What's 'triangulation' in feedback?", options: ["Using three examples", "Sharing feedback about someone to a third party instead of directly", "Getting feedback from three people", "A mathematical approach"], correct: 1, sectionRef: 18, explain: "Triangulation means talking about someone to a third party instead of going to them directly. It can erode trust and means the person doesn't get the chance to adjust." },
             { question: "Which trigger makes us discount feedback based on WHO is giving it?", options: ["Truth triggers", "Identity triggers", "Relationship triggers", "Content triggers"], correct: 2, sectionRef: 6, explain: "Relationship triggers cause us to dismiss feedback because of our feelings about the giver: 'Who are they to tell me this?' Truth triggers focus on the content; identity triggers threaten our self-image." },
             { question: "In SBI, what should the 'B' (Behavior) describe?", options: ["Your opinion of the person", "Observable actions you saw or heard", "The person's personality", "What they should do next"], correct: 1, sectionRef: 10, explain: "Behavior in SBI means observable, factual actions – what you saw or heard, not your interpretation. 'You interrupted twice' vs. 'You're rude.' Sticking to observable behavior keeps feedback fair and non-judgmental." },
-            { question: "What Chime value is most directly connected to peer feedback?", options: ["Be Bold", "Member Obsessed", "Win Together", "Respect the Rules"], correct: 2, sectionRef: 9, explain: "Win Together is Chime's value most tied to feedback: 'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others.'" }
+            { question: "What Chime value is most directly connected to peer feedback?", options: ["Be Bold", "Member Obsessed", "Win Together", "Respect the Rules"], correct: 2, sectionRef: 9, explain: "Win Together is Chime's value most tied to feedback: 'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others. We believe that clarity is kindness.'" }
         ];
 
         // Functions
@@ -4185,7 +4185,7 @@
         }
         function retakeAssessment() {
             currentAssessmentQuestion = 0;
-            assessmentAnswers = [];
+            assessmentAnswers = {};
             document.getElementById('assessment-container').innerHTML = '';
             document.getElementById('assessment-submit').disabled = true;
             renderAllAssessmentQuestions();
@@ -4624,7 +4624,7 @@
             var input = document.getElementById('scenario-input');
             if (input && input.value.trim().length < 10) {
                 input.style.borderColor = 'var(--accent-freedom)';
-                input.setAttribute('placeholder', 'Give it a try first -- even a rough attempt helps the learning stick.');
+                input.setAttribute('placeholder', 'Give it a try first – even a rough attempt helps the learning stick.');
                 input.focus();
                 return;
             }
@@ -4650,7 +4650,7 @@
             preConfidence = { giving: null, receiving: null };
             postConfidence = { giving: null, receiving: null };
             quizAnswers = {};
-            assessmentAnswers = [];
+            assessmentAnswers = {};
             currentAssessmentQuestion = 0;
             assessmentScore = 0;
             likertAnswers = { q1: null, q2: null, q3: null, q4: null };
@@ -4941,6 +4941,22 @@
         updateProgress();
         initSidebar();
 
+        // Section 6 requires BOTH flip cards explored AND T/F quiz answered
+        function checkSection6Gate() {
+            var flipDone = flipTrackers['trigger-flip-grid'] && flipTrackers['trigger-flip-grid'].size >= 3;
+            var tfGrid = document.getElementById('feedback-tf');
+            var tfDone = false;
+            if (tfGrid) {
+                var allTF = tfGrid.querySelectorAll('.tf-item');
+                var answeredTF = tfGrid.querySelectorAll('.tf-item.answered');
+                tfDone = allTF.length === answeredTF.length;
+            }
+            if (flipDone && tfDone) {
+                var s6btn = document.getElementById('section6-continue');
+                if (s6btn) s6btn.disabled = false;
+            }
+        }
+
         // T/F quiz handler
         function answerTF(id, correctAnswer, btn) {
             var item = document.getElementById(id);
@@ -4952,15 +4968,7 @@
                 b.style.pointerEvents = 'none';
             });
             // Check if all T/F items in section 6 are answered
-            var tfGrid = document.getElementById('feedback-tf');
-            if (tfGrid) {
-                var allTF = tfGrid.querySelectorAll('.tf-item');
-                var answeredTF = tfGrid.querySelectorAll('.tf-item.answered');
-                if (allTF.length === answeredTF.length) {
-                    var s6btn = document.getElementById('section6-continue');
-                    if (s6btn) s6btn.disabled = false;
-                }
-            }
+            checkSection6Gate();
         }
 
         // SARA interactive detail
@@ -5286,11 +5294,15 @@
                 var done = flipTrackers[gridId].size;
                 if (done >= total) {
                     counter.innerHTML = '<span style="color: var(--chime-green); font-weight: 600;">\u2713 All cards explored!</span>';
-                    // Gate the section's continue button
-                    var sectionEl = document.getElementById(gridId).closest('.section');
-                    if (sectionEl) {
-                        var navBtn = sectionEl.querySelector('.nav-buttons .btn-primary:not(.btn-secondary)');
-                        if (navBtn && navBtn.disabled) navBtn.disabled = false;
+                    // Gate the section's continue button (Section 6 requires both flip cards AND T/F quiz)
+                    if (gridId === 'trigger-flip-grid') {
+                        checkSection6Gate();
+                    } else {
+                        var sectionEl = document.getElementById(gridId).closest('.section');
+                        if (sectionEl) {
+                            var navBtn = sectionEl.querySelector('.nav-buttons .btn-primary:not(.btn-secondary)');
+                            if (navBtn && navBtn.disabled) navBtn.disabled = false;
+                        }
                     }
                 } else {
                     counter.textContent = done + ' of ' + total + ' cards explored';
@@ -5385,15 +5397,7 @@
         // Section 10 (SBI Framework): Gating handled by SBI builder (validateSBI)
         // Collapsible is supplementary -- does not gate progression
 
-        // Section 11 (One Thing Better practice): Enable after viewing sample
-        (function() {
-            var origReveal = window.revealSample;
-            window.revealSample = function() {
-                origReveal();
-                var s11btn = document.getElementById('section11-continue');
-                if (s11btn) s11btn.disabled = false;
-            };
-        })();
+        // Section 11 gating handled inside revealSample() itself
 
         // Section 17 (Delivery Methods): Gated by channel check, not tab switch
         function selectChannelCheck(el, quality) {
