@@ -8,9 +8,9 @@
   </metadata>
   <organizations default="chime-feedback-org">
     <organization identifier="chime-feedback-org">
-      <title>Feedback Foundations</title>
+      <title>Feedback Foundations: Small Moments, Big Impact</title>
       <item identifier="chime-feedback-item" identifierref="chime-feedback-resource">
-        <title>Feedback Foundations</title>
+        <title>Feedback Foundations: Small Moments, Big Impact</title>
       </item>
     </organization>
   </organizations>
