@@ -2387,30 +2387,91 @@
                     <p><strong>It separates facts from feelings.</strong> By anchoring in a specific situation and observable behavior, you avoid generalizations ("You always...") and character judgments ("You're disorganized"). This makes feedback easier to hear and act on.</p>
                 </div>
 
-                <div class="idea-callout">
-                    <div class="idea-header">
-                        <div class="idea-icon">💡</div>
-                        <div class="idea-title">Another Way to Frame It: IDEA</div>
+                <div class="idea-callout" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 24px 24px 16px;">
+                        <div class="idea-header">
+                            <div class="idea-icon">💡</div>
+                            <div class="idea-title">For Live Conversations: IDEA</div>
+                        </div>
+                        <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px;">SBI is excellent for written feedback and structured documentation like Workday. But in a <strong>live conversation</strong>, you need two things SBI doesn't include: <strong>why you're bringing it up</strong> and <strong>what to do next</strong>. That's where IDEA comes in.</p>
+                        <div class="idea-grid">
+                            <div class="idea-item">
+                                <div class="idea-letter">I</div>
+                                <div class="idea-word">Intention</div>
+                            </div>
+                            <div class="idea-item">
+                                <div class="idea-letter">D</div>
+                                <div class="idea-word">Data</div>
+                            </div>
+                            <div class="idea-item">
+                                <div class="idea-letter">E</div>
+                                <div class="idea-word">Effect</div>
+                            </div>
+                            <div class="idea-item">
+                                <div class="idea-letter">A</div>
+                                <div class="idea-word">Action</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="idea-grid">
-                        <div class="idea-item">
-                            <div class="idea-letter">I</div>
-                            <div class="idea-word">Intention</div>
+
+                    <div style="padding: 0 24px 8px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Same feedback, two frameworks -- tap to compare</div>
+                    </div>
+
+                    <div style="display: flex; gap: 0; border-top: 1px solid rgba(0,0,0,0.08);" id="idea-compare">
+                        <div onclick="showIdeaCompare('sbi')" id="idea-tab-sbi" style="flex: 1; padding: 12px 16px; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; border-bottom: 3px solid var(--chime-green); color: var(--chime-green); transition: all 0.2s ease;">SBI (Written)</div>
+                        <div onclick="showIdeaCompare('idea')" id="idea-tab-idea" style="flex: 1; padding: 12px 16px; text-align: center; font-size: 13px; font-weight: 700; cursor: pointer; border-bottom: 3px solid transparent; color: var(--gray-400); transition: all 0.2s ease;">IDEA (In Person)</div>
+                    </div>
+
+                    <div id="idea-panel-sbi" style="padding: 20px 24px 24px;">
+                        <div style="font-size: 13px; color: var(--gray-500); margin-bottom: 12px; font-style: italic;">A colleague interrupted twice in a team meeting:</div>
+                        <div style="background: white; border-radius: 10px; padding: 16px; border: 1px solid var(--gray-200);">
+                            <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
+                                <span style="background: var(--chime-green); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">S</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"In Monday's project sync with the design team..."</span>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
+                                <span style="background: var(--chime-green); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">B</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"You interrupted Sam twice while they were explaining the timeline."</span>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: flex-start;">
+                                <span style="background: var(--chime-green); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">I</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"It made it harder for us to understand the full picture before jumping into solutions."</span>
+                            </div>
                         </div>
-                        <div class="idea-item">
-                            <div class="idea-letter">D</div>
-                            <div class="idea-word">Data</div>
-                        </div>
-                        <div class="idea-item">
-                            <div class="idea-letter">E</div>
-                            <div class="idea-word">Effect</div>
-                        </div>
-                        <div class="idea-item">
-                            <div class="idea-letter">A</div>
-                            <div class="idea-word">Action</div>
+                        <div style="margin-top: 12px; padding: 10px 14px; background: var(--green-50); border-radius: 8px; font-size: 13px; color: var(--green-900); line-height: 1.5;">
+                            <strong>Best for:</strong> Workday feedback, Slack follow-ups, any written channel where you want to be precise and concise.
                         </div>
                     </div>
-                    <p class="idea-note">IDEA adds Intention (why you're sharing this) and Action (what to do differently). Some find this helpful for framing – SBI is Chime's official model, but IDEA can supplement your thinking.</p>
+
+                    <div id="idea-panel-idea" style="padding: 20px 24px 24px; display: none;">
+                        <div style="font-size: 13px; color: var(--gray-500); margin-bottom: 12px; font-style: italic;">Same situation, but you're sitting down with them in a 1:1:</div>
+                        <div style="background: white; border-radius: 10px; padding: 16px; border: 1px solid rgba(247,189,254,0.5);">
+                            <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
+                                <span style="background: var(--accent-aspiration); color: var(--text-primary); font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">I</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;"><strong>"I wanted to bring this up because I really value our working relationship and I think this will help us collaborate better."</strong></span>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
+                                <span style="background: var(--accent-aspiration); color: var(--text-primary); font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">D</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"In Monday's sync, I noticed you jumped in twice while Sam was explaining the timeline."</span>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">
+                                <span style="background: var(--accent-aspiration); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">E</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">"It meant we missed some context and jumped into solutions too fast."</span>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: flex-start;">
+                                <span style="background: var(--accent-aspiration); color: white; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 4px; flex-shrink: 0;">A</span>
+                                <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;"><strong>"What if next time we let each person finish their update before we jump into problem-solving?"</strong></span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px; padding: 10px 14px; background: var(--accent-aspiration-50); border-radius: 8px; font-size: 13px; color: var(--text-primary); line-height: 1.5;">
+                            <strong>Why this works live:</strong> Leading with <em>Intention</em> lowers defensiveness before you share the data. Ending with a collaborative <em>Action</em> makes it forward-looking, not just a critique. The other person leaves knowing both why you care and what to try.
+                        </div>
+                    </div>
+
+                    <div style="padding: 0 24px 20px;">
+                        <p class="idea-note" style="margin: 0;"><strong>Rule of thumb:</strong> Writing it down? Use SBI. Saying it live? Open with IDEA -- then you can flex to SBI for the middle if you want.</p>
+                    </div>
                 </div>
 
 
@@ -2430,23 +2491,26 @@
                     <div style="margin-bottom: 14px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
                             <span id="sbi-check-s" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
-                            S – Situation (when &amp; where)
+                            S -- Situation (when &amp; where)
                         </label>
-                        <input type="text" id="sbi-s" oninput="checkSBIProgress()" placeholder='e.g., "In Tuesday's standup..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
+                        <input type="text" id="sbi-s" oninput="checkSBIProgress()" placeholder='e.g., "In Tuesday&#39;s standup..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
+                        <div id="sbi-hint-s" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4; transition: all 0.2s ease;"></div>
                     </div>
                     <div style="margin-bottom: 14px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
                             <span id="sbi-check-b" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
-                            B – Behavior (what you observed)
+                            B -- Behavior (what you observed)
                         </label>
                         <input type="text" id="sbi-b" oninput="checkSBIProgress()" placeholder='e.g., "You jumped in before Priya finished..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
+                        <div id="sbi-hint-b" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4; transition: all 0.2s ease;"></div>
                     </div>
                     <div style="margin-bottom: 14px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
                             <span id="sbi-check-i" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
-                            I – Impact (effect on you, team, or outcome)
+                            I -- Impact (effect on you, team, or outcome)
                         </label>
                         <input type="text" id="sbi-i" oninput="checkSBIProgress()" placeholder='e.g., "...which meant we missed context"' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
+                        <div id="sbi-hint-i" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4; transition: all 0.2s ease;"></div>
                     </div>
 
                     <div id="sbi-preview" style="display: none; margin-top: 16px; padding: 16px; background: white; border-radius: 10px; border: 2px solid var(--chime-green);">
@@ -4530,34 +4594,134 @@
             });
         }
 
-        // ===== SBI LIVE CHECKER =====
+        // ===== IDEA COMPARE TABS =====
+        function showIdeaCompare(tab) {
+            var sbiPanel = document.getElementById('idea-panel-sbi');
+            var ideaPanel = document.getElementById('idea-panel-idea');
+            var sbiTab = document.getElementById('idea-tab-sbi');
+            var ideaTab = document.getElementById('idea-tab-idea');
+            if (tab === 'sbi') {
+                sbiPanel.style.display = 'block';
+                ideaPanel.style.display = 'none';
+                sbiTab.style.borderBottomColor = 'var(--chime-green)';
+                sbiTab.style.color = 'var(--chime-green)';
+                ideaTab.style.borderBottomColor = 'transparent';
+                ideaTab.style.color = 'var(--gray-400)';
+            } else {
+                sbiPanel.style.display = 'none';
+                ideaPanel.style.display = 'block';
+                ideaTab.style.borderBottomColor = 'var(--accent-aspiration)';
+                ideaTab.style.color = 'var(--accent-aspiration)';
+                sbiTab.style.borderBottomColor = 'transparent';
+                sbiTab.style.color = 'var(--gray-400)';
+            }
+        }
+
+        // ===== SBI SMART CHECKER =====
+        // Pattern-based validation that coaches as you type
+        function analyzeSituation(text) {
+            var t = text.toLowerCase();
+            // Check for time/context markers
+            var timeWords = /\b(monday|tuesday|wednesday|thursday|friday|yesterday|today|last week|this morning|during|in the|at the|after the|before the|meeting|standup|sync|review|sprint|retro|1:1|one-on-one|presentation|call|session|check-in)\b/i;
+            var hasTime = timeWords.test(t);
+            var hasEnoughWords = text.split(/\s+/).length >= 4;
+            // Check for red flags
+            var hasGeneralization = /\b(always|never|every time|constantly)\b/i.test(t);
+            if (hasGeneralization) return { quality: 'warn', hint: 'Tip: A specific moment works better than "always" or "never." When exactly did this happen?' };
+            if (!hasEnoughWords) return { quality: 'short', hint: '' };
+            if (hasTime) return { quality: 'good', hint: 'Good -- specific time/place grounds the feedback.' };
+            return { quality: 'nudge', hint: 'Try adding when and where: "In Monday\'s sync..." or "During the sprint review..."' };
+        }
+
+        function analyzeBehavior(text) {
+            var t = text.toLowerCase();
+            // Check for observable behavior language
+            var observableWords = /\b(you said|you wrote|you sent|you asked|you interrupted|you jumped|you raised|you presented|you shared|you did|you didn't|you left|you arrived|you missed|you skipped|you finished|you started|i noticed|i observed|i saw|i heard)\b/i;
+            var hasObservable = observableWords.test(t);
+            var hasEnoughWords = text.split(/\s+/).length >= 4;
+            // Red flags: character judgments instead of behaviors
+            var hasJudgment = /\b(you('re| are) (lazy|careless|rude|disorganized|unprofessional|incompetent|difficult|selfish|aggressive)|you don't care|you lack|your attitude)\b/i.test(t);
+            var hasGeneralization = /\b(always|never|every time|constantly)\b/i.test(t);
+            if (hasJudgment) return { quality: 'warn', hint: 'Watch out -- this reads as a character judgment, not a behavior. What did they actually do or say?' };
+            if (hasGeneralization) return { quality: 'warn', hint: '"Always" and "never" feel like attacks. Describe one specific thing they did.' };
+            if (!hasEnoughWords) return { quality: 'short', hint: '' };
+            if (hasObservable) return { quality: 'good', hint: 'Nice -- describing what you directly observed keeps it factual.' };
+            return { quality: 'nudge', hint: 'Describe what you saw or heard: "You said..." or "I noticed you..."' };
+        }
+
+        function analyzeImpact(text) {
+            var t = text.toLowerCase();
+            // Check for impact/effect language
+            var impactWords = /\b(made it|caused|resulted|meant that|meant we|felt|feeling|impact|effect|consequence|harder|easier|confused|unclear|delayed|slowed|lost|missed|undermined|helped|improved|strengthened|which led|because of|as a result|so we|the team|morale|trust|timeline|deadline|quality)\b/i;
+            var hasImpact = impactWords.test(t);
+            var hasEnoughWords = text.split(/\s+/).length >= 4;
+            // Red flags
+            var hasJudgment = /\b(you('re| are) (the|a) problem|everyone thinks|nobody|people say)\b/i.test(t);
+            if (hasJudgment) return { quality: 'warn', hint: 'Focus on the effect, not blame. How did the behavior affect the work, the team, or you personally?' };
+            if (!hasEnoughWords) return { quality: 'short', hint: '' };
+            if (hasImpact) return { quality: 'good', hint: 'Strong -- connecting behavior to a real consequence makes feedback actionable.' };
+            return { quality: 'nudge', hint: 'Try: "...which made it harder to..." or "...the effect was..." or "...I felt..."' };
+        }
+
         function checkSBIProgress() {
             var s = document.getElementById('sbi-s').value.trim();
             var b = document.getElementById('sbi-b').value.trim();
             var ip = document.getElementById('sbi-i').value.trim();
-            var count = 0;
-            var fields = [
-                { val: s, check: 'sbi-check-s', input: 'sbi-s' },
-                { val: b, check: 'sbi-check-b', input: 'sbi-b' },
-                { val: ip, check: 'sbi-check-i', input: 'sbi-i' }
+
+            var analyses = [
+                { val: s, check: 'sbi-check-s', input: 'sbi-s', hint: 'sbi-hint-s', fn: analyzeSituation },
+                { val: b, check: 'sbi-check-b', input: 'sbi-b', hint: 'sbi-hint-b', fn: analyzeBehavior },
+                { val: ip, check: 'sbi-check-i', input: 'sbi-i', hint: 'sbi-hint-i', fn: analyzeImpact }
             ];
-            fields.forEach(function(f) {
-                var checkEl = document.getElementById(f.check);
-                var inputEl = document.getElementById(f.input);
-                if (f.val.length >= 10) {
-                    count++;
-                    checkEl.innerHTML = '✓';
-                    checkEl.style.background = 'var(--chime-green)';
-                    checkEl.style.borderColor = 'var(--chime-green)';
-                    checkEl.style.color = 'white';
-                    inputEl.style.borderColor = 'var(--chime-green)';
-                } else {
+
+            var count = 0;
+            analyses.forEach(function(a) {
+                var checkEl = document.getElementById(a.check);
+                var inputEl = document.getElementById(a.input);
+                var hintEl = document.getElementById(a.hint);
+                var result = a.fn(a.val);
+
+                if (a.val.length === 0) {
+                    // Empty: reset
                     checkEl.innerHTML = '';
                     checkEl.style.background = 'transparent';
                     checkEl.style.borderColor = 'var(--gray-300)';
                     inputEl.style.borderColor = 'var(--gray-200)';
+                    hintEl.innerHTML = '';
+                } else if (result.quality === 'good') {
+                    count++;
+                    checkEl.innerHTML = '\u2713';
+                    checkEl.style.background = 'var(--chime-green)';
+                    checkEl.style.borderColor = 'var(--chime-green)';
+                    checkEl.style.color = 'white';
+                    inputEl.style.borderColor = 'var(--chime-green)';
+                    hintEl.innerHTML = '<span style="color: var(--green-700);">\u2713 ' + result.hint + '</span>';
+                } else if (result.quality === 'warn') {
+                    checkEl.innerHTML = '!';
+                    checkEl.style.background = 'var(--accent-freedom)';
+                    checkEl.style.borderColor = 'var(--accent-freedom)';
+                    checkEl.style.color = 'var(--text-primary)';
+                    inputEl.style.borderColor = 'var(--accent-freedom)';
+                    hintEl.innerHTML = '<span style="color: #B45309;">\u26A0 ' + result.hint + '</span>';
+                } else if (result.quality === 'nudge') {
+                    // Acceptable but could be better
+                    count++;
+                    checkEl.innerHTML = '\u2713';
+                    checkEl.style.background = 'var(--accent-freedom)';
+                    checkEl.style.borderColor = 'var(--accent-freedom)';
+                    checkEl.style.color = 'var(--text-primary)';
+                    inputEl.style.borderColor = 'var(--accent-freedom)';
+                    hintEl.innerHTML = '<span style="color: #B45309;">' + result.hint + '</span>';
+                } else {
+                    // Too short
+                    checkEl.innerHTML = '';
+                    checkEl.style.background = 'transparent';
+                    checkEl.style.borderColor = 'var(--gray-300)';
+                    inputEl.style.borderColor = 'var(--gray-200)';
+                    hintEl.innerHTML = '';
                 }
             });
+
             var fill = document.getElementById('sbi-meter-fill');
             var label = document.getElementById('sbi-meter-label');
             var pct = (count / 3) * 100;
@@ -4569,7 +4733,7 @@
                 var preview = document.getElementById('sbi-preview');
                 var previewText = document.getElementById('sbi-preview-text');
                 preview.style.display = 'block';
-                previewText.textContent = '"' + s + ', ' + b + ', ' + ip + '"';
+                previewText.textContent = '"' + s + ' ' + b + ' ' + ip + '"';
                 var s10btn = document.getElementById('section10-continue');
                 if (s10btn) s10btn.disabled = false;
             } else if (count >= 2) {
