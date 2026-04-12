@@ -1712,7 +1712,7 @@
 
                 <div class="content-block">
                     <p>Kai's hesitation is incredibly common. Most of us have been there – holding back feedback that could help a colleague grow, worried about the conversation going sideways.</p>
-                    <p>Here's the thing: <strong>when feedback doesn't get shared, people lose the chance to adjust early.</strong> Avoidance is normal -- most of us do it. This module will give you tools and confidence to go direct sooner, while it's still small. We'll check in with Kai throughout.</p>
+                    <p>Here's the thing: <strong>when feedback doesn't get shared, people lose the chance to adjust early.</strong> Avoidance is normal – most of us do it. This module will give you tools and confidence to go direct sooner, while it's still small. We'll check in with Kai throughout.</p>
                 </div>
 
                 <div class="brand-accent-bar"></div>
@@ -2316,29 +2316,42 @@
                     <p>Chime's <strong>Win Together</strong> value makes feedback explicit. But do you know the actual words? Let's find out.</p>
                 </div>
 
-                <!-- Quote fill-in-the-blank -->
+                <!-- Quote word-bank challenge -->
                 <div style="margin: 24px 0; padding: 28px; background: linear-gradient(135deg, #052316, #0D4029); border-radius: var(--radius-lg); color: white;">
                     <div style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--chime-green); margin-bottom: 16px;">Win Together Value Quote</div>
-                    <p id="quote-fill" style="font-size: 18px; line-height: 2; color: rgba(255,255,255,0.9); margin: 0; font-family: Merriweather, Georgia, serif;">
+                    <p id="quote-fill" style="font-size: 18px; line-height: 2.2; color: rgba(255,255,255,0.9); margin: 0; font-family: Merriweather, Georgia, serif;">
                         "We hold each other
-                        <span class="quote-blank" id="qb-0" onclick="fillQuoteBlank(0)" style="display: inline-block; min-width: 120px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">accountable</span>.
+                        <span class="quote-drop" id="qd-0" onclick="clearQuoteDrop(0)" style="display: inline-block; min-width: 120px; min-height: 28px; border-bottom: 2px dashed rgba(255,255,255,0.4); cursor: pointer; padding: 2px 8px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center; vertical-align: bottom; font-size: 16px; color: transparent;">_</span>.
                         We ask for open, honest
-                        <span class="quote-blank" id="qb-1" onclick="fillQuoteBlank(1)" style="display: inline-block; min-width: 100px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">feedback</span>,
+                        <span class="quote-drop" id="qd-1" onclick="clearQuoteDrop(1)" style="display: inline-block; min-width: 100px; min-height: 28px; border-bottom: 2px dashed rgba(255,255,255,0.4); cursor: pointer; padding: 2px 8px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center; vertical-align: bottom; font-size: 16px; color: transparent;">_</span>,
                         and Chime In to provide it to
-                        <span class="quote-blank" id="qb-2" onclick="fillQuoteBlank(2)" style="display: inline-block; min-width: 80px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">others</span>.
+                        <span class="quote-drop" id="qd-2" onclick="clearQuoteDrop(2)" style="display: inline-block; min-width: 80px; min-height: 28px; border-bottom: 2px dashed rgba(255,255,255,0.4); cursor: pointer; padding: 2px 8px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center; vertical-align: bottom; font-size: 16px; color: transparent;">_</span>.
                         We believe that
-                        <span class="quote-blank" id="qb-3" onclick="fillQuoteBlank(3)" style="display: inline-block; min-width: 80px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">clarity</span>
+                        <span class="quote-drop" id="qd-3" onclick="clearQuoteDrop(3)" style="display: inline-block; min-width: 80px; min-height: 28px; border-bottom: 2px dashed rgba(255,255,255,0.4); cursor: pointer; padding: 2px 8px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center; vertical-align: bottom; font-size: 16px; color: transparent;">_</span>
                         is
-                        <span class="quote-blank" id="qb-4" onclick="fillQuoteBlank(4)" style="display: inline-block; min-width: 90px; border-bottom: 2px dashed rgba(255,255,255,0.4); color: transparent; cursor: pointer; padding: 0 4px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center;">kindness</span>."
+                        <span class="quote-drop" id="qd-4" onclick="clearQuoteDrop(4)" style="display: inline-block; min-width: 90px; min-height: 28px; border-bottom: 2px dashed rgba(255,255,255,0.4); cursor: pointer; padding: 2px 8px; transition: all 0.3s; background: rgba(255,255,255,0.05); border-radius: 4px; text-align: center; vertical-align: bottom; font-size: 16px; color: transparent;">_</span>."
                     </p>
-                    <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 16px;">Tap each blank to reveal the missing word</p>
+                    <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;" id="quote-word-bank">
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="clarity">clarity</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="growth">growth</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="feedback">feedback</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="accountable">accountable</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="kindness">kindness</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="others">others</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="courage">courage</span>
+                        <span class="quote-word" onclick="pickQuoteWord(this)" style="display: inline-block; padding: 8px 16px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; cursor: pointer; font-size: 15px; color: rgba(255,255,255,0.9); transition: all 0.2s;" data-word="trust">trust</span>
+                    </div>
+                    <div id="quote-check-msg" style="margin-top: 16px; font-size: 14px; text-align: center; min-height: 20px;"></div>
+                    <div style="text-align: center; margin-top: 12px;">
+                        <button id="quote-check-btn" onclick="checkQuoteAnswers()" style="display: none; padding: 10px 24px; background: var(--chime-green); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;">Check My Answers</button>
+                    </div>
                     <div id="quote-result" style="margin-top: 16px; padding: 12px 16px; background: rgba(30,198,119,0.15); border-radius: 8px; display: none; font-size: 14px; color: #a7f3d0; line-height: 1.5;">
-                        <strong>That's the full quote.</strong> Every word matters -- "accountable" means we don't let things slide. "To others" means face-to-face, not behind backs. And "clarity is kindness" is the whole philosophy: being direct IS being caring.
+                        <strong>That's the full quote.</strong> Every word matters: "accountable" means we don't let things slide. "To others" means face-to-face, not behind backs. And "clarity is kindness" is the whole philosophy: being direct IS being caring.
                     </div>
                 </div>
 
                 <div class="content-block">
-                    <p>When you give someone clear, direct feedback, you're not being harsh -- you're being respectful. You're trusting them to handle the truth and giving them the information they need to grow.</p>
+                    <p>When you give someone clear, direct feedback, you're not being harsh – you're being respectful. You're trusting them to handle the truth and giving them the information they need to grow.</p>
                 </div>
 
                 <div class="nav-buttons">
@@ -2470,7 +2483,7 @@
                     </div>
 
                     <div style="padding: 0 24px 20px;">
-                        <p class="idea-note" style="margin: 0;"><strong>Rule of thumb:</strong> Writing it down? Use SBI. Saying it live? Open with IDEA -- then you can flex to SBI for the middle if you want.</p>
+                        <p class="idea-note" style="margin: 0;"><strong>Rule of thumb:</strong> Writing it down? Use SBI. Saying it live? Open with IDEA – then you can flex to SBI for the middle if you want.</p>
                     </div>
                 </div>
 
@@ -2491,7 +2504,7 @@
                     <div style="margin-bottom: 14px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
                             <span id="sbi-check-s" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
-                            S -- Situation (when &amp; where)
+                            S – Situation (when &amp; where)
                         </label>
                         <input type="text" id="sbi-s" oninput="checkSBIProgress()" placeholder='e.g., "In Tuesday&#39;s standup..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
                         <div id="sbi-hint-s" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4; transition: all 0.2s ease;"></div>
@@ -2499,7 +2512,7 @@
                     <div style="margin-bottom: 14px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
                             <span id="sbi-check-b" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
-                            B -- Behavior (what you observed)
+                            B – Behavior (what you observed)
                         </label>
                         <input type="text" id="sbi-b" oninput="checkSBIProgress()" placeholder='e.g., "You jumped in before Priya finished..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
                         <div id="sbi-hint-b" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4; transition: all 0.2s ease;"></div>
@@ -2507,7 +2520,7 @@
                     <div style="margin-bottom: 14px;">
                         <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
                             <span id="sbi-check-i" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
-                            I -- Impact (effect on you, team, or outcome)
+                            I – Impact (effect on you, team, or outcome)
                         </label>
                         <input type="text" id="sbi-i" oninput="checkSBIProgress()" placeholder='e.g., "...which meant we missed context"' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
                         <div id="sbi-hint-i" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4; transition: all 0.2s ease;"></div>
@@ -2887,7 +2900,7 @@
                         </div>
                         <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'best')" style="cursor: pointer;">
                             <div class="scenario-choice-label">C</div>
-                            <div class="scenario-choice-text">"So you’re saying I was talking too much and not leaving room? Yeah, I can see that -- I did get carried away. Sorry about that."</div>
+                            <div class="scenario-choice-text">"So you’re saying I was talking too much and not leaving room? Yeah, I can see that – I did get carried away. Sorry about that."</div>
                         </div>
                     </div>
                     <div class="scenario-outcome" id="recv-outcome-1" style="display: none;"></div>
@@ -2913,7 +2926,7 @@
                     <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-2">
                         <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'poor')" style="cursor: pointer;">
                             <div class="scenario-choice-label">A</div>
-                            <div class="scenario-choice-text">"That’s surprising -- we just did planning last month. Who said that?"</div>
+                            <div class="scenario-choice-text">"That’s surprising – we just did planning last month. Who said that?"</div>
                         </div>
                         <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'okay')" style="cursor: pointer;">
                             <div class="scenario-choice-label">B</div>
@@ -2942,7 +2955,7 @@
                             <div style="font-size: 18px; font-weight: 700; color: var(--green-900);" id="recv-score-text"></div>
                         </div>
                         <div style="font-size: 14px; color: var(--gray-600); line-height: 1.7; text-align: center;">
-                            These six moves -- <strong>Thank, Paraphrase, Ask, Take Space, Own It, Path Forward</strong> -- turn any feedback moment from a threat into a growth opportunity.
+                            These six moves – <strong>Thank, Paraphrase, Ask, Take Space, Own It, Path Forward</strong> – turn any feedback moment from a threat into a growth opportunity.
                         </div>
                     </div>
                 </div>
@@ -3045,42 +3058,73 @@
             </div>
         </div>
 
-        <!-- Section 18: Scenario 2 -->
+        <!-- Section 18: Scenario Practice (Cross-Functional + Upward) -->
         <div class="section" id="section-18">
             <div class="card">
                 <div class="section-badge dark-badge">🎭 Scenario Practice</div>
-                <h2 class="section-title dark-title">Cross-Functional Feedback</h2>
-                <p class="section-subtitle dark-subtitle">Practice giving feedback to someone on a different team.</p>
+                <h2 class="section-title dark-title">Feedback Across Boundaries</h2>
+                <p class="section-subtitle dark-subtitle">Two scenarios: giving feedback across teams, and giving feedback upward.</p>
 
-                <div class="scenario-setup">
-                    <div class="scenario-label">The Situation</div>
-                    <p class="scenario-context">
-                        You've been collaborating with Alex from the Data team on a dashboard project. In yesterday's stakeholder meeting, Alex presented the data in a way that made your team's work look ineffective – they focused only on the problems without acknowledging the improvements you'd made.
-                    </p>
+                <!-- Scenario A: Cross-functional -->
+                <div id="s18-scene-a">
+                    <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Scenario 1 of 2: Cross-Functional</div>
+                    <div class="scenario-setup">
+                        <div class="scenario-label">The Situation</div>
+                        <p class="scenario-context">
+                            You've been collaborating with Alex from the Data team on a dashboard project. In yesterday's stakeholder meeting, Alex presented the data in a way that made your team's work look ineffective – they focused only on the problems without acknowledging the improvements you'd made.
+                        </p>
+                    </div>
+
+                    <div class="scenario-question">What's your move?</div>
+
+                    <div class="scenario-choice" onclick="selectScenario(this, 'scenario2', 'best')">
+                        <div class="scenario-choice-label">Option A</div>
+                        <div class="scenario-choice-text">"Hey Alex, in yesterday's meeting the dashboard framing focused on gaps without mentioning the 20% improvement from last quarter, which made our work look ineffective. Could we align on framing before stakeholder meetings?"</div>
+                    </div>
+                    <div class="scenario-choice" onclick="selectScenario(this, 'scenario2', 'poor')">
+                        <div class="scenario-choice-label">Option B</div>
+                        <div class="scenario-choice-text">"I'm going to raise this with Alex's manager. The way they presented the data wasn’t balanced – it made our whole team look bad. If Alex won't hear it from me, their manager needs to know what happened."</div>
+                    </div>
+                    <div class="scenario-choice" onclick="selectScenario(this, 'scenario2', 'okay')">
+                        <div class="scenario-choice-label">Option C</div>
+                        <div class="scenario-choice-text">"Alex, I wanted to bring something up from yesterday. The way the data was framed in that meeting didn't sit right with me – it felt like our team's contributions were overlooked. Can we talk about it?"</div>
+                    </div>
+                    <div class="scenario-outcome" id="scenario2-outcome"></div>
+                    <div style="text-align: right; margin-top: 16px;">
+                        <button class="btn btn-primary" id="s18-next-scene" style="display: none;" onclick="showUpwardScenario()">Next: Upward Feedback</button>
+                    </div>
                 </div>
 
-                <div class="scenario-question">What's your move?</div>
+                <!-- Scenario B: Upward feedback -->
+                <div id="s18-scene-b" style="display: none;">
+                    <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Scenario 2 of 2: Upward Feedback</div>
+                    <div class="scenario-setup">
+                        <div class="scenario-label">The Situation</div>
+                        <p class="scenario-context">
+                            Your manager has been canceling your 1:1s for three weeks in a row. Each time, they reschedule but then cancel again. You have questions about your project direction and feel stuck without their input.
+                        </p>
+                    </div>
 
-                <div class="scenario-choice" onclick="selectScenario(this, 'scenario2', 'best')">
-                    <div class="scenario-choice-label">Option A</div>
-                    <div class="scenario-choice-text">"Hey Alex, in yesterday's meeting the dashboard framing focused on gaps without mentioning the 20% improvement from last quarter, which made our work look ineffective. Could we align on framing before stakeholder meetings?"</div>
+                    <div class="scenario-question">How do you raise this?</div>
+
+                    <div class="scenario-choice" onclick="selectUpwardScenario(this, 'best')" style="cursor: pointer;">
+                        <div class="scenario-choice-label">Option A</div>
+                        <div class="scenario-choice-text">"Hey, I know things have been packed lately. Our last three 1:1s got canceled, and I have some project questions building up that are slowing my decisions. Could we protect even 15 minutes this week? I want to make sure I'm heading the right direction."</div>
+                    </div>
+                    <div class="scenario-choice" onclick="selectUpwardScenario(this, 'poor')" style="cursor: pointer;">
+                        <div class="scenario-choice-label">Option B</div>
+                        <div class="scenario-choice-text">"I guess our 1:1s aren't a priority anymore. I've been figuring things out on my own, which is fine, but don't be surprised if something goes sideways."</div>
+                    </div>
+                    <div class="scenario-choice" onclick="selectUpwardScenario(this, 'okay')" style="cursor: pointer;">
+                        <div class="scenario-choice-label">Option C</div>
+                        <div class="scenario-choice-text">"No worries about the cancellations! I know you're busy. I'll just ping you on Slack if anything urgent comes up."</div>
+                    </div>
+                    <div class="scenario-outcome" id="upward-outcome" style="display: none;"></div>
                 </div>
-
-                <div class="scenario-choice" onclick="selectScenario(this, 'scenario2', 'poor')">
-                    <div class="scenario-choice-label">Option B</div>
-                    <div class="scenario-choice-text">"I'm going to raise this with Alex's manager. The way they presented the data wasn't balanced – it made our whole team look bad. If Alex won't hear it from me, their manager needs to know what happened."</div>
-                </div>
-
-                <div class="scenario-choice" onclick="selectScenario(this, 'scenario2', 'okay')">
-                    <div class="scenario-choice-label">Option C</div>
-                    <div class="scenario-choice-text">"Alex, I wanted to bring something up from yesterday. The way the data was framed in that meeting didn't sit right with me – it felt like our team's contributions were overlooked. Can we talk about it?"</div>
-                </div>
-
-                <div class="scenario-outcome" id="scenario2-outcome"></div>
 
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">← Back</button>
-                    <button class="btn btn-primary" id="scenario2-next" onclick="nextSection()" disabled>Continue →</button>
+                    <button class="btn btn-primary" id="scenario2-next" onclick="nextSection()" disabled>Continue</button>
                 </div>
             </div>
         </div>
@@ -3563,16 +3607,16 @@
         };
 
         const assessmentQuestions = [
-            { question: "What does the 'S' in SBI stand for?", options: ["Solution", "Situation", "Suggestion", "Statement"], correct: 1, explain: "SBI stands for Situation–Behavior–Impact. Anchoring feedback in a specific situation ('In yesterday's meeting...') gives the receiver clear context and keeps the conversation grounded in facts." },
-            { question: "According to Chime's values, 'Clarity is ___.'", options: ["Efficiency", "Kindness", "Power", "Simplicity"], correct: 1, explain: "From the Win Together value: 'We believe that clarity is kindness.' Being direct and specific with feedback is an act of care, not confrontation." },
-            { question: "What's the purpose of 'One Thing Better'?", options: ["To overwhelm with suggestions", "To make feedback bite-sized and actionable", "To avoid giving feedback", "To rank performance"], correct: 1, explain: "One Thing Better focuses feedback on a single, concrete suggestion the receiver can act on immediately. Multiple suggestions at once can feel overwhelming and dilute the message." },
-            { question: "Which type of feedback focuses on helping someone learn and grow?", options: ["Appreciation", "Evaluation", "Coaching", "Ranking"], correct: 2, explain: "Coaching feedback is forward-looking – it identifies specific behaviors and offers suggestions for growth. Appreciation acknowledges effort; evaluation rates performance. Coaching is what drives development." },
-            { question: "When should you ideally give feedback after an event?", options: ["Within 24-48 hours", "At the next annual review", "After a month", "Only if asked"], correct: 0, explain: "Timely feedback is more effective because both people can recall the specific details. Waiting weeks or months means the context fades and the opportunity for change narrows." },
-            { question: "What's the BEST first response when receiving critical feedback?", options: ["Defend your actions", "Thank the giver", "Explain why they're wrong", "Change the subject"], correct: 1, explain: "Thanking the giver acknowledges the risk they took in sharing. It doesn't mean you agree – it creates space for you to process the feedback before responding. Defensiveness shuts the conversation down." },
-            { question: "What's 'triangulation' in feedback?", options: ["Using three examples", "Sharing feedback about someone to a third party instead of directly", "Getting feedback from three people", "A mathematical approach"], correct: 1, explain: "Triangulation means talking about someone to a third party instead of going to them directly. It can erode trust and means the person doesn't get the chance to adjust." },
-            { question: "Which trigger makes us discount feedback based on WHO is giving it?", options: ["Truth triggers", "Identity triggers", "Relationship triggers", "Content triggers"], correct: 2, explain: "Relationship triggers cause us to dismiss feedback because of our feelings about the giver: 'Who are they to tell me this?' Truth triggers focus on the content; identity triggers threaten our self-image." },
-            { question: "In SBI, what should the 'B' (Behavior) describe?", options: ["Your opinion of the person", "Observable actions you saw or heard", "The person's personality", "What they should do next"], correct: 1, explain: "Behavior in SBI means observable, factual actions – what you saw or heard, not your interpretation. 'You interrupted twice' vs. 'You're rude.' Sticking to observable behavior keeps feedback fair and non-judgmental." },
-            { question: "What Chime value is most directly connected to peer feedback?", options: ["Be Bold", "Member Obsessed", "Win Together", "Respect the Rules"], correct: 2, explain: "Win Together is Chime's value most tied to feedback: 'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others.'" }
+            { question: "What does the 'S' in SBI stand for?", options: ["Solution", "Situation", "Suggestion", "Statement"], correct: 1, sectionRef: 10, explain: "SBI stands for Situation–Behavior–Impact. Anchoring feedback in a specific situation ('In yesterday's meeting...') gives the receiver clear context and keeps the conversation grounded in facts." },
+            { question: "According to Chime's values, 'Clarity is ___.'", options: ["Efficiency", "Kindness", "Power", "Simplicity"], correct: 1, sectionRef: 9, explain: "From the Win Together value: 'We believe that clarity is kindness.' Being direct and specific with feedback is an act of care, not confrontation." },
+            { question: "What's the purpose of 'One Thing Better'?", options: ["To overwhelm with suggestions", "To make feedback bite-sized and actionable", "To avoid giving feedback", "To rank performance"], correct: 1, sectionRef: 11, explain: "One Thing Better focuses feedback on a single, concrete suggestion the receiver can act on immediately. Multiple suggestions at once can feel overwhelming and dilute the message." },
+            { question: "Which type of feedback focuses on helping someone learn and grow?", options: ["Appreciation", "Evaluation", "Coaching", "Ranking"], correct: 2, sectionRef: 8, explain: "Coaching feedback is forward-looking – it identifies specific behaviors and offers suggestions for growth. Appreciation acknowledges effort; evaluation rates performance. Coaching is what drives development." },
+            { question: "When should you ideally give feedback after an event?", options: ["Within 24-48 hours", "At the next annual review", "After a month", "Only if asked"], correct: 0, sectionRef: 17, explain: "Timely feedback is more effective because both people can recall the specific details. Waiting weeks or months means the context fades and the opportunity for change narrows." },
+            { question: "What's the BEST first response when receiving critical feedback?", options: ["Defend your actions", "Thank the giver", "Explain why they're wrong", "Change the subject"], correct: 1, sectionRef: 15, explain: "Thanking the giver acknowledges the risk they took in sharing. It doesn't mean you agree – it creates space for you to process the feedback before responding. Defensiveness shuts the conversation down." },
+            { question: "What's 'triangulation' in feedback?", options: ["Using three examples", "Sharing feedback about someone to a third party instead of directly", "Getting feedback from three people", "A mathematical approach"], correct: 1, sectionRef: 18, explain: "Triangulation means talking about someone to a third party instead of going to them directly. It can erode trust and means the person doesn't get the chance to adjust." },
+            { question: "Which trigger makes us discount feedback based on WHO is giving it?", options: ["Truth triggers", "Identity triggers", "Relationship triggers", "Content triggers"], correct: 2, sectionRef: 6, explain: "Relationship triggers cause us to dismiss feedback because of our feelings about the giver: 'Who are they to tell me this?' Truth triggers focus on the content; identity triggers threaten our self-image." },
+            { question: "In SBI, what should the 'B' (Behavior) describe?", options: ["Your opinion of the person", "Observable actions you saw or heard", "The person's personality", "What they should do next"], correct: 1, sectionRef: 10, explain: "Behavior in SBI means observable, factual actions – what you saw or heard, not your interpretation. 'You interrupted twice' vs. 'You're rude.' Sticking to observable behavior keeps feedback fair and non-judgmental." },
+            { question: "What Chime value is most directly connected to peer feedback?", options: ["Be Bold", "Member Obsessed", "Win Together", "Respect the Rules"], correct: 2, sectionRef: 9, explain: "Win Together is Chime's value most tied to feedback: 'We hold each other accountable. We ask for open, honest feedback, and Chime In to provide it to others.'" }
         ];
 
         // Functions
@@ -3642,7 +3686,7 @@
                 'The Other Side: Receiving Well',
                 'Receive Like a Pro',
                 'In-Person vs. Workday',
-                'Cross-Functional Feedback',
+                'Cross-Functional & Upward',
                 'Put It Into Practice',
                 'Key Takeaways',
                 'Check Your Understanding',
@@ -3807,7 +3851,6 @@
             const container = element.parentElement;
             const choices = container.querySelectorAll('.scenario-choice');
             const outcomeDiv = document.getElementById(`${scenarioId}-outcome`);
-            const nextBtn = document.getElementById(`${scenarioId}-next`);
 
             choices.forEach(choice => choice.classList.remove('selected'));
             element.classList.add('selected');
@@ -3815,7 +3858,39 @@
             const data = scenarioOutcomes[scenarioId][outcome];
             outcomeDiv.className = `scenario-outcome show ${data.type}`;
             outcomeDiv.innerHTML = `<div class="outcome-badge">${data.badge}</div><div class="outcome-text">${data.text}</div>`;
-            nextBtn.disabled = false;
+
+            // For scenario2, show "Next: Upward Feedback" button instead of enabling continue
+            if (scenarioId === 'scenario2') {
+                var nextScene = document.getElementById('s18-next-scene');
+                if (nextScene) nextScene.style.display = 'inline-block';
+            } else {
+                const nextBtn = document.getElementById(`${scenarioId}-next`);
+                if (nextBtn) nextBtn.disabled = false;
+            }
+        }
+
+        function showUpwardScenario() {
+            document.getElementById('s18-scene-a').style.display = 'none';
+            document.getElementById('s18-scene-b').style.display = 'block';
+        }
+
+        function selectUpwardScenario(el, quality) {
+            el.parentElement.querySelectorAll('.scenario-choice').forEach(function(c) {
+                c.style.opacity = '0.5'; c.style.pointerEvents = 'none';
+            });
+            el.style.opacity = '1'; el.style.border = '2px solid var(--chime-green)';
+            var data = {
+                best: { type: 'best', badge: 'Strong move', text: 'You acknowledged their busy schedule (no guilt trip), stated the specific pattern (three cancellations), explained the impact on your work (decisions slowing), and proposed a small, concrete ask (15 minutes). That\'s IDEA in action: Intention, Data, Effect, Action.' },
+                okay: { type: 'okay', badge: 'Understandable but risky', text: 'Deferring to avoid rocking the boat is common with managers, but it means your needs go unmet. "Ping on Slack" isn\'t a real substitute for a 1:1. You\'re absorbing the cost of the cancellations without giving your manager the chance to fix it.' },
+                poor: { type: 'poor', badge: 'Watch out', text: 'The sarcasm ("I guess they\'re not a priority") and veiled threat ("don\'t be surprised") will put your manager on the defensive. Even when the frustration is valid, leading with passive aggression makes it harder for them to hear the real message.' }
+            };
+            var d = data[quality];
+            var outcome = document.getElementById('upward-outcome');
+            outcome.className = 'scenario-outcome show ' + (quality === 'best' ? 'best' : (quality === 'okay' ? 'okay' : 'poor'));
+            outcome.innerHTML = '<div class="outcome-badge">' + d.badge + '</div><div class="outcome-text">' + d.text + '</div>';
+            outcome.style.display = 'block';
+            var s18btn = document.getElementById('scenario2-next');
+            if (s18btn) s18btn.disabled = false;
         }
 
         // Delivery tabs
@@ -4002,6 +4077,9 @@
                 }
 
                 h += '<div class="review-explain"><strong>Why?</strong> ' + q.explain + '</div>';
+                if (!isCorrect && q.sectionRef) {
+                    h += '<div style="margin-top: 8px;"><a href="#" onclick="enterReviewMode(' + q.sectionRef + '); return false;" style="font-size: 13px; color: var(--chime-green); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">\u2190 Review this section</a></div>';
+                }
                 h += '</div>';
             });
             h += '</div>';
@@ -4080,6 +4158,9 @@
                 }
 
                 h += '<div class="review-explain"><strong>Why?</strong> ' + q.explain + '</div>';
+                if (!isCorrect && q.sectionRef) {
+                    h += '<div style="margin-top: 8px;"><a href="#" onclick="enterReviewMode(' + q.sectionRef + '); return false;" style="font-size: 13px; color: var(--chime-green); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">\u2190 Review this section</a></div>';
+                }
                 h += '</div>';
             });
             h += '</div>';
@@ -4408,19 +4489,104 @@
         // Win Together quote fill-in-the-blank
         var quoteBlanksRevealed = 0;
         var quoteBlanksTotal = 5;
-        function fillQuoteBlank(idx) {
-            var blank = document.getElementById('qb-' + idx);
-            if (!blank || blank.style.color !== 'transparent') return;
-            blank.style.color = '#a7f3d0';
-            blank.style.borderBottomColor = '#a7f3d0';
-            blank.style.background = 'rgba(30,198,119,0.15)';
-            blank.style.cursor = 'default';
-            quoteBlanksRevealed++;
-            if (quoteBlanksRevealed >= quoteBlanksTotal) {
-                var result = document.getElementById('quote-result');
-                if (result) result.style.display = 'block';
+        // Section 9: Word-bank quote challenge
+        var quoteCorrect = ['accountable', 'feedback', 'others', 'clarity', 'kindness'];
+        var quotePlacements = [null, null, null, null, null];
+        var quoteSelectedWord = null;
+
+        function pickQuoteWord(el) {
+            if (el.style.opacity === '0.3') return; // already placed
+            // Deselect previous
+            document.querySelectorAll('.quote-word').forEach(function(w) { w.style.border = '1px solid rgba(255,255,255,0.25)'; });
+            el.style.border = '2px solid var(--chime-green)';
+            quoteSelectedWord = el;
+        }
+
+        function placeWordInSlot(idx) {
+            if (!quoteSelectedWord) return;
+            var word = quoteSelectedWord.getAttribute('data-word');
+            // If slot already has a word, return it to the bank
+            if (quotePlacements[idx]) {
+                var oldWord = quotePlacements[idx];
+                document.querySelectorAll('.quote-word').forEach(function(w) {
+                    if (w.getAttribute('data-word') === oldWord) {
+                        w.style.opacity = '1';
+                        w.style.pointerEvents = 'auto';
+                    }
+                });
+            }
+            quotePlacements[idx] = word;
+            var slot = document.getElementById('qd-' + idx);
+            slot.textContent = word;
+            slot.style.color = 'rgba(255,255,255,0.9)';
+            slot.style.background = 'rgba(255,255,255,0.1)';
+            slot.style.borderBottomColor = 'rgba(255,255,255,0.6)';
+            // Dim the used word in the bank
+            quoteSelectedWord.style.opacity = '0.3';
+            quoteSelectedWord.style.pointerEvents = 'none';
+            quoteSelectedWord.style.border = '1px solid rgba(255,255,255,0.25)';
+            quoteSelectedWord = null;
+            // Show check button if all slots filled
+            var filled = quotePlacements.filter(function(p) { return p !== null; }).length;
+            var checkBtn = document.getElementById('quote-check-btn');
+            if (filled >= 5) {
+                checkBtn.style.display = 'inline-block';
+            }
+            document.getElementById('quote-check-msg').innerHTML = '<span style="color: rgba(255,255,255,0.5);">' + filled + ' of 5 placed</span>';
+        }
+
+        function clearQuoteDrop(idx) {
+            if (!quotePlacements[idx]) {
+                // Slot is empty -- place selected word here
+                placeWordInSlot(idx);
+                return;
+            }
+            // Return word to bank
+            var word = quotePlacements[idx];
+            quotePlacements[idx] = null;
+            document.querySelectorAll('.quote-word').forEach(function(w) {
+                if (w.getAttribute('data-word') === word) {
+                    w.style.opacity = '1';
+                    w.style.pointerEvents = 'auto';
+                }
+            });
+            var slot = document.getElementById('qd-' + idx);
+            slot.textContent = '_';
+            slot.style.color = 'transparent';
+            slot.style.background = 'rgba(255,255,255,0.05)';
+            slot.style.borderBottomColor = 'rgba(255,255,255,0.4)';
+            var filled = quotePlacements.filter(function(p) { return p !== null; }).length;
+            document.getElementById('quote-check-btn').style.display = filled >= 5 ? 'inline-block' : 'none';
+            document.getElementById('quote-check-msg').innerHTML = '<span style="color: rgba(255,255,255,0.5);">' + filled + ' of 5 placed</span>';
+        }
+
+        function checkQuoteAnswers() {
+            var allCorrect = true;
+            for (var i = 0; i < 5; i++) {
+                var slot = document.getElementById('qd-' + i);
+                if (quotePlacements[i] === quoteCorrect[i]) {
+                    slot.style.color = '#a7f3d0';
+                    slot.style.background = 'rgba(30,198,119,0.2)';
+                    slot.style.borderBottomColor = '#a7f3d0';
+                } else {
+                    allCorrect = false;
+                    slot.style.color = '#fca5a5';
+                    slot.style.background = 'rgba(239,68,68,0.15)';
+                    slot.style.borderBottomColor = '#fca5a5';
+                }
+            }
+            if (allCorrect) {
+                document.getElementById('quote-check-msg').innerHTML = '<span style="color: #a7f3d0; font-weight: 600;">All correct!</span>';
+                document.getElementById('quote-check-btn').style.display = 'none';
+                document.getElementById('quote-result').style.display = 'block';
                 var s9btn = document.getElementById('section9-continue');
                 if (s9btn) s9btn.disabled = false;
+                // Disable further interaction
+                document.querySelectorAll('.quote-word').forEach(function(w) { w.style.pointerEvents = 'none'; });
+                document.querySelectorAll('.quote-drop').forEach(function(d) { d.style.cursor = 'default'; d.onclick = null; });
+            } else {
+                var wrongCount = quotePlacements.filter(function(p, i) { return p !== quoteCorrect[i]; }).length;
+                document.getElementById('quote-check-msg').innerHTML = '<span style="color: #fca5a5;">' + wrongCount + ' not quite right. Tap a red word to return it, then try again.</span>';
             }
         }
 
@@ -4481,6 +4647,14 @@
             document.getElementById('scenario-next').textContent = currentScenario < scenarios.length - 1 ? 'Next Scenario →' : 'Done ✓';
         }
         function revealSample() {
+            // Require at least some attempt before showing the example
+            var input = document.getElementById('scenario-input');
+            if (input && input.value.trim().length < 10) {
+                input.style.borderColor = 'var(--accent-freedom)';
+                input.setAttribute('placeholder', 'Give it a try first -- even a rough attempt helps the learning stick.');
+                input.focus();
+                return;
+            }
             var sample = document.getElementById('scenario-sample');
             sample.innerHTML = scenarios[currentScenario].sample;
             sample.classList.add('show');
