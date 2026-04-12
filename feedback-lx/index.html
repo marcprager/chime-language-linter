@@ -2902,13 +2902,13 @@
                             <div class="scenario-choice-label">A</div>
                             <div class="scenario-choice-text">"I was just excited about the project. Everyone had a chance to speak up."</div>
                         </div>
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'okay')" style="cursor: pointer;">
-                            <div class="scenario-choice-label">B</div>
-                            <div class="scenario-choice-text">"I appreciate you telling me. I’ll try to be more aware next time."</div>
-                        </div>
                         <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'best')" style="cursor: pointer;">
-                            <div class="scenario-choice-label">C</div>
+                            <div class="scenario-choice-label">B</div>
                             <div class="scenario-choice-text">"So you’re saying I was talking too much and not leaving room? Yeah, I can see that – I did get carried away. Sorry about that."</div>
+                        </div>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 1, 'okay')" style="cursor: pointer;">
+                            <div class="scenario-choice-label">C</div>
+                            <div class="scenario-choice-text">"I appreciate you telling me. I’ll try to be more aware next time."</div>
                         </div>
                     </div>
                     <div class="scenario-outcome" id="recv-outcome-1" style="display: none;"></div>
@@ -2932,13 +2932,13 @@
                     </div>
                     <div style="font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px;">What do you say?</div>
                     <div style="display: flex; flex-direction: column; gap: 10px;" id="recv-choices-2">
-                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'poor')" style="cursor: pointer;">
-                            <div class="scenario-choice-label">A</div>
-                            <div class="scenario-choice-text">"That’s surprising – we just did planning last month. Who said that?"</div>
-                        </div>
                         <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'okay')" style="cursor: pointer;">
-                            <div class="scenario-choice-label">B</div>
+                            <div class="scenario-choice-label">A</div>
                             <div class="scenario-choice-text">"You’re right, I should probably do another alignment session with the team."</div>
+                        </div>
+                        <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'poor')" style="cursor: pointer;">
+                            <div class="scenario-choice-label">B</div>
+                            <div class="scenario-choice-text">"That’s surprising – we just did planning last month. Who said that?"</div>
                         </div>
                         <div class="scenario-choice" onclick="selectRecvScenario(this, 2, 'best')" style="cursor: pointer;">
                             <div class="scenario-choice-label">C</div>
@@ -4085,9 +4085,6 @@
                 }
 
                 h += '<div class="review-explain"><strong>Why?</strong> ' + q.explain + '</div>';
-                if (!isCorrect && q.sectionRef) {
-                    h += '<div style="margin-top: 8px;"><a href="#" onclick="enterReviewMode(' + q.sectionRef + '); return false;" style="font-size: 13px; color: var(--chime-green); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">\u2190 Review this section</a></div>';
-                }
                 h += '</div>';
             });
             h += '</div>';
@@ -4166,9 +4163,6 @@
                 }
 
                 h += '<div class="review-explain"><strong>Why?</strong> ' + q.explain + '</div>';
-                if (!isCorrect && q.sectionRef) {
-                    h += '<div style="margin-top: 8px;"><a href="#" onclick="enterReviewMode(' + q.sectionRef + '); return false;" style="font-size: 13px; color: var(--chime-green); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">\u2190 Review this section</a></div>';
-                }
                 h += '</div>';
             });
             h += '</div>';
@@ -4671,14 +4665,24 @@
                 nextBtn.textContent = 'Next Scenario \u2192';
                 nextBtn.disabled = false;
                 nextBtn.style.display = 'inline-flex';
+                nextBtn.onclick = nextScenario;
             } else {
-                if (scenarioCompleted.every(Boolean)) {
-                    nextBtn.textContent = 'All Done \u2713';
-                    nextBtn.disabled = true;
-                    nextBtn.style.display = 'inline-flex';
-                } else {
-                    nextBtn.style.display = 'none';
-                }
+                // Last scenario — show Finish button
+                nextBtn.textContent = 'Finish \u2713';
+                nextBtn.style.display = 'inline-flex';
+                nextBtn.disabled = false;
+                nextBtn.onclick = function() {
+                    var inputVal = document.getElementById('scenario-input').value;
+                    scenarioInputs[currentScenario] = inputVal;
+                    if (inputVal.trim().length >= 10) {
+                        scenarioCompleted[currentScenario] = true;
+                    }
+                    if (scenarioCompleted.every(Boolean)) {
+                        var s11btn = document.getElementById('section11-continue');
+                        if (s11btn) s11btn.disabled = false;
+                    }
+                    renderScenario();
+                };
             }
         }
         function goToScenario(idx) {
@@ -4708,10 +4712,20 @@
             renderScenario();
         }
         function nextScenario() {
-            scenarioInputs[currentScenario] = document.getElementById('scenario-input').value;
+            var inputVal = document.getElementById('scenario-input').value;
+            scenarioInputs[currentScenario] = inputVal;
+            // Mark scenario complete if they wrote 10+ chars
+            if (inputVal.trim().length >= 10) {
+                scenarioCompleted[currentScenario] = true;
+            }
             if (currentScenario < scenarios.length - 1) {
                 currentScenario++;
                 renderScenario();
+            }
+            // Check if all 3 done to enable Continue
+            if (scenarioCompleted.every(Boolean)) {
+                var s11btn = document.getElementById('section11-continue');
+                if (s11btn) s11btn.disabled = false;
             }
         }
 
@@ -5491,10 +5505,7 @@
         }
 
     </script>
-    <div class="review-banner" id="review-banner">
-        <p>📖 Review mode – read through this section, then retake the assessment</p>
-        <button onclick="returnToAssessment()">Retake Assessment →</button>
-    </div>
+
     <!-- Audio accessibility control -->
     <div class="audio-control" id="audio-control" role="region" aria-label="Page audio controls">
         <button class="audio-btn" id="audio-toggle" onclick="togglePageAudio()" aria-label="Read this page aloud" title="Read this page aloud">&#x1f50a;</button>
