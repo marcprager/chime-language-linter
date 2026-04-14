@@ -293,7 +293,10 @@
         .review-answer-row.yours.was-correct { background: var(--green-50); color: var(--gray-700); }
         .review-answer-row.correct-answer { background: var(--green-50); color: var(--green-900); font-weight: 600; }
         .review-answer-label { font-weight: 700; }
-        .review-explain { font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--gray-200); }
+        .review-explain { font-size: 14px; color: var(--gray-600); line-height: 1.6; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--gray-200); display: none; }
+        .review-explain.show { display: block; }
+        .review-why-btn { background: none; border: 1px solid var(--gray-300); border-radius: 6px; padding: 4px 12px; font-size: 13px; font-weight: 600; color: var(--green-700); cursor: pointer; margin-top: 8px; transition: all 0.2s; }
+        .review-why-btn:hover { background: var(--green-50); border-color: var(--chime-green); }
         .likert-question { margin-bottom: 28px; }
         .likert-question:last-of-type { margin-bottom: 32px; }
         .likert-question-text { font-size: 15px; font-weight: 600; color: var(--gray-800); margin-bottom: 14px; }
@@ -993,7 +996,8 @@
                     <p>Answer these 10 questions. You need <strong>70% to pass</strong> (you get 3 attempts).</p>
                 </div>
                 <div class="assessment-all-container" id="assessment-container"></div>
-                <div class="nav-buttons center">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection()">Back</button>
                     <button class="btn btn-primary btn-large" id="assessment-submit" onclick="submitAssessment()" disabled>Submit Assessment</button>
                 </div>
             </div>
@@ -1066,7 +1070,8 @@
                         <textarea class="comment-textarea" id="feedback-comment" placeholder="Optional - tell us what worked, what didn't, or what you'd change..."></textarea>
                     </div>
                 </div>
-                <div class="nav-buttons center">
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection()">Back</button>
                     <button class="btn btn-primary btn-large" id="submit-feedback-btn" onclick="submitFeedback()" disabled>Submit &amp; Complete</button>
                 </div>
             </div>
@@ -1510,7 +1515,8 @@
                 h += '<div class="review-answer-row yours"><span class="review-answer-label">Your answer:</span> ' + q.options[ua] + '</div>';
                 h += '<div class="review-answer-row correct-answer"><span class="review-answer-label">Correct:</span> ' + q.options[q.correct] + '</div>';
             }
-            h += '<div class="review-explain"><strong>Why?</strong> ' + q.explain + '</div>';
+            h += '<button class="review-why-btn" onclick="this.nextElementSibling.classList.toggle(\'show\');this.textContent=this.textContent===\'Why?\'?\'Hide\':\'Why?\';">Why?</button>';
+            h += '<div class="review-explain">' + q.explain + '</div>';
             h += '</div>';
         });
         h += '</div>';
@@ -1551,7 +1557,8 @@
                 h += '<div class="review-answer-row yours"><span class="review-answer-label">Your answer:</span> ' + q.options[ua] + '</div>';
                 h += '<div class="review-answer-row correct-answer"><span class="review-answer-label">Correct:</span> ' + q.options[q.correct] + '</div>';
             }
-            h += '<div class="review-explain"><strong>Why?</strong> ' + q.explain + '</div>';
+            h += '<button class="review-why-btn" onclick="this.nextElementSibling.classList.toggle(\'show\');this.textContent=this.textContent===\'Why?\'?\'Hide\':\'Why?\';">Why?</button>';
+            h += '<div class="review-explain">' + q.explain + '</div>';
             h += '</div>';
         });
         h += '</div>';
