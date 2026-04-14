@@ -519,7 +519,7 @@
                     </div>
                 </div>
                 <div class="content-block">
-                    <p>At Chime, this is especially real. Fintech moves fast. The skills that got you here won't be the same skills you need in two years.</p>
+                    <p>At Chime, this is especially real. Fintech moves fast. The skills that got you here may not be the same skills you need in two years.</p>
                 </div>
                 <div class="poll-container">
                     <div class="poll-title">What's one skill you're currently working to develop?</div>
@@ -641,16 +641,17 @@
                 <div class="content-block">
                     <p>You just learned that your brain physically rewires itself through effort. Before we move into recognizing mindsets in action, take a few minutes to watch this. It brings the neuroscience to life and introduces an important idea: not all growth mindset is the real thing.</p>
                 </div>
-                <div style="position: relative; width: 100%; max-width: 720px; margin: 0 auto 24px; border-radius: 12px; overflow: hidden; background: #1a1a2e; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-                    <video id="mindset-video" style="width: 100%; display: block; border-radius: 12px;" controls preload="metadata" ontimeupdate="checkVideoProgress()">
+                <div style="position: relative; width: 100%; max-width: 720px; margin: 0 auto 24px; border-radius: 12px; overflow: hidden; background: #1a1a2e; box-shadow: 0 4px 20px rgba(0,0,0,0.15); aspect-ratio: 16/9;">
+                    <video id="mindset-video" style="width: 100%; height: 100%; display: block; border-radius: 12px; object-fit: contain;" controls preload="metadata" ontimeupdate="checkVideoProgress()" onerror="enableVideoSkip()">
                         <source src="The_Mindset_Difference.mp4" type="video/mp4">
-                        <p style="padding: 20px; color: #666;">Your browser does not support embedded video.</p>
+                        <p style="padding: 20px; color: #999; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%;">Video not available. Click "Skip Video" below to continue.</p>
                     </video>
                 </div>
                 <p style="font-size: 13px; color: var(--gray-500); text-align: center; margin-bottom: 24px;">3 minutes &middot; Sound on recommended</p>
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">Back</button>
                     <button class="btn btn-primary" id="section6-continue" onclick="nextSection()" disabled>Watch the video to continue</button>
+                    <button class="btn btn-secondary" id="section6-skip" onclick="nextSection()" style="display:none;">Skip Video &rarr;</button>
                 </div>
             </div>
         </div>
@@ -1262,8 +1263,8 @@
     function checkSkillInput() {
         var val = document.getElementById('skill-input').value.trim();
         var btn = document.getElementById('section3-continue');
-        btn.disabled = val.length < 3;
-        btn.textContent = val.length >= 3 ? 'Continue \u2192' : 'Enter a skill to continue';
+        btn.disabled = val.length < 2;
+        btn.textContent = val.length >= 2 ? 'Continue \u2192' : 'Enter a skill to continue';
     }
 
     // ============ MATCHING ============
@@ -1304,8 +1305,19 @@
             var btn = document.getElementById('section6-continue');
             btn.disabled = false;
             btn.textContent = 'Continue \u2192';
+            var skip = document.getElementById('section6-skip');
+            if (skip) skip.style.display = 'none';
         }
     }
+    function enableVideoSkip() {
+        var skip = document.getElementById('section6-skip');
+        if (skip) skip.style.display = 'inline-flex';
+    }
+    // Auto-detect missing video after 2 seconds
+    setTimeout(function() {
+        var v = document.getElementById('mindset-video');
+        if (v && (v.networkState === 3 || v.readyState === 0)) enableVideoSkip();
+    }, 2000);
 
     // ============ QUIZ ============
     function selectQuizOption(quizNum, option, isCorrect) {
@@ -1376,8 +1388,8 @@
     function checkTechniquePractice() {
         var val = document.getElementById('yet-practice').value.trim();
         var btn = document.getElementById('section10-continue');
-        btn.disabled = val.length < 5;
-        btn.textContent = val.length >= 5 ? 'Continue to Practice Scenarios \u2192' : 'Complete the practice to continue';
+        btn.disabled = val.length < 2;
+        btn.textContent = val.length >= 2 ? 'Continue to Practice Scenarios \u2192' : 'Complete the practice to continue';
     }
 
     // ============ SCENARIOS ============
