@@ -1377,6 +1377,7 @@
             .hamburger { display: block; }
             .idea-grid { grid-template-columns: repeat(2, 1fr); }
             .assessment-q-block { padding: 16px; }
+            #idea-sbi-compare > div:nth-child(2) { grid-template-columns: 1fr !important; }
         }
 
         /* ===== NEW INTERACTION STYLES ===== */
@@ -1738,7 +1739,7 @@
                     </div>
                 </div>
                 <div class="poll-results" id="poll-kai-results">
-                    <div class="poll-insight" style="margin-top: 0;">
+                    <div class="poll-insight" style="margin-top: 0;" id="poll-kai-insight">
                         <strong>You're not alone.</strong> Holding back feedback is one of the most common patterns in any workplace. The hesitation comes from a good place – we care about our relationships. But as you'll see in this module, there are ways to share feedback that actually strengthen trust rather than risk it. That's what we're here to build.
                     </div>
                 </div>
@@ -2015,7 +2016,7 @@
                 <p class="section-subtitle dark-subtitle">Understanding the psychology helps us navigate the discomfort.</p>
 
                 <div class="content-block">
-                    <p>Even when we <em>want</em> to give or receive feedback, something can short-circuit the conversation. Research identifies three "triggers" that hijack our response:</p>
+                    <p>Even when we <em>want</em> to give or receive feedback, something can short-circuit the conversation. Research identifies three "triggers" that derail our response:</p>
                 </div>
 
                 <div class="flip-grid" style="grid-template-columns: repeat(3, 1fr);" id="trigger-flip-grid">
@@ -2400,6 +2401,11 @@
                     <p><strong>It separates facts from feelings.</strong> By anchoring in a specific situation and observable behavior, you avoid generalizations ("You always...") and character judgments ("You're disorganized"). This makes feedback easier to hear and act on.</p>
                 </div>
 
+                <div style="margin: 20px 0; padding: 20px 24px; background: var(--accent-freedom-50); border-left: 4px solid var(--accent-freedom); border-radius: 0 10px 10px 0;">
+                    <div style="font-size: 14px; font-weight: 700; color: var(--gray-700); margin-bottom: 8px;">What about the "Feedback Sandwich"?</div>
+                    <p style="font-size: 14px; color: var(--gray-600); line-height: 1.6; margin: 0;">You may have heard of the positive-negative-positive approach. While well-intentioned, research shows it teaches people to brace for criticism after every compliment, diluting both the praise and the feedback. SBI skips the wrapping and keeps feedback direct, specific, and trust-building.</p>
+                </div>
+
                 <div class="idea-callout" style="padding: 0; overflow: hidden;">
                     <div style="padding: 24px 24px 16px;">
                         <div class="idea-header">
@@ -2530,6 +2536,129 @@
                     <div id="sbi-preview" style="display: none; margin-top: 16px; padding: 16px; background: white; border-radius: 10px; border: 2px solid var(--chime-green);">
                         <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--chime-green); margin-bottom: 8px;">✓ Your SBI feedback</div>
                         <div id="sbi-preview-text" style="font-size: 15px; color: var(--gray-700); line-height: 1.6; font-style: italic;"></div>
+                    </div>
+
+                    <p style="font-size: 12px; color: var(--gray-400); margin-top: 12px;">🔒 This exercise is for you; it isn't submitted.</p>
+                </div>
+
+                <!-- IDEA Practice: Conversation Simulator -->
+                <div class="brand-accent-bar" style="margin: 32px 0 24px;"></div>
+
+                <div class="practice-builder" style="margin: 24px 0; padding: 24px; border: 2px solid var(--accent-aspiration); border-radius: 16px; background: linear-gradient(135deg, var(--accent-aspiration-50) 0%, white 100%);">
+                    <h3 style="font-size: 16px; margin-bottom: 4px;">💬 Now try it live: Build your own IDEA</h3>
+                    <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 4px;">Same feedback, different delivery. Use the same scenario you wrote above – but this time, imagine you're saying it face-to-face.</p>
+                    <p style="font-size: 12px; color: var(--gray-400); margin-bottom: 16px;">Complete all four steps to see your conversation side-by-side with your SBI.</p>
+
+                    <!-- IDEA progress meter -->
+                    <div id="idea-meter" style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding: 12px 16px; background: white; border-radius: 10px; border: 1px solid var(--gray-200);">
+                        <div style="font-size: 13px; font-weight: 700; color: var(--gray-500); white-space: nowrap;">IDEA Score</div>
+                        <div style="flex: 1; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden;">
+                            <div id="idea-meter-fill" style="height: 100%; width: 0%; background: var(--gray-400); border-radius: 4px; transition: all 0.4s ease;"></div>
+                        </div>
+                        <div id="idea-meter-label" style="font-size: 13px; font-weight: 700; color: var(--gray-400); min-width: 30px;">0/4</div>
+                    </div>
+
+                    <!-- I – Intent -->
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="idea-check-i" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            I – Intent (why you're raising this)
+                        </label>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;" id="idea-intent-options">
+                            <button class="idea-option-btn" onclick="selectIdeaOption('intent', 0, this)" style="padding: 8px 14px; border: 2px solid var(--gray-200); border-radius: 8px; background: white; font-size: 13px; color: var(--gray-600); cursor: pointer; transition: all 0.2s; font-family: inherit;">"I value our working relationship and want us to collaborate even better."</button>
+                            <button class="idea-option-btn" onclick="selectIdeaOption('intent', 1, this)" style="padding: 8px 14px; border: 2px solid var(--gray-200); border-radius: 8px; background: white; font-size: 13px; color: var(--gray-600); cursor: pointer; transition: all 0.2s; font-family: inherit;">"I noticed something that I think could help us both – can I share?"</button>
+                            <button class="idea-option-btn" onclick="selectIdeaOption('intent', 2, this)" style="padding: 8px 14px; border: 2px solid var(--gray-200); border-radius: 8px; background: white; font-size: 13px; color: var(--gray-600); cursor: pointer; transition: all 0.2s; font-family: inherit;">"I'm bringing this up because I care about your growth here."</button>
+                        </div>
+                        <div id="idea-hint-i" style="font-size: 12px; min-height: 18px; line-height: 1.4;"></div>
+                    </div>
+
+                    <!-- D – Describe -->
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="idea-check-d" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            D – Describe (what you observed – reuse your SBI)
+                        </label>
+                        <input type="text" id="idea-d" oninput="checkIDEAProgress()" placeholder='e.g., "In Monday&#39;s sync, you jumped in twice while Sam was explaining..."' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
+                        <div id="idea-hint-d" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4;"></div>
+                    </div>
+
+                    <!-- E – Exchange -->
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="idea-check-e" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            E – Exchange (invite their perspective)
+                        </label>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px;" id="idea-exchange-options">
+                            <button class="idea-option-btn" onclick="selectIdeaOption('exchange', 0, this)" style="padding: 8px 14px; border: 2px solid var(--gray-200); border-radius: 8px; background: white; font-size: 13px; color: var(--gray-600); cursor: pointer; transition: all 0.2s; font-family: inherit;">"How did you see it? Am I missing something?"</button>
+                            <button class="idea-option-btn" onclick="selectIdeaOption('exchange', 1, this)" style="padding: 8px 14px; border: 2px solid var(--gray-200); border-radius: 8px; background: white; font-size: 13px; color: var(--gray-600); cursor: pointer; transition: all 0.2s; font-family: inherit;">"I'm curious about your take – what was going through your mind?"</button>
+                            <button class="idea-option-btn" onclick="selectIdeaOption('exchange', 2, this)" style="padding: 8px 14px; border: 2px solid var(--gray-200); border-radius: 8px; background: white; font-size: 13px; color: var(--gray-600); cursor: pointer; transition: all 0.2s; font-family: inherit;">"Does that match your experience, or do you see it differently?"</button>
+                        </div>
+                        <div id="idea-hint-e" style="font-size: 12px; min-height: 18px; line-height: 1.4;"></div>
+                    </div>
+
+                    <!-- A – Action -->
+                    <div style="margin-bottom: 14px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-600); margin-bottom: 6px;">
+                            <span id="idea-check-a" style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--gray-300); display: inline-flex; align-items: center; justify-content: center; font-size: 11px; transition: all 0.3s ease;"></span>
+                            A – Action (co-create a next step)
+                        </label>
+                        <input type="text" id="idea-a" oninput="checkIDEAProgress()" placeholder='e.g., "What if we let each person finish before jumping into solutions?"' style="width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: 8px; font-size: 14px; box-sizing: border-box; font-family: inherit; transition: border-color 0.2s;">
+                        <div id="idea-hint-a" style="font-size: 12px; margin-top: 4px; min-height: 18px; line-height: 1.4;"></div>
+                    </div>
+
+                    <!-- IDEA Preview -->
+                    <div id="idea-preview" style="display: none; margin-top: 16px; padding: 16px; background: white; border-radius: 10px; border: 2px solid var(--accent-aspiration);">
+                        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-aspiration); margin-bottom: 8px;">✓ Your IDEA conversation</div>
+                        <div id="idea-preview-text" style="font-size: 15px; color: var(--gray-700); line-height: 1.6; font-style: italic;"></div>
+                    </div>
+
+                    <!-- Side-by-side comparison (appears after both SBI + IDEA complete) -->
+                    <div id="idea-sbi-compare" style="display: none; margin-top: 20px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Your feedback, two ways</div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div style="padding: 14px; background: var(--green-50); border-radius: 10px; border: 1px solid var(--chime-green);">
+                                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--chime-green); margin-bottom: 8px;">SBI (Written)</div>
+                                <div id="compare-sbi-text" style="font-size: 13px; color: var(--gray-700); line-height: 1.5;"></div>
+                            </div>
+                            <div style="padding: 14px; background: var(--accent-aspiration-50); border-radius: 10px; border: 1px solid var(--accent-aspiration);">
+                                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent-aspiration); margin-bottom: 8px;">IDEA (Live)</div>
+                                <div id="compare-idea-text" style="font-size: 13px; color: var(--gray-700); line-height: 1.5;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px 16px; background: var(--gray-50); border-radius: 8px; font-size: 13px; color: var(--gray-600); line-height: 1.5;">
+                            <strong>Notice the difference?</strong> SBI is tight and precise – perfect for written channels. IDEA wraps the same facts in intent and dialogue – making it land better face-to-face. Both deliver the same core message; the wrapper changes based on the medium.
+                        </div>
+                    </div>
+
+                    <!-- SBI vs IDEA decision quiz -->
+                    <div id="idea-decision-quiz" style="display: none; margin-top: 24px;">
+                        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-500); margin-bottom: 12px;">Quick check: SBI or IDEA?</div>
+                        <div id="idea-quiz-items">
+                            <div class="idea-quiz-item" id="iq-0" style="padding: 14px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; margin-bottom: 10px;">
+                                <div style="font-size: 14px; color: var(--gray-700); margin-bottom: 10px;">A teammate's pull request had repeated issues. You want to leave a comment in the code review tool.</div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="answerIdeaQuiz(0, 'sbi', this)" style="flex: 1; padding: 10px; border: 2px solid var(--chime-green); border-radius: 8px; background: white; font-size: 13px; font-weight: 600; color: var(--chime-green); cursor: pointer; font-family: inherit; transition: all 0.2s;">SBI</button>
+                                    <button onclick="answerIdeaQuiz(0, 'idea', this)" style="flex: 1; padding: 10px; border: 2px solid var(--accent-aspiration); border-radius: 8px; background: white; font-size: 13px; font-weight: 600; color: var(--accent-aspiration); cursor: pointer; font-family: inherit; transition: all 0.2s;">IDEA</button>
+                                </div>
+                                <div class="idea-quiz-explain" style="display: none; margin-top: 10px; padding: 10px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5;"></div>
+                            </div>
+                            <div class="idea-quiz-item" id="iq-1" style="padding: 14px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; margin-bottom: 10px;">
+                                <div style="font-size: 14px; color: var(--gray-700); margin-bottom: 10px;">You're grabbing coffee with a peer who talked over others in a brainstorm. You want to mention it casually.</div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="answerIdeaQuiz(1, 'sbi', this)" style="flex: 1; padding: 10px; border: 2px solid var(--chime-green); border-radius: 8px; background: white; font-size: 13px; font-weight: 600; color: var(--chime-green); cursor: pointer; font-family: inherit; transition: all 0.2s;">SBI</button>
+                                    <button onclick="answerIdeaQuiz(1, 'idea', this)" style="flex: 1; padding: 10px; border: 2px solid var(--accent-aspiration); border-radius: 8px; background: white; font-size: 13px; font-weight: 600; color: var(--accent-aspiration); cursor: pointer; font-family: inherit; transition: all 0.2s;">IDEA</button>
+                                </div>
+                                <div class="idea-quiz-explain" style="display: none; margin-top: 10px; padding: 10px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5;"></div>
+                            </div>
+                            <div class="idea-quiz-item" id="iq-2" style="padding: 14px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; margin-bottom: 10px;">
+                                <div style="font-size: 14px; color: var(--gray-700); margin-bottom: 10px;">You're writing peer feedback in Workday during the performance cycle.</div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button onclick="answerIdeaQuiz(2, 'sbi', this)" style="flex: 1; padding: 10px; border: 2px solid var(--chime-green); border-radius: 8px; background: white; font-size: 13px; font-weight: 600; color: var(--chime-green); cursor: pointer; font-family: inherit; transition: all 0.2s;">SBI</button>
+                                    <button onclick="answerIdeaQuiz(2, 'idea', this)" style="flex: 1; padding: 10px; border: 2px solid var(--accent-aspiration); border-radius: 8px; background: white; font-size: 13px; font-weight: 600; color: var(--accent-aspiration); cursor: pointer; font-family: inherit; transition: all 0.2s;">IDEA</button>
+                                </div>
+                                <div class="idea-quiz-explain" style="display: none; margin-top: 10px; padding: 10px 12px; border-radius: 8px; font-size: 13px; line-height: 1.5;"></div>
+                            </div>
+                        </div>
                     </div>
 
                     <p style="font-size: 12px; color: var(--gray-400); margin-top: 12px;">🔒 This exercise is for you; it isn't submitted.</p>
@@ -3686,7 +3815,7 @@
                 'The Feedback Gap',
                 'Not All Feedback Is the Same',
                 'Feedback & "Win Together"',
-                "SBI: The Feedback Framework",
+                "SBI & IDEA: The Frameworks",
                 '"One Thing Better"',
                 'Is This Constructive Feedback?',
                 'Fix This Feedback',
@@ -4320,6 +4449,21 @@
             container.querySelectorAll('.poll-option').forEach(function(opt) { opt.classList.remove('selected'); });
             el.classList.add('selected');
             var results = document.getElementById(pollId + '-results');
+
+            // Tailored responses for Kai's poll
+            if (pollId === 'poll-kai') {
+                var insight = document.getElementById('poll-kai-insight');
+                var responses = [
+                    '<strong>You\'re in good company.</strong> Most people have a long list of feedback they wish they\'d given. That pattern of holding back is one of the most common in any workplace \u2013 and it comes from a good place: caring about the relationship. The good news? This module will give you tools to share feedback in ways that actually strengthen trust rather than risk it.',
+                    '<strong>That\'s completely normal.</strong> A few times is enough to know how uncomfortable that gap feels \u2013 the moment passes, and you wonder "should I have said something?" You\'re here because you want to close that gap. This module will give you a clear framework so the next time doesn\'t have to feel so tough.',
+                    '<strong>That\'s a real strength.</strong> Speaking up takes courage, and you\'ve clearly built that muscle. This module will sharpen your approach even further \u2013 giving you frameworks to make your feedback even more specific, fair, and actionable. There\'s always room to level up.',
+                    '<strong>That perspective is valuable here too.</strong> Understanding what it feels like to receive feedback \u2013 or to wish you\'d received it sooner \u2013 is powerful. As you go through this module, you\'ll see both sides: how to give feedback well, and how to receive it openly. They\'re two halves of the same skill.'
+                ];
+                if (insight && responses[idx]) {
+                    insight.innerHTML = responses[idx];
+                }
+            }
+
             setTimeout(function() { results.classList.add('show'); }, 300);
             var s3btn = document.getElementById('section3-continue');
             if (s3btn) s3btn.disabled = false;
@@ -4966,8 +5110,7 @@
                 var previewText = document.getElementById('sbi-preview-text');
                 preview.style.display = 'block';
                 previewText.textContent = '"' + s + ' ' + b + ' ' + ip + '"';
-                var s10btn = document.getElementById('section10-continue');
-                if (s10btn) s10btn.disabled = false;
+                // Continue button now gates on IDEA quiz completion (see answerIdeaQuiz)
             } else if (count >= 2) {
                 fill.style.background = 'var(--accent-freedom)';
                 label.style.color = 'var(--accent-freedom)';
@@ -4976,6 +5119,201 @@
                 fill.style.background = 'var(--gray-400)';
                 label.style.color = 'var(--gray-400)';
                 document.getElementById('sbi-preview').style.display = 'none';
+            }
+        }
+
+        // ===== IDEA PRACTICE SIMULATOR =====
+        var ideaState = { intent: null, describe: false, exchange: null, action: false };
+        var ideaQuizAnswered = 0;
+
+        function selectIdeaOption(step, idx, el) {
+            // Deselect siblings
+            el.parentElement.querySelectorAll('.idea-option-btn').forEach(function(btn) {
+                btn.style.borderColor = 'var(--gray-200)';
+                btn.style.background = 'white';
+                btn.style.color = 'var(--gray-600)';
+            });
+            // Select this one
+            el.style.borderColor = 'var(--accent-aspiration)';
+            el.style.background = 'var(--accent-aspiration-50)';
+            el.style.color = 'var(--text-primary)';
+
+            if (step === 'intent') {
+                ideaState.intent = el.textContent.trim();
+                var check = document.getElementById('idea-check-i');
+                check.innerHTML = '\u2713';
+                check.style.background = 'var(--accent-aspiration)';
+                check.style.borderColor = 'var(--accent-aspiration)';
+                check.style.color = 'var(--text-primary)';
+                document.getElementById('idea-hint-i').innerHTML = '<span style="color: #9333ea;">\u2713 Leading with intent lowers defensiveness from the start.</span>';
+            } else if (step === 'exchange') {
+                ideaState.exchange = el.textContent.trim();
+                var check = document.getElementById('idea-check-e');
+                check.innerHTML = '\u2713';
+                check.style.background = 'var(--accent-aspiration)';
+                check.style.borderColor = 'var(--accent-aspiration)';
+                check.style.color = 'var(--text-primary)';
+                document.getElementById('idea-hint-e').innerHTML = '<span style="color: #9333ea;">\u2713 Open questions turn feedback into dialogue, not a lecture.</span>';
+            }
+            checkIDEAProgress();
+        }
+
+        function checkIDEAProgress() {
+            var d = document.getElementById('idea-d').value.trim();
+            var a = document.getElementById('idea-a').value.trim();
+
+            // Check Describe field
+            var dCheck = document.getElementById('idea-check-d');
+            var dHint = document.getElementById('idea-hint-d');
+            if (d.split(/\s+/).length >= 3) {
+                ideaState.describe = true;
+                dCheck.innerHTML = '\u2713';
+                dCheck.style.background = 'var(--accent-aspiration)';
+                dCheck.style.borderColor = 'var(--accent-aspiration)';
+                dCheck.style.color = 'var(--text-primary)';
+                document.getElementById('idea-d').style.borderColor = 'var(--accent-aspiration)';
+                dHint.innerHTML = '<span style="color: #9333ea;">\u2713 Specific and observable – this keeps it factual.</span>';
+            } else if (d.length > 0) {
+                ideaState.describe = false;
+                dCheck.innerHTML = '';
+                dCheck.style.background = 'transparent';
+                dCheck.style.borderColor = 'var(--gray-300)';
+                document.getElementById('idea-d').style.borderColor = 'var(--gray-200)';
+                dHint.innerHTML = '';
+            } else {
+                ideaState.describe = false;
+                dCheck.innerHTML = '';
+                dCheck.style.background = 'transparent';
+                dCheck.style.borderColor = 'var(--gray-300)';
+                document.getElementById('idea-d').style.borderColor = 'var(--gray-200)';
+                dHint.innerHTML = '';
+            }
+
+            // Check Action field
+            var aCheck = document.getElementById('idea-check-a');
+            var aHint = document.getElementById('idea-hint-a');
+            if (a.split(/\s+/).length >= 3) {
+                ideaState.action = true;
+                aCheck.innerHTML = '\u2713';
+                aCheck.style.background = 'var(--accent-aspiration)';
+                aCheck.style.borderColor = 'var(--accent-aspiration)';
+                aCheck.style.color = 'var(--text-primary)';
+                document.getElementById('idea-a').style.borderColor = 'var(--accent-aspiration)';
+                aHint.innerHTML = '<span style="color: #9333ea;">\u2713 Forward-looking action makes it constructive.</span>';
+            } else if (a.length > 0) {
+                ideaState.action = false;
+                aCheck.innerHTML = '';
+                aCheck.style.background = 'transparent';
+                aCheck.style.borderColor = 'var(--gray-300)';
+                document.getElementById('idea-a').style.borderColor = 'var(--gray-200)';
+                aHint.innerHTML = '';
+            } else {
+                ideaState.action = false;
+                aCheck.innerHTML = '';
+                aCheck.style.background = 'transparent';
+                aCheck.style.borderColor = 'var(--gray-300)';
+                document.getElementById('idea-a').style.borderColor = 'var(--gray-200)';
+                aHint.innerHTML = '';
+            }
+
+            // Count completed steps
+            var count = 0;
+            if (ideaState.intent) count++;
+            if (ideaState.describe) count++;
+            if (ideaState.exchange) count++;
+            if (ideaState.action) count++;
+
+            // Update meter
+            var fill = document.getElementById('idea-meter-fill');
+            var label = document.getElementById('idea-meter-label');
+            var pct = (count / 4) * 100;
+            fill.style.width = pct + '%';
+            label.textContent = count + '/4';
+
+            if (count === 4) {
+                fill.style.background = 'var(--accent-aspiration)';
+                label.style.color = 'var(--accent-aspiration)';
+
+                // Show IDEA preview
+                var preview = document.getElementById('idea-preview');
+                var previewText = document.getElementById('idea-preview-text');
+                preview.style.display = 'block';
+                previewText.innerHTML = '<strong>Intent:</strong> ' + ideaState.intent +
+                    '<br><strong>Describe:</strong> ' + d +
+                    '<br><strong>Exchange:</strong> ' + ideaState.exchange +
+                    '<br><strong>Action:</strong> ' + a;
+
+                // Show side-by-side if SBI is also complete
+                var sbiS = document.getElementById('sbi-s').value.trim();
+                var sbiB = document.getElementById('sbi-b').value.trim();
+                var sbiI = document.getElementById('sbi-i').value.trim();
+                if (sbiS.split(/\s+/).length >= 3 && sbiB.split(/\s+/).length >= 3 && sbiI.split(/\s+/).length >= 3) {
+                    var compare = document.getElementById('idea-sbi-compare');
+                    compare.style.display = 'block';
+                    document.getElementById('compare-sbi-text').innerHTML =
+                        '<strong>S:</strong> ' + sbiS + '<br><strong>B:</strong> ' + sbiB + '<br><strong>I:</strong> ' + sbiI;
+                    document.getElementById('compare-idea-text').innerHTML =
+                        '<strong>I:</strong> ' + ideaState.intent + '<br><strong>D:</strong> ' + d +
+                        '<br><strong>E:</strong> ' + ideaState.exchange + '<br><strong>A:</strong> ' + a;
+                }
+
+                // Show the decision quiz
+                document.getElementById('idea-decision-quiz').style.display = 'block';
+            } else if (count >= 2) {
+                fill.style.background = 'var(--accent-freedom)';
+                label.style.color = 'var(--accent-freedom)';
+                document.getElementById('idea-preview').style.display = 'none';
+            } else {
+                fill.style.background = 'var(--gray-400)';
+                label.style.color = 'var(--gray-400)';
+                document.getElementById('idea-preview').style.display = 'none';
+            }
+        }
+
+        var ideaQuizCorrect = ['sbi', 'idea', 'sbi'];
+        var ideaQuizExplains = [
+            'SBI – code review is a written channel. Keep it specific and concise: Situation, Behavior, Impact.',
+            'IDEA – a casual 1:1 over coffee is a live conversation. Lead with intent, describe what you saw, invite their perspective, and agree on a next step.',
+            'SBI – Workday is a written tool. Structured SBI feedback is precise and easy for the reader to act on.'
+        ];
+
+        function answerIdeaQuiz(idx, answer, el) {
+            var item = document.getElementById('iq-' + idx);
+            if (item.classList.contains('answered')) return;
+            item.classList.add('answered');
+
+            var correct = ideaQuizCorrect[idx];
+            var isCorrect = answer === correct;
+            var explain = item.querySelector('.idea-quiz-explain');
+
+            // Disable all buttons in this item
+            item.querySelectorAll('button').forEach(function(btn) {
+                btn.style.pointerEvents = 'none';
+                btn.style.opacity = '0.5';
+            });
+
+            // Highlight selected
+            el.style.opacity = '1';
+            if (isCorrect) {
+                el.style.background = answer === 'sbi' ? 'var(--chime-green)' : 'var(--accent-aspiration)';
+                el.style.color = answer === 'sbi' ? 'white' : 'var(--text-primary)';
+                explain.style.background = 'var(--green-50)';
+                explain.style.color = 'var(--green-900)';
+                explain.innerHTML = '\u2713 ' + ideaQuizExplains[idx];
+            } else {
+                el.style.background = 'var(--accent-ease)';
+                el.style.color = 'var(--text-primary)';
+                explain.style.background = 'var(--accent-ease-50)';
+                explain.style.color = 'var(--text-primary)';
+                explain.innerHTML = 'Not quite. ' + ideaQuizExplains[idx];
+            }
+            explain.style.display = 'block';
+
+            ideaQuizAnswered++;
+            if (ideaQuizAnswered >= 3) {
+                // Enable continue if not already enabled
+                var s10btn = document.getElementById('section10-continue');
+                if (s10btn) s10btn.disabled = false;
             }
         }
 
