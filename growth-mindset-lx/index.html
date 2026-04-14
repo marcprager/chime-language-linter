@@ -647,7 +647,7 @@
                         <p style="padding: 20px; color: #999; text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%;">Video not available. Click "Skip Video" below to continue.</p>
                     </video>
                 </div>
-                <p style="font-size: 13px; color: var(--gray-500); text-align: center; margin-bottom: 24px;">3 minutes &middot; Sound on recommended</p>
+                <p style="font-size: 13px; color: var(--gray-500); text-align: center; margin-bottom: 24px;">Sound on recommended</p>
                 <div class="nav-buttons">
                     <button class="btn btn-secondary" onclick="prevSection()">Back</button>
                     <button class="btn btn-primary" id="section6-continue" onclick="nextSection()" disabled>Watch the video to continue</button>
@@ -1086,8 +1086,8 @@
                     <p style="font-size: 15px; color: #1EC677; font-weight: 600; margin: 0; text-align: center;">Module complete! You can close this window.</p>
                 </div>
                 <div style="display: flex; justify-content: center; gap: 16px; margin-top: 32px;">
-                    <button class="btn btn-secondary" onclick="showSection(1)" style="color: white; border-color: rgba(255,255,255,0.3);">Review Module</button>
-                    <button class="btn btn-large" onclick="closeCourse()" style="background: white; color: var(--green-900);">Close Module</button>
+                    <button class="btn btn-secondary" onclick="showSection(1)" style="color: white; border-color: rgba(255,255,255,0.3);">&#8592; Review Module</button>
+                    <button class="btn btn-large" onclick="closeCourse()" style="background: white; color: var(--green-900);">Close Module &#10003;</button>
                 </div>
             </div>
         </div>
@@ -1625,6 +1625,11 @@
     function closeCourse() {
         try { SCORM.finish(); } catch(e) {}
         document.getElementById('complete-confirm').style.display = 'block';
+        try { window.close(); } catch(e) {}
+        // If window.close() is blocked by browser, try top-level navigation
+        setTimeout(function() {
+            try { if (window.top && window.top !== window) window.top.close(); } catch(e) {}
+        }, 500);
     }
 
     // ============ AUDIO (text-to-speech) ============
